@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonCamera.js">
+    <Files>
+      <File FileName="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EntradaEscena.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AnimLeveler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Modelos\Puerta\AnimPuerta.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HAPQ.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Historia.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SaltoEscena.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" Line="1" Column="1" />
+      <File FileName="Assets\MouseOrbitImproved.cs" Line="22" Column="17" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonCamera.js" Line="205" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
