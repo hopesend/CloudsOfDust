@@ -23,7 +23,7 @@ public class EntradaEscena : MonoBehaviour {
 		escenaActual = Application.loadedLevel;
 		PlayerPrefs.SetInt("escena",escenaActual);
 
-		entrada = new Vector3[5,5];
+		//entrada = new Vector3[5,5];
 
 		entrada[0,0] = new Vector3(-5,0.23f,-25);
 		entrada[1,0]= new Vector3(-0.8f,0.23f,-17.5f);
