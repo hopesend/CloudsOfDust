@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scripts\EntradaEscena.cs" />
      <Compile Include="Assets\Scripts\HAPQ.cs" />
      <Compile Include="Assets\Scripts\Historia.cs" />
+     <Compile Include="Assets\Scripts\Hopesend\CloudsXML.cs" />
+     <Compile Include="Assets\Scripts\Hopesend\ControladorBase.cs" />
      <Compile Include="Assets\Scripts\SaltoEscena.cs" />
      <Compile Include="Assets\Volumetric Clouds\Scripts\CloudsToy.cs" />
      <Compile Include="Assets\Xsens\MVN Sample Pack\Script\PlayerControl.cs" />
