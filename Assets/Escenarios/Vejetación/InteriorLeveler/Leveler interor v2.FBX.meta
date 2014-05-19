@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 84cb7ea8b3e5b1049b043db930798d20
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Asiento 002
+    100002: Asiento 003
+    100004: Asiento 004
+    100006: Asiento 005
+    100008: Asiento 01
+    100010: Asiento circular
+    100012: Asiento circular001
+    100014: Asiento circular002
+    100016: Asiento circular003
+    100018: Base
+    100020: Base001
+    100022: Base002
+    100024: Base003
+    100026: Base004
+    100028: Base005
+    100030: Base006
+    100032: Base007
+    100034: Cristal
+    100036: Farola 002
+    100038: Farola 003
+    100040: Farola 004
+    100042: Farola 005
+    100044: Farola 006
+    100046: Farola 007
+    100048: Farola 008
+    100050: Farola 1
+    100052: Interiror
+    100054: //RootNode
+    100056: Puerta
+    100058: puerta 2
+    400000: Asiento 002
+    400002: Asiento 003
+    400004: Asiento 004
+    400006: Asiento 005
+    400008: Asiento 01
+    400010: Asiento circular
+    400012: Asiento circular001
+    400014: Asiento circular002
+    400016: Asiento circular003
+    400018: Base
+    400020: Base001
+    400022: Base002
+    400024: Base003
+    400026: Base004
+    400028: Base005
+    400030: Base006
+    400032: Base007
+    400034: Cristal
+    400036: Farola 002
+    400038: Farola 003
+    400040: Farola 004
+    400042: Farola 005
+    400044: Farola 006
+    400046: Farola 007
+    400048: Farola 008
+    400050: Farola 1
+    400052: Interiror
+    400054: //RootNode
+    400056: Puerta
+    400058: puerta 2
+    2300000: Asiento 002
+    2300002: Asiento 003
+    2300004: Asiento 004
+    2300006: Asiento 005
+    2300008: Asiento 01
+    2300010: Asiento circular
+    2300012: Asiento circular001
+    2300014: Asiento circular002
+    2300016: Asiento circular003
+    2300018: Base
+    2300020: Base001
+    2300022: Base002
+    2300024: Base003
+    2300026: Base004
+    2300028: Base005
+    2300030: Base006
+    2300032: Base007
+    2300034: Cristal
+    2300036: Farola 002
+    2300038: Farola 003
+    2300040: Farola 004
+    2300042: Farola 005
+    2300044: Farola 006
+    2300046: Farola 007
+    2300048: Farola 008
+    2300050: Farola 1
+    2300052: Interiror
+    2300054: Puerta
+    2300056: puerta 2
+    3300000: Asiento 002
+    3300002: Asiento 003
+    3300004: Asiento 004
+    3300006: Asiento 005
+    3300008: Asiento 01
+    3300010: Asiento circular
+    3300012: Asiento circular001
+    3300014: Asiento circular002
+    3300016: Asiento circular003
+    3300018: Base
+    3300020: Base001
+    3300022: Base002
+    3300024: Base003
+    3300026: Base004
+    3300028: Base005
+    3300030: Base006
+    3300032: Base007
+    3300034: Cristal
+    3300036: Farola 002
+    3300038: Farola 003
+    3300040: Farola 004
+    3300042: Farola 005
+    3300044: Farola 006
+    3300046: Farola 007
+    3300048: Farola 008
+    3300050: Farola 1
+    3300052: Interiror
+    3300054: Puerta
+    3300056: puerta 2
+    4300000: Interiror
+    4300002: Cristal
+    4300004: Asiento 01
+    4300006: Asiento circular
+    4300008: Asiento circular001
+    4300010: Asiento circular002
+    4300012: Asiento circular003
+    4300014: Asiento 002
+    4300016: Asiento 003
+    4300018: Asiento 004
+    4300020: Asiento 005
+    4300022: Puerta
+    4300024: puerta 2
+    4300026: Farola 1
+    4300028: Base
+    4300030: Base001
+    4300032: Farola 002
+    4300034: Base002
+    4300036: Farola 003
+    4300038: Base003
+    4300040: Farola 004
+    4300042: Base004
+    4300044: Farola 005
+    4300046: Base005
+    4300048: Farola 006
+    4300050: Base006
+    4300052: Farola 007
+    4300054: Base007
+    4300056: Farola 008
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
