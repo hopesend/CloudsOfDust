@@ -11,7 +11,8 @@ public class SaltoEscena : MonoBehaviour {
 	}
 	void OnTriggerEnter (Collider other){
 		if (other.transform.tag == "Player"){
-		Application.LoadLevel(nivel);
+			Application.LoadLevel(nivel);
+
 		}
 	}
 	// Update is called once per frame
