@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{1C59C08E-D2D9-AAF6-C042-3F97719C4207}</ProjectGuid>
+	<ProjectGuid>{2F3ABD47-7FA3-C470-E460-CA3F99246C52}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -117,11 +117,19 @@
      <Compile Include="Assets\AstarPathfindingProject\changelog.cs" />
      <Compile Include="Assets\Escenarios\Volumetric Clouds\Scripts\CloudsToy.cs" />
      <Compile Include="Assets\Scripts\AnimLeveler.cs" />
+     <Compile Include="Assets\Scripts\CloudsXML.cs" />
+     <Compile Include="Assets\Scripts\Controladores\ControladorBase.cs" />
+     <Compile Include="Assets\Scripts\Controladores\ControladorNiveles.cs" />
+     <Compile Include="Assets\Scripts\Controladores\IControlador.cs" />
      <Compile Include="Assets\Scripts\EntradaEscena.cs" />
+     <Compile Include="Assets\Scripts\Escenas\EscenarioVecindario.cs" />
+     <Compile Include="Assets\Scripts\Escenas\MenuPrincipal.cs" />
      <Compile Include="Assets\Scripts\HAPQ.cs" />
+     <Compile Include="Assets\Scripts\HUD.cs" />
      <Compile Include="Assets\Scripts\Historia.cs" />
      <Compile Include="Assets\Scripts\LevelerLowPath.cs" />
      <Compile Include="Assets\Scripts\MouseOrbitImproved.cs" />
+     <Compile Include="Assets\Scripts\Personaje.cs" />
      <Compile Include="Assets\Scripts\SaltoEscena.cs" />
      <Compile Include="Assets\Scripts\VueloLeveler.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
@@ -182,6 +190,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\JsonFx\License.txt" />
+     <None Include="Assets\Scripts\Habilidades.xml" />
      <None Include="Assets\AstarPathfindingProject\Plugins\JsonFx\Readme.txt" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Bump.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
@@ -204,7 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{C8FEF627-7C81-CB21-A7ED-3131DE2003A5}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+      <Project>{261D26CA-4964-A214-510B-3CCF102D6D70}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
