@@ -41,6 +41,5 @@ public class MenuPrincipal: IControlador
 		if(GUI.Button(new Rect(menu.x, menu.y+120, 100,30), "Salir")){
 			Application.Quit();
 		}
-
 	}
 }

@@ -5,6 +5,8 @@ public class ControladorNiveles : MonoBehaviour
 	[HideInInspector]
 	public IControlador estadoActivo;
 
+	public Texture2D imagenCargando;
+
 	private static ControladorNiveles instanceRef;
 
 	void Awake()

@@ -114,10 +114,13 @@ public class ControladorJugador : MonoBehaviour
 			//Devolvemos la descripcion basica del objeto activo
 			XmlNode nodoAuxiliar = personajeXML.DevolverElementos("Parametros")[0];
 
+			//Recorremos todos los nodos colgantes para rescatar sus datos
 			foreach (XmlNode nodoSeleccionado in nodoAuxiliar.ChildNodes)
 			{
-				Pasar_Valor(nodoSeleccionado);
+				Pasar_Valor(nodoSeleccionado, true);
 			}
+
+			personajeXML.Cerrar();
 		}
 		catch
 		{
@@ -126,31 +129,75 @@ public class ControladorJugador : MonoBehaviour
 		return true;
 	}
 
-	private void Pasar_Valor (XmlNode nodo)
+	private void Pasar_Valor (XmlNode nodo, bool seleccion)
 	{
+		//si es true rescatamos valores, si es false guardamos valores
 		switch (nodo.Name) 
 		{
-			case "VIT": Vitalidad = int.Parse(nodo.InnerText);
+			case "VIT": if(seleccion)
+							Vitalidad = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Vitalidad.ToString();
 						break;
-			case "ESM": Estamina = int.Parse(nodo.InnerText);
+
+			case "ESM": if(seleccion)
+							Estamina = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Estamina.ToString();
 						break;
-			case "PM": 	PuntosMagicos = int.Parse(nodo.InnerText);
+
+			case "PM": 	if(seleccion)
+							PuntosMagicos = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = PuntosMagicos.ToString();
 						break;
-			case "FUE": Fuerza = int.Parse(nodo.InnerText);
+
+			case "FUE": if(seleccion)
+							Fuerza = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Fuerza.ToString();
 						break;
-			case "RES": Resistencia = int.Parse(nodo.InnerText);
+
+			case "RES": if(seleccion)
+							Resistencia = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Resistencia.ToString();
 						break;
-			case "CON": Concentracion = int.Parse(nodo.InnerText);
+
+			case "CON": if(seleccion)
+							Concentracion = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Concentracion.ToString();
 						break;
-			case "ESP": Espiritu = int.Parse(nodo.InnerText);
+
+			case "ESP": if(seleccion)
+							Espiritu = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Espiritu.ToString();
 						break;
-			case "EVA": Evasion = int.Parse(nodo.InnerText);
+
+			case "EVA": if(seleccion)
+							Evasion = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Evasion.ToString();
 						break;
-			case "PNT": Punteria = int.Parse(nodo.InnerText);
+
+			case "PNT": if(seleccion)
+							Punteria = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Punteria.ToString();
 						break;
-			case "RAP": Rapidez = int.Parse(nodo.InnerText);
+
+			case "RAP": if(seleccion)
+							Rapidez = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Rapidez.ToString();
 						break;
-			case "SUE": Suerte = int.Parse(nodo.InnerText);
+
+			case "SUE": if(seleccion)
+							Suerte = int.Parse(nodo.InnerText);
+						else
+							nodo.InnerText = Suerte.ToString();
 						break;
 		}
 	}
@@ -191,4 +238,35 @@ public class ControladorJugador : MonoBehaviour
 		}
 	}
 
+	public bool Grabar_Datos_XML()
+	{
+		try
+		{
+			string xmlPersonaje = Path.Combine(Application.persistentDataPath,"Personaje.xml");
+
+			//Creamos el objetoXml y cargamos el xml del personaje
+			CloudsXML personajeXML = new CloudsXML ();
+			personajeXML.Abrir (xmlPersonaje);
+				
+			//Buscamos sus parametros
+			XmlNode nodoAuxiliar = personajeXML.DevolverElementos("Parametros")[0];
+				
+			//Recorremos todos los nodos colgantes para grabar sus datos
+			foreach (XmlNode nodoSeleccionado in nodoAuxiliar.ChildNodes)
+			{
+				Pasar_Valor(nodoSeleccionado, false);
+			}
+
+			//Guardamos el XML
+			personajeXML.Grabar();
+			//Cerramos el XML
+			personajeXML.Cerrar();
+		}
+		catch
+		{
+			return false;
+		}
+
+		return true;
+	}
 }

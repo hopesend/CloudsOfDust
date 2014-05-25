@@ -27,6 +27,11 @@ public class EscenarioVecindario: IControlador
 	
 	public void Mostrar()
 	{
+		//TODO: Hacer una barra de progreso...
 
+		if (Application.isLoadingLevel) 
+		{
+			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), manager.imagenCargando, ScaleMode.StretchToFill);
+		}
 	}
 }
