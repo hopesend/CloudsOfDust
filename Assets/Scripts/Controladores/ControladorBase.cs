@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class ControladorBase : MonoBehaviour 
 {
 	//Instancia de la clase (Singleton)

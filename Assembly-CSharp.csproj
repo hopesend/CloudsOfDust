@@ -117,8 +117,8 @@
      <Compile Include="Assets\AstarPathfindingProject\changelog.cs" />
      <Compile Include="Assets\Escenarios\Volumetric Clouds\Scripts\CloudsToy.cs" />
      <Compile Include="Assets\Scripts\AnimLeveler.cs" />
-     <Compile Include="Assets\Scripts\CloudsXML.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladorBase.cs" />
+     <Compile Include="Assets\Scripts\Controladores\ControladorJugador.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladorNiveles.cs" />
      <Compile Include="Assets\Scripts\Controladores\IControlador.cs" />
      <Compile Include="Assets\Scripts\EntradaEscena.cs" />
@@ -132,6 +132,7 @@
      <Compile Include="Assets\Scripts\Personaje.cs" />
      <Compile Include="Assets\Scripts\SaltoEscena.cs" />
      <Compile Include="Assets\Scripts\VueloLeveler.cs" />
+     <Compile Include="Assets\Scripts\XML\CloudsXML.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Cut Out Specular.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Opaque Bump.shader" />
@@ -165,6 +166,7 @@
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Transparent Diffuse.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Cut Out Diffuse.shader" />
+     <None Include="Assets\Resources\XML\Personaje.xml" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Opaque Diffuse.shader" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
      <None Include="Assets\Escenarios\Resources\CloudsToy Shaders\CloudBright.shader" />
