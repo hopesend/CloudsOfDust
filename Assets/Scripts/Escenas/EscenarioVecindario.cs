@@ -13,12 +13,15 @@ public class EscenarioVecindario: IControlador
 		{
 			Application.LoadLevel("Vecindario");
 		}
-
-		if (!ControladorJugador.instanceRef.Cargar_Datos_XML ()) 
-		{
-			//TODO: Lanzar un mensaje de Error que no existe el fichero xml
-		}
 	}
+
+    public void CargarDatosPlayer()
+    {
+        if (!ControladorJugador.instanceRef.Cargar_Datos_XML(ControladorJugador.instanceRef.Trasher.Get_Nombre()))
+        {
+            //TODO: Lanzar un mensaje de Error que no existe el fichero xml
+        }
+    }
 	
 	public void EstadoUpdate()
 	{

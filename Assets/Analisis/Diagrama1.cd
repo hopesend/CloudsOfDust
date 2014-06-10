@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ControladorBase" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACgAAAAAAAAgAAAAAAAAAAgAAAAAAAAAAEQ=</HashCode>
+      <FileName>Assets\Scripts\Controladores\ControladorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControladorJugador" Collapsed="true">
+    <Position X="2.75" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QQAAwAEAAAAAgAAAgMEgAJBBAGgQAAIoABAIAAAQAMA=</HashCode>
+      <FileName>Assets\Scripts\Controladores\ControladorJugador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControladorNiveles" Collapsed="true">
+    <Position X="5.25" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAACBAAAAAgAAAAAAQAAAAAAACAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Controladores\ControladorNiveles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EscenarioVecindario" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAQAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Escenas\EscenarioVecindario.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MenuPrincipal" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAQAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Escenas\MenuPrincipal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clouds.xml.CloudsXML" Collapsed="true">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoBAAIIAAAIAAAAAAAAoAAEAIACAQAIAgAAGAACAABA=</HashCode>
+      <FileName>Assets\Scripts\XML\CloudsXML.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IControlador" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controladores\IControlador.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

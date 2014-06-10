@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class HUD : MonoBehaviour {
@@ -9,7 +9,7 @@ public class HUD : MonoBehaviour {
 	bool b_objeto;
 	public Vector2 scrollPosition = Vector2.zero;
 
-	Personaje[] personajes;
+	PersonajeBase[] personajes;
 
 
 	
@@ -18,8 +18,8 @@ public class HUD : MonoBehaviour {
 	void Start () {
 		
 		//h = GameObject.FindGameObjectWithTag("aliado").GetComponentInChildren<personaje>().h;	
-		personajes = new Personaje[3];
-		personajes[0] = GameObject.FindGameObjectWithTag("Player").GetComponent<Personaje>();
+		personajes = new PersonajeBase[3];
+		personajes[0] = GameObject.FindGameObjectWithTag("Player").GetComponent<PersonajeBase>();
 	
 	}
 	
@@ -94,25 +94,25 @@ public class HUD : MonoBehaviour {
 			
 			GUI.backgroundColor = Color.clear;
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+5,100,30),personajes[0].Get_Nombre()); //Nombre
-			GUI.TextArea(new Rect(HUD.x+5,HUD.y+35,100,30),"Vit: "+personajes[0].vit.actual+"/"+personajes[0].vit.valor); //vitalidad
-			GUI.TextArea(new Rect(HUD.x+5,HUD.y+55,100,30),"Esn: "+personajes[0].esn.actual+"/"+personajes[0].esn.valor);	//estamina
-			GUI.TextArea(new Rect(HUD.x+5,HUD.y+75,100,40),"PM: "+personajes[0].pm.actual+"/"+personajes[0].pm.valor);	//puntos magicos
+			GUI.TextArea(new Rect(HUD.x+5,HUD.y+35,100,30),"Vit: "+personajes[0].vit.Actual+"/"+personajes[0].vit.Valor); //vitalidad
+			GUI.TextArea(new Rect(HUD.x+5,HUD.y+55,100,30),"Esn: "+personajes[0].esn.Actual+"/"+personajes[0].esn.Valor);	//estamina
+			GUI.TextArea(new Rect(HUD.x+5,HUD.y+75,100,40),"PM: "+personajes[0].pm.Actual+"/"+personajes[0].pm.Valor);	//puntos magicos
 			
 			
 			GUI.backgroundColor=Color.red;
 			textura1.SetPixel(1,1,Color.red);
 			style1.normal.background = textura1;
-			GUI.Box (new Rect(HUD.x+105,HUD.y+40,personajes[0].vit.actual*(Screen.width/3-110)/personajes[0].vit.valor,10),"",style1);
+			GUI.Box (new Rect(HUD.x+105,HUD.y+40,personajes[0].vit.Actual*(Screen.width/3-110)/personajes[0].vit.Valor,10),"",style1);
 			
 			GUI.backgroundColor=Color.green;
 			textura2.SetPixel(1,1,Color.green);
 			style2.normal.background = textura2;
-			GUI.Box (new Rect(HUD.x+105,HUD.y+60,personajes[0].esn.actual*(Screen.width/3-110)/personajes[0].esn.valor,10),"",style2);
+			GUI.Box (new Rect(HUD.x+105,HUD.y+60,personajes[0].esn.Actual*(Screen.width/3-110)/personajes[0].esn.Valor,10),"",style2);
 			
 			GUI.backgroundColor=Color.blue;
 			textura3.SetPixel(1,1,Color.yellow);
 			style3.normal.background = textura3;
-			GUI.Box (new Rect(HUD.x+105,HUD.y+80,personajes[0].pm.actual*(Screen.width/3-110)/personajes[0].pm.valor,10),"",style3);
+			GUI.Box (new Rect(HUD.x+105,HUD.y+80,personajes[0].pm.Actual*(Screen.width/3-110)/personajes[0].pm.Valor,10),"",style3);
 			
 			
 			

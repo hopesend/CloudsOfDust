@@ -2,9 +2,12 @@
 
 public class ControladorNiveles : MonoBehaviour 
 {
-	[HideInInspector]
+	//[HideInInspector]
 	public IControlador estadoActivo;
 
+    /// <summary>
+    /// Imagen que se mostrara en la pantalla de carga de la scene que se cargue.
+    /// </summary>
 	public Texture2D imagenCargando;
 
 	private static ControladorNiveles instanceRef;
@@ -45,4 +48,11 @@ public class ControladorNiveles : MonoBehaviour
 	{
 		estadoActivo = nuevoEstado;
 	}
+
+    public void OnLevelWasLoaded(int level){
+        if (level == 1)
+        {
+            ((EscenarioVecindario)estadoActivo).CargarDatosPlayer();
+        }
+    }
 }

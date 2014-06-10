@@ -5,89 +5,28 @@ using System;
 using Clouds.xml;
 using System.Xml;
 
+/// <summary>
+/// Encargada de manejar todo lo relacionado con los PersonajesControlables
+/// </summary>
 public class ControladorJugador : MonoBehaviour 
 {
+
+	public	PersonajeControlable trasher;
+
+	public PersonajeControlable Trasher{
+        get
+        {
+            if (trasher == null)
+            {
+                trasher = GameObject.FindObjectOfType<PersonajeControlable>();
+            }
+            return trasher;
+        }
+	}
+
 	//Instancia de la clase (Singleton)
 	[HideInInspector]
 	public static ControladorJugador instanceRef;
-	
-	//Variables publicas o privadas
-	private int vitalidad;
-	public int Vitalidad
-	{
-		get{ return vitalidad;  }
-		set{ vitalidad = value; }
-	}
-
-	private int estamina;
-	public int Estamina
-	{
-		get{ return estamina;  }
-		set{ estamina = value; }
-	}
-
-	private int puntosMagicos;
-	public int PuntosMagicos
-	{
-		get{ return puntosMagicos;  }
-		set{ puntosMagicos = value; }
-	}
-
-	private int fuerza;
-	public int Fuerza
-	{
-		get{ return fuerza;  }
-		set{ fuerza = value; }
-	}
-
-	private int resistencia;
-	public int Resistencia
-	{
-		get{ return resistencia;  }
-		set{ resistencia = value; }
-	}
-
-	private int concentracion;
-	public int Concentracion
-	{
-		get{ return concentracion;  }
-		set{ concentracion = value; }
-	}
-
-	private int espiritu;
-	public int Espiritu
-	{
-		get{ return espiritu;  }
-		set{ espiritu = value; }
-	}
-
-	private int evasion;
-	public int Evasion
-	{
-		get{ return evasion;  }
-		set{ evasion = value; }
-	}
-
-	private int punteria;
-	public int Punteria
-	{
-		get{ return punteria;  }
-		set{ punteria = value; }
-	}
-
-	private int rapidez;
-	public int Rapidez
-	{
-		get{ return rapidez;  }
-		set{ rapidez = value; }
-	}
-
-	private int suerte;
-	public int Suerte
-	{
-		get{ return suerte;  }
-		set{ suerte = value; }
-	}
 
 	void Awake()
 	{
@@ -103,9 +42,9 @@ public class ControladorJugador : MonoBehaviour
 		
 	}
 
-	public bool Cargar_Datos_XML()
+	public bool Cargar_Datos_XML(string personaje)
 	{
-		string xmlPersonaje = Path.Combine(Application.persistentDataPath,"Personaje.xml");
+		string xmlPersonaje = Path.Combine(Application.persistentDataPath,personaje+".xml");
 		try
 		{
 			CloudsXML personajeXML = new CloudsXML ();
@@ -135,74 +74,74 @@ public class ControladorJugador : MonoBehaviour
 		switch (nodo.Name) 
 		{
 			case "VIT": if(seleccion)
-							Vitalidad = int.Parse(nodo.InnerText);
+							trasher.vit.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Vitalidad.ToString();
+                            nodo.InnerText = trasher.vit.Valor.ToString();
 						break;
 
 			case "ESM": if(seleccion)
-							Estamina = int.Parse(nodo.InnerText);
+							trasher.esn.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Estamina.ToString();
+                            nodo.InnerText = trasher.esn.Valor.ToString();
 						break;
 
 			case "PM": 	if(seleccion)
-							PuntosMagicos = int.Parse(nodo.InnerText);
+							trasher.pm.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = PuntosMagicos.ToString();
+							nodo.InnerText = trasher.pm.Valor.ToString();
 						break;
 
 			case "FUE": if(seleccion)
-							Fuerza = int.Parse(nodo.InnerText);
+							trasher.fue.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Fuerza.ToString();
+                            nodo.InnerText = trasher.fue.Valor.ToString();
 						break;
 
 			case "RES": if(seleccion)
-							Resistencia = int.Parse(nodo.InnerText);
+                            trasher.res.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Resistencia.ToString();
+                            nodo.InnerText = trasher.res.Valor.ToString();
 						break;
 
 			case "CON": if(seleccion)
-							Concentracion = int.Parse(nodo.InnerText);
+                            trasher.con.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Concentracion.ToString();
+                            nodo.InnerText = trasher.con.Valor.ToString();
 						break;
 
 			case "ESP": if(seleccion)
-							Espiritu = int.Parse(nodo.InnerText);
+                            trasher.esp.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Espiritu.ToString();
+                            nodo.InnerText = trasher.esp.Valor.ToString();
 						break;
 
 			case "EVA": if(seleccion)
-							Evasion = int.Parse(nodo.InnerText);
+                            trasher.eva.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Evasion.ToString();
+                            nodo.InnerText = trasher.eva.Valor.ToString();
 						break;
 
 			case "PNT": if(seleccion)
-							Punteria = int.Parse(nodo.InnerText);
+                            trasher.pnt.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Punteria.ToString();
+                            nodo.InnerText = trasher.pnt.Valor.ToString();
 						break;
 
 			case "RAP": if(seleccion)
-							Rapidez = int.Parse(nodo.InnerText);
+							trasher.rap.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Rapidez.ToString();
+                            nodo.InnerText = trasher.rap.Valor.ToString();
 						break;
 
 			case "SUE": if(seleccion)
-							Suerte = int.Parse(nodo.InnerText);
+                            trasher.sue.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = Suerte.ToString();
+                            nodo.InnerText = trasher.sue.Valor.ToString();
 						break;
 		}
 	}
 
-	public bool Inicializar_Valores_XML()
+	public bool Inicializar_Valores_XML(string personaje)
 	{
 		string UserPath = Application.persistentDataPath;
 
@@ -213,7 +152,7 @@ public class ControladorJugador : MonoBehaviour
 			
 			//Creacion del xml de las descripciones
 			origen = (TextAsset)Resources.Load("XML/Personaje", typeof(TextAsset));
-			destino = Path.Combine(UserPath, "Personaje.xml");
+			destino = Path.Combine(UserPath,personaje+ ".xml");
 			if (!File.Exists (destino))
 				Crear_Fichero (origen, destino);
 		}
@@ -238,11 +177,11 @@ public class ControladorJugador : MonoBehaviour
 		}
 	}
 
-	public bool Grabar_Datos_XML()
+	public bool Grabar_Datos_XML(string personaje)
 	{
 		try
 		{
-			string xmlPersonaje = Path.Combine(Application.persistentDataPath,"Personaje.xml");
+			string xmlPersonaje = Path.Combine(Application.persistentDataPath,personaje +".xml");
 
 			//Creamos el objetoXml y cargamos el xml del personaje
 			CloudsXML personajeXML = new CloudsXML ();
@@ -269,4 +208,20 @@ public class ControladorJugador : MonoBehaviour
 
 		return true;
 	}
+
+    public void CambiarAccesorio(Accesorio nuevoAccesorio)
+    {
+        trasher.Equipamento.CambiarAccesorio(nuevoAccesorio);
+    }
+
+    public bool AplicarEstadoAlterado(EstadosAlterados estado)
+    {
+        switch (estado){
+            case EstadosAlterados.Paralizis:
+                {
+                    break;
+                }
+        }
+        return false;
+    }
 }
