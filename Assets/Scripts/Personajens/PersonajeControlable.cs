@@ -13,7 +13,6 @@ public class PersonajeControlable : PersonajeBase {
     }
 
     public override void Awake(){
-        Set_Nombre("Trasher");
         equipamento = new Equipamento();
     }
 

@@ -21,6 +21,7 @@ public class EscenarioVecindario: IControlador
         {
             //TODO: Lanzar un mensaje de Error que no existe el fichero xml
         }
+        
     }
 	
 	public void EstadoUpdate()

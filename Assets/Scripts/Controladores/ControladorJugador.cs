@@ -44,18 +44,21 @@ public class ControladorJugador : MonoBehaviour
 
 	public bool Cargar_Datos_XML(string personaje)
 	{
-		string xmlPersonaje = Path.Combine(Application.persistentDataPath,personaje+".xml");
+		string xmlPersonaje = Path.Combine(Application.dataPath,"PlayerData/XML/"+personaje+".xml");
+        
+
+        Debug.Log(xmlPersonaje);
 		try
 		{
 			CloudsXML personajeXML = new CloudsXML ();
 			personajeXML.Abrir (xmlPersonaje);
-
 			//Devolvemos la descripcion basica del objeto activo
 			XmlNode nodoAuxiliar = personajeXML.DevolverElementos("Parametros")[0];
-
+            Debug.Log(nodoAuxiliar.ChildNodes.Count);
 			//Recorremos todos los nodos colgantes para rescatar sus datos
 			foreach (XmlNode nodoSeleccionado in nodoAuxiliar.ChildNodes)
 			{
+                
 				Pasar_Valor(nodoSeleccionado, true);
 			}
 
