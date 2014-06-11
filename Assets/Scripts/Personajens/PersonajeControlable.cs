@@ -13,6 +13,8 @@ public class PersonajeControlable : PersonajeBase {
     }
 
     public override void Awake(){
+        ControladorJugador.instanceRef.trasher = this;
+        ControladorJugador.instanceRef.Cargar_Datos_XML(Get_Nombre());
         equipamento = new Equipamento();
     }
 

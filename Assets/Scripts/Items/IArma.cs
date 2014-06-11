@@ -1,6 +1,6 @@
 ﻿using System;
 
-interface IArma
+public interface IArma
 {
     float Damage { get; set; }
     float Rango { get; set; }

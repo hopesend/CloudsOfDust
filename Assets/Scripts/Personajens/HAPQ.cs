@@ -31,7 +31,13 @@ public class HAPQ : MonoBehaviour {
 			GUI.Box (R_M,"");
 			for (int i = 0;i<8;i++){
 				R_der[i] = new Rect(Screen.width/2,i*Screen.height/8,Screen.width/2,Screen.height/8);
-				GUI.Button(R_der[i],apartados[i]);
+                if (GUI.Button(R_der[i], apartados[i]))
+                {
+                    if (i == 5)
+                    {
+                        Debug.Log(ControladorJugador.instanceRef.Trasher.esn.Valor);
+                    }
+                }
 			}
 		}
 

@@ -6,6 +6,7 @@ public class Equipamento {
     public Equipamento()
     {
         accesorio = new Accesorio();
+        armaActual = new ArmaMele();
     }
 
 	public Accesorio accesorio;
@@ -17,6 +18,8 @@ public class Equipamento {
             accesorio = nuevo;
         }
     }
+
+    public IArma armaActual;
 
 
 }

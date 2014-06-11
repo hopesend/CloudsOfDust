@@ -3,6 +3,11 @@ using System.Collections;
 
 public class ArmaMele : AbsItem, IArma {
 
+    public ArmaMele()
+    {
+        rango = 0.5f;
+    }
+
     private float damage;
     public float Damage
     {
