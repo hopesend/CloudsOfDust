@@ -22,6 +22,14 @@ public class ControladorJugador : MonoBehaviour
             }
             return trasher;
         }
+
+        set
+        {
+            if (trasher == null)
+            {
+                trasher = GameObject.FindObjectOfType<PersonajeControlable>();
+            }
+        }
 	}
 
 	//Instancia de la clase (Singleton)
@@ -30,6 +38,7 @@ public class ControladorJugador : MonoBehaviour
 
 	void Awake()
 	{
+        Debug.Log("Segundo");
 		if(instanceRef == null)
 		{
 			instanceRef = this;
@@ -222,5 +231,10 @@ public class ControladorJugador : MonoBehaviour
                 }
         }
         return false;
+    }
+
+    public void OrdenarMover(PersonajeControlable personaje, Vector3 pos)
+    {
+        personaje.CalcularPath(pos);
     }
 }
