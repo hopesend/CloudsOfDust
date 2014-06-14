@@ -3,6 +3,13 @@ using System.Collections;
 
 public class Equipamento {
 
+    public IArma armaActual;
+
+    public IArma ArmaActual
+    {
+        get { return armaActual; }
+    }
+
     public Equipamento()
     {
         accesorio = new Accesorio();
@@ -19,7 +26,11 @@ public class Equipamento {
         }
     }
 
-    public IArma armaActual;
+    public void UpdateArmaPrincipal()
+    {
+    }
+
+
 
 
 }

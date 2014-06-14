@@ -34,4 +34,10 @@ public class ArmaMele : AbsItem, IArma {
             rango = value;
         }
     }
+
+
+    public void Upgrade()
+    {
+        throw new System.NotImplementedException();
+    }
 }

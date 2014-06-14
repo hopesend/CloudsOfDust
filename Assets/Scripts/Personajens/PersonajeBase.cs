@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class PersonajeBase : MonoBehaviour {
 
 	public string nombre;
+
+    private List<EstadosAlterados> estadosAlterados = new List<EstadosAlterados>();
 
    
 	public struct parametro{
@@ -21,7 +23,7 @@ public class PersonajeBase : MonoBehaviour {
             set 
             { 
                 valor = value;
-                actual = valor;    
+                actual = valor;
             }
         }
 
@@ -119,6 +121,24 @@ public class PersonajeBase : MonoBehaviour {
 	public void Set_Nombre(string n){
 		nombre = n;
 	}
+
+    public bool AplicarEstadoAlterado(EstadosAlterados estado)
+    {
+        if (estadosAlterados.Contains(estado))
+        {
+            return false;
+        }
+        else
+        {
+            estadosAlterados.Add(estado);
+        }
+        return false;
+    }
+
+    public bool CurarEstadoAlterado(EstadosAlterados estadoCurar)
+    {
+        return estadosAlterados.Remove(estadoCurar);
+    }
 
 
 }

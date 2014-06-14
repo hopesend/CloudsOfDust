@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 
-public class NPC : PersonajeBase {
-
-	public bool isEnemigo;
+public class NPC {
 
 	// Use this for initialization
 	void Start () {
