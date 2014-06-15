@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controladores\ControladorJugador.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Opaque Specular.shader">
     <Files>
-      <File FileName="Assets\Scripts\Controladores\ControladorJugador.cs" Line="117" Column="56" />
+      <File FileName="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Opaque Specular.shader" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

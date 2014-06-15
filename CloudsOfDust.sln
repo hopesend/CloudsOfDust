@@ -11,6 +11,8 @@ Project("{6AA3BDBC-31E4-5A6E-799D-5A5923309843}") = "CloudsOfDust", "Assembly-Un
 EndProject
 Project("{6AA3BDBC-31E4-5A6E-799D-5A5923309843}") = "CloudsOfDust", "Assembly-UnityScript.unityproj", "{83602878-520C-475B-4A04-F0C45F71DCC4}"
 EndProject
+Project("{6AA3BDBC-31E4-5A6E-799D-5A5923309843}") = "CloudsOfDust", "Assembly-UnityScript-Editor.unityproj", "{2CDF739A-F46D-2F4C-70AE-2001FA781C4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,11 +39,15 @@ Global
 		{83602878-520C-475B-4A04-F0C45F71DCC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83602878-520C-475B-4A04-F0C45F71DCC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83602878-520C-475B-4A04-F0C45F71DCC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDF739A-F46D-2F4C-70AE-2001FA781C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CDF739A-F46D-2F4C-70AE-2001FA781C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CDF739A-F46D-2F4C-70AE-2001FA781C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CDF739A-F46D-2F4C-70AE-2001FA781C4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																															GlobalSection(MonoDevelopProperties) = preSolution
+																																																				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
