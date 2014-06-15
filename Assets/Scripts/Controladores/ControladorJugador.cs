@@ -235,6 +235,6 @@ public class ControladorJugador : MonoBehaviour
 
     public void OrdenarMover(PersonajeControlable personaje, Vector3 pos)
     {
-        personaje.CalcularPath(pos);
+        
     }
 }

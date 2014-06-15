@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		//h = GameObject.FindGameObjectWithTag("aliado").GetComponentInChildren<personaje>().h;	
+		//h = GameObject.FindGameObjectWithTag("aliado").GetComponentInChildren<Personaje>().h;	
 		personajes = new PersonajeBase[3];
 		personajes[0] = GameObject.FindGameObjectWithTag("Player").GetComponent<PersonajeBase>();
 	
@@ -94,6 +94,7 @@ public class HUD : MonoBehaviour {
 			
 			GUI.backgroundColor = Color.clear;
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+5,100,30),personajes[0].Get_Nombre()); //Nombre
+            
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+35,100,30),"Vit: "+personajes[0].vit.Actual+"/"+personajes[0].vit.Valor); //vitalidad
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+55,100,30),"Esn: "+personajes[0].esn.Actual+"/"+personajes[0].esn.Valor);	//estamina
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+75,100,40),"PM: "+personajes[0].pm.Actual+"/"+personajes[0].pm.Valor);	//puntos magicos
@@ -113,6 +114,7 @@ public class HUD : MonoBehaviour {
 			textura3.SetPixel(1,1,Color.yellow);
 			style3.normal.background = textura3;
 			GUI.Box (new Rect(HUD.x+105,HUD.y+80,personajes[0].pm.Actual*(Screen.width/3-110)/personajes[0].pm.Valor,10),"",style3);
+            GUI.Box(new Rect(HUD.x + 105, HUD.y + 5, ControladoraBaseBatalla.instanceRef.controladoraTurno.listaOrdenTurnos[0].TiempoActual * (Screen.width / 3 - 110) / 100, 10), "", style3); 
 			
 			
 			
