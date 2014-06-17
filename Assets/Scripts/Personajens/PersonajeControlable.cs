@@ -65,7 +65,7 @@ public class PersonajeControlable : PersonajeBase {
 				if (Vector3.Distance (transform.position,target[i].transform.position) >0.01){//si no ha llegado al siguiente destino
 					//moverse hacia el destino
 					transform.LookAt (target[i].transform.position);
-					transform.position = Vector3.MoveTowards(transform.position,target[i].transform.position,Time.deltaTime);
+					transform.position = Vector3.MoveTowards(transform.position,target[i].transform.position,5*Time.deltaTime);
 
 				}else{
 					GameObject.Destroy(target[i]);
