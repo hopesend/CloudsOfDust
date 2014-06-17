@@ -17,9 +17,9 @@ public class HUD : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		//h = GameObject.FindGameObjectWithTag("aliado").GetComponentInChildren<Personaje>().h;	
+		//h = GameObject.FindGameObjectWithTag("aliado").GetComponentInChildren<personaje>().h;	
 		personajes = new PersonajeBase[3];
-		personajes[0] = GameObject.FindGameObjectWithTag("Player").GetComponent<PersonajeBase>();
+		personajes[0] = GameObject.Find("trasherv0 1").GetComponent<PersonajeBase>();
 	
 	}
 	
@@ -52,8 +52,20 @@ public class HUD : MonoBehaviour {
 			
 			//Ataques
 			GUI.Box(Ataques,"");
+			if (b_movimiento = GUILayout.Toggle (b_movimiento,"Movimiento","Button",GUILayout.Height (Ataques.height/4-5),GUILayout.Width (Ataques.width/3))){
+				b_fisico = false;
+				b_magia = false;
+				b_objeto = false;	
+				
+				scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width/3,0,Ataques.width*2/3,Ataques.height),scrollPosition,new Rect(0,0,Ataques.width*2/3,Screen.height));
+				if (GUI.Button (new Rect(0,0,100,20),"Mover")){
+					GameObject.FindGameObjectWithTag("Player").GetComponent<PersonajeControlable>().MoverBatalla(20);
+				}
+				GUI.EndScrollView ();
+			}
 			
-			if (b_fisico = GUILayout.Toggle (b_fisico,"Fisico","Button",GUILayout.Height (Ataques.height/3-5),GUILayout.Width (Ataques.width/3))){
+			if (b_fisico = GUILayout.Toggle (b_fisico,"Fisico","Button",GUILayout.Height (Ataques.height/4-5))){
+				b_movimiento = false;
 				b_magia = false;
 				b_objeto = false;	
 				
@@ -62,23 +74,21 @@ public class HUD : MonoBehaviour {
 				GUI.EndScrollView ();
 			}
 		
-			if (b_magia = GUILayout.Toggle (b_magia,"Magia","Button",GUILayout.Height (Ataques.height/3-5))){
+			if (b_magia = GUILayout.Toggle (b_magia,"Magia","Button",GUILayout.Height (Ataques.height/4-5))){
+				b_movimiento = false;
 				b_fisico = false;
 				b_objeto = false;
 				
 				
 				scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width/3,0,Ataques.width*2/3,Ataques.height),scrollPosition,new Rect(0,0,Ataques.width*2/3,Screen.height));
-				float altura =0;
-				for (int i=0; i<3;i++ ){
-					
-					//GUI.Button (new Rect(i,0,Ataques.width*2/3,20),h[i].nombreHabilidad);
-					//altura+=20;
-				}
+				
+
 				GUI.EndScrollView ();
 				
 			}
 		
-			if (b_objeto = GUILayout.Toggle (b_objeto,"Objeto","Button",GUILayout.Height (Ataques.height/3-5))){
+			if (b_objeto = GUILayout.Toggle (b_objeto,"Objeto","Button",GUILayout.Height (Ataques.height/4-5))){
+				b_movimiento = false;
 				b_fisico = false;
 				b_magia = false;
 				
@@ -94,7 +104,6 @@ public class HUD : MonoBehaviour {
 			
 			GUI.backgroundColor = Color.clear;
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+5,100,30),personajes[0].Get_Nombre()); //Nombre
-            
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+35,100,30),"Vit: "+personajes[0].vit.Actual+"/"+personajes[0].vit.Valor); //vitalidad
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+55,100,30),"Esn: "+personajes[0].esn.Actual+"/"+personajes[0].esn.Valor);	//estamina
 			GUI.TextArea(new Rect(HUD.x+5,HUD.y+75,100,40),"PM: "+personajes[0].pm.Actual+"/"+personajes[0].pm.Valor);	//puntos magicos
@@ -114,7 +123,6 @@ public class HUD : MonoBehaviour {
 			textura3.SetPixel(1,1,Color.yellow);
 			style3.normal.background = textura3;
 			GUI.Box (new Rect(HUD.x+105,HUD.y+80,personajes[0].pm.Actual*(Screen.width/3-110)/personajes[0].pm.Valor,10),"",style3);
-            GUI.Box(new Rect(HUD.x + 105, HUD.y + 5, ControladoraBaseBatalla.instanceRef.controladoraTurno.listaOrdenTurnos[0].TiempoActual * (Screen.width / 3 - 110) / 100, 10), "", style3); 
 			
 			
 			
