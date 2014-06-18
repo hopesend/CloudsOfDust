@@ -28,6 +28,14 @@ public class EscenarioVecindario: IControlador
 	{
 		
 	}
+
+	public void NivelCargado(int level)
+	{
+		if (level == 1)
+		{
+			CargarDatosPlayer();
+		}
+	}
 	
 	public void Mostrar()
 	{

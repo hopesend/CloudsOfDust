@@ -43,16 +43,22 @@ public class ControladorNiveles : MonoBehaviour
 		if(estadoActivo != null)
 			estadoActivo.Mostrar();
 	}
+
+	void OnLevelWasLoaded(int level)
+	{
+		if (estadoActivo != null)
+			estadoActivo.NivelCargado (level);
+	}
 	
 	public void CambiarEstado(IControlador nuevoEstado)
 	{
 		estadoActivo = nuevoEstado;
 	}
 
-    public void OnLevelWasLoaded(int level){
+    /*public void OnLevelWasLoaded(int level){
         if (level == 1)
         {
             ((EscenarioVecindario)estadoActivo).CargarDatosPlayer();
         }
-    }
+    }*/
 }

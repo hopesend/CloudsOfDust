@@ -43,4 +43,8 @@ public class MenuPrincipal: IControlador
 			Application.Quit();
 		}
 	}
+
+	public void NivelCargado(int level)
+	{
+	}
 }
