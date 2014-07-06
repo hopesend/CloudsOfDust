@@ -1,0 +1,423 @@
+fileFormatVersion: 2
+guid: cbb1cd36d49688b48a46e719b34b7dbb
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Actualizador
+    100002: Ascensor
+    100004: Base
+    100006: Base001
+    100008: Base002
+    100010: Base003
+    100012: Base004
+    100014: Base005
+    100016: Base006
+    100018: Base007
+    100020: Base008
+    100022: Base009
+    100024: Base010
+    100026: Base011
+    100028: Base012
+    100030: Base013
+    100032: Base014
+    100034: Box001
+    100036: Brazo pantalla
+    100038: Brazo pantalla001
+    100040: Camilla
+    100042: Componente#1_001
+    100044: Componente#1_002
+    100046: Componente#1_003
+    100048: Componente#1_004
+    100050: Cristal Barandilla
+    100052: Cristal Barandilla2
+    100054: Cylinder001
+    100056: Cylinder002
+    100058: Cylinder003
+    100060: Cylinder004
+    100062: Farola 002
+    100064: Farola 003
+    100066: Farola 004
+    100068: Farola 005
+    100070: Farola 006
+    100072: Farola 007
+    100074: Farola 008
+    100076: Farola 009
+    100078: Farola 010
+    100080: Farola 011
+    100082: Farola 012
+    100084: Farola 013
+    100086: Farola 014
+    100088: Farola 015
+    100090: Farola 1
+    100092: GuidePoint_001
+    100094: GuidePoint_002
+    100096: GuidePoint_003
+    100098: GuidePoint_004
+    100100: GuidePoint_005
+    100102: GuidePoint_006
+    100104: GuidePoint_007
+    100106: GuidePoint_008
+    100108: GuidePoint_009
+    100110: //RootNode
+    100112: Layer0_001
+    100114: Layer0_002
+    100116: Layer0_003
+    100118: Layer0_004
+    100120: Layer0_005
+    100122: Layer0_006
+    100124: Layer0_007
+    100126: Layer0_008
+    100128: Layer0_009
+    100130: Layer0_010
+    100132: Pamtalla Grande
+    100134: Pantalla cristal
+    100136: Pantalla cristal 2
+    100138: Pared
+    100140: Pared cristal
+    100142: Pared cristal 2
+    100144: Pasarela
+    100146: Puerta Ascensor A
+    100148: Puerta ascensor B
+    100150: Puerta Cristal
+    100152: Puerta cristal 2
+    100154: Soporte teclado
+    100156: Suelo
+    100158: Techo
+    100160: Ventanal
+    400000: Actualizador
+    400002: Ascensor
+    400004: Base
+    400006: Base001
+    400008: Base002
+    400010: Base003
+    400012: Base004
+    400014: Base005
+    400016: Base006
+    400018: Base007
+    400020: Base008
+    400022: Base009
+    400024: Base010
+    400026: Base011
+    400028: Base012
+    400030: Base013
+    400032: Base014
+    400034: Box001
+    400036: Brazo pantalla
+    400038: Brazo pantalla001
+    400040: Camilla
+    400042: Componente#1_001
+    400044: Componente#1_002
+    400046: Componente#1_003
+    400048: Componente#1_004
+    400050: Cristal Barandilla
+    400052: Cristal Barandilla2
+    400054: Cylinder001
+    400056: Cylinder002
+    400058: Cylinder003
+    400060: Cylinder004
+    400062: Farola 002
+    400064: Farola 003
+    400066: Farola 004
+    400068: Farola 005
+    400070: Farola 006
+    400072: Farola 007
+    400074: Farola 008
+    400076: Farola 009
+    400078: Farola 010
+    400080: Farola 011
+    400082: Farola 012
+    400084: Farola 013
+    400086: Farola 014
+    400088: Farola 015
+    400090: Farola 1
+    400092: GuidePoint_001
+    400094: GuidePoint_002
+    400096: GuidePoint_003
+    400098: GuidePoint_004
+    400100: GuidePoint_005
+    400102: GuidePoint_006
+    400104: GuidePoint_007
+    400106: GuidePoint_008
+    400108: GuidePoint_009
+    400110: //RootNode
+    400112: Layer0_001
+    400114: Layer0_002
+    400116: Layer0_003
+    400118: Layer0_004
+    400120: Layer0_005
+    400122: Layer0_006
+    400124: Layer0_007
+    400126: Layer0_008
+    400128: Layer0_009
+    400130: Layer0_010
+    400132: Pamtalla Grande
+    400134: Pantalla cristal
+    400136: Pantalla cristal 2
+    400138: Pared
+    400140: Pared cristal
+    400142: Pared cristal 2
+    400144: Pasarela
+    400146: Puerta Ascensor A
+    400148: Puerta ascensor B
+    400150: Puerta Cristal
+    400152: Puerta cristal 2
+    400154: Soporte teclado
+    400156: Suelo
+    400158: Techo
+    400160: Ventanal
+    2300000: Actualizador
+    2300002: Ascensor
+    2300004: Base
+    2300006: Base001
+    2300008: Base002
+    2300010: Base003
+    2300012: Base004
+    2300014: Base005
+    2300016: Base006
+    2300018: Base007
+    2300020: Base008
+    2300022: Base009
+    2300024: Base010
+    2300026: Base011
+    2300028: Base012
+    2300030: Base013
+    2300032: Base014
+    2300034: Brazo pantalla
+    2300036: Brazo pantalla001
+    2300038: Camilla
+    2300040: Componente#1_001
+    2300042: Componente#1_002
+    2300044: Componente#1_003
+    2300046: Componente#1_004
+    2300048: Cristal Barandilla
+    2300050: Cristal Barandilla2
+    2300052: Cylinder001
+    2300054: Cylinder002
+    2300056: Cylinder003
+    2300058: Cylinder004
+    2300060: Farola 002
+    2300062: Farola 003
+    2300064: Farola 004
+    2300066: Farola 005
+    2300068: Farola 006
+    2300070: Farola 007
+    2300072: Farola 008
+    2300074: Farola 009
+    2300076: Farola 010
+    2300078: Farola 011
+    2300080: Farola 012
+    2300082: Farola 013
+    2300084: Farola 014
+    2300086: Farola 015
+    2300088: Farola 1
+    2300090: Layer0_001
+    2300092: Layer0_004
+    2300094: Layer0_006
+    2300096: Layer0_007
+    2300098: Layer0_008
+    2300100: Layer0_009
+    2300102: Layer0_010
+    2300104: Pamtalla Grande
+    2300106: Pantalla cristal
+    2300108: Pantalla cristal 2
+    2300110: Pared
+    2300112: Pared cristal
+    2300114: Pared cristal 2
+    2300116: Pasarela
+    2300118: Puerta Ascensor A
+    2300120: Puerta ascensor B
+    2300122: Puerta Cristal
+    2300124: Puerta cristal 2
+    2300126: Soporte teclado
+    2300128: Suelo
+    2300130: Techo
+    2300132: Ventanal
+    3300000: Actualizador
+    3300002: Ascensor
+    3300004: Base
+    3300006: Base001
+    3300008: Base002
+    3300010: Base003
+    3300012: Base004
+    3300014: Base005
+    3300016: Base006
+    3300018: Base007
+    3300020: Base008
+    3300022: Base009
+    3300024: Base010
+    3300026: Base011
+    3300028: Base012
+    3300030: Base013
+    3300032: Base014
+    3300034: Brazo pantalla
+    3300036: Brazo pantalla001
+    3300038: Camilla
+    3300040: Componente#1_001
+    3300042: Componente#1_002
+    3300044: Componente#1_003
+    3300046: Componente#1_004
+    3300048: Cristal Barandilla
+    3300050: Cristal Barandilla2
+    3300052: Cylinder001
+    3300054: Cylinder002
+    3300056: Cylinder003
+    3300058: Cylinder004
+    3300060: Farola 002
+    3300062: Farola 003
+    3300064: Farola 004
+    3300066: Farola 005
+    3300068: Farola 006
+    3300070: Farola 007
+    3300072: Farola 008
+    3300074: Farola 009
+    3300076: Farola 010
+    3300078: Farola 011
+    3300080: Farola 012
+    3300082: Farola 013
+    3300084: Farola 014
+    3300086: Farola 015
+    3300088: Farola 1
+    3300090: Layer0_001
+    3300092: Layer0_004
+    3300094: Layer0_006
+    3300096: Layer0_007
+    3300098: Layer0_008
+    3300100: Layer0_009
+    3300102: Layer0_010
+    3300104: Pamtalla Grande
+    3300106: Pantalla cristal
+    3300108: Pantalla cristal 2
+    3300110: Pared
+    3300112: Pared cristal
+    3300114: Pared cristal 2
+    3300116: Pasarela
+    3300118: Puerta Ascensor A
+    3300120: Puerta ascensor B
+    3300122: Puerta Cristal
+    3300124: Puerta cristal 2
+    3300126: Soporte teclado
+    3300128: Suelo
+    3300130: Techo
+    3300132: Ventanal
+    4300000: Pared
+    4300002: Suelo
+    4300004: Pared cristal
+    4300006: Puerta Cristal
+    4300008: Pared cristal 2
+    4300010: Puerta cristal 2
+    4300012: Pasarela
+    4300014: Cristal Barandilla
+    4300016: Cristal Barandilla2
+    4300018: Puerta Ascensor A
+    4300020: Techo
+    4300022: Camilla
+    4300024: Cylinder001
+    4300026: Cylinder002
+    4300028: Cylinder003
+    4300030: Cylinder004
+    4300032: Soporte teclado
+    4300034: Actualizador
+    4300036: Pantalla cristal
+    4300038: Brazo pantalla
+    4300040: Layer0_001
+    4300042: Layer0_004
+    4300044: Layer0_006
+    4300046: Layer0_007
+    4300048: Layer0_008
+    4300050: Layer0_009
+    4300052: Componente#1_001
+    4300054: Componente#1_002
+    4300056: Componente#1_003
+    4300058: Ventanal
+    4300060: Farola 1
+    4300062: Base
+    4300064: Farola 002
+    4300066: Base001
+    4300068: Farola 003
+    4300070: Base002
+    4300072: Farola 004
+    4300074: Base003
+    4300076: Farola 005
+    4300078: Base004
+    4300080: Farola 006
+    4300082: Base005
+    4300084: Farola 007
+    4300086: Base006
+    4300088: Base007
+    4300090: Farola 008
+    4300092: Base008
+    4300094: Farola 009
+    4300096: Farola 010
+    4300098: Base009
+    4300100: Puerta ascensor B
+    4300102: Pamtalla Grande
+    4300104: Layer0_010
+    4300106: Componente#1_004
+    4300108: Pantalla cristal 2
+    4300110: Brazo pantalla001
+    4300112: Ascensor
+    4300114: Farola 011
+    4300116: Base010
+    4300118: Farola 012
+    4300120: Base011
+    4300122: Farola 013
+    4300124: Base012
+    4300126: Farola 014
+    4300128: Base013
+    4300130: Farola 015
+    4300132: Base014
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

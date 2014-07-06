@@ -11,10 +11,10 @@ public class PersonajeControlable : PersonajeBase {
 	//2- Movimiento
 
 	private List<GameObject> target = new List<GameObject>();
-	public CharacterController characterController;
 	int i; //auxiliar
 	int movimiento; //maximo movimiento
 	Plane planoBatalla;
+	public LineRenderer lineRenderer;
 
     public Equipamento Equipamento
     {
@@ -29,12 +29,11 @@ public class PersonajeControlable : PersonajeBase {
 
         equipamento = new Equipamento();
 
-		characterController= GetComponent<CharacterController>();
 		planoBatalla = new Plane(Vector3.up,transform.position); //plano para el raycast
-		LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
 		lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
-		lineRenderer.SetColors(Color.yellow, Color.red);
+		lineRenderer.SetColors(Color.blue, Color.cyan);
 		lineRenderer.SetWidth(0.2F, 0.2F);
+		lineRenderer.SetVertexCount(1);
 
     }
 
@@ -43,18 +42,19 @@ public class PersonajeControlable : PersonajeBase {
 		switch(comportamiento){
 
 		case 1:{ //Marcar camino
+			lineRenderer.SetVertexCount (target.Count+2);
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			Physics.Raycast (ray,out hit);
+			lineRenderer.SetPosition (target.Count+1,hit.point);
 			if (Input.GetKeyDown (KeyCode.Mouse1)){ //añade un nuevo target con cada click
 				GameObject t = new GameObject("target"+target.Count);
 				t.transform.position = hit.point;
+				t.tag = "Target";
 				target.Add(t);
-				target[target.Count-1].transform.position = hit.point;
 			}
-			if (target.Count > 0){
 
-			}
+
 
 
 			break;
@@ -62,17 +62,20 @@ public class PersonajeControlable : PersonajeBase {
 
 		case 2: //Movimiento
 			if (i<target.Count){ //si estamos dentro del rango de target
+				lineRenderer.SetPosition (0,transform.position);
 				if (Vector3.Distance (transform.position,target[i].transform.position) >0.01){//si no ha llegado al siguiente destino
 					//moverse hacia el destino
 					transform.LookAt (target[i].transform.position);
 					transform.position = Vector3.MoveTowards(transform.position,target[i].transform.position,5*Time.deltaTime);
 
 				}else{
-					GameObject.Destroy(target[i]);
-					i++;
+					target.RemoveAt(0);
 				}
 			
 			}else{ //significa que ha llegado al destino
+				foreach (GameObject g in GameObject.FindGameObjectsWithTag("Target")){
+					Destroy (g);
+				}
 				comportamiento = 0;
 			}
 
@@ -80,7 +83,9 @@ public class PersonajeControlable : PersonajeBase {
 
 
 		}
-
+		for (int j=0;j<target.Count;j++){
+			lineRenderer.SetPosition(j+1, target[j].transform.position);
+		}
 	
 
 
@@ -93,6 +98,7 @@ public class PersonajeControlable : PersonajeBase {
 			GUI.Box (aceptar,"");
 			if (GUI.Button(new Rect(aceptar.x+aceptar.width/8,aceptar.height/2-10,aceptar.width/4,20),"Aceptar")){
 				comportamiento = 2;
+				lineRenderer.SetVertexCount(target.Count+1);
 				i=0;
 			}
 			if (GUI.Button(new Rect(aceptar.x+aceptar.width*5/8,aceptar.height/2-10,aceptar.width/4,20),"Cancelar")){
@@ -100,6 +106,7 @@ public class PersonajeControlable : PersonajeBase {
 					Destroy (g);
 				}
 				target.Clear ();
+				lineRenderer.SetVertexCount (1);
 				comportamiento = 0;
 			}
 			break;
@@ -114,6 +121,7 @@ public class PersonajeControlable : PersonajeBase {
 	{
 		comportamiento = 1;
 		movimiento = mov;
+		lineRenderer.SetPosition(0,transform.position);
 		if (target.Count>0){
 			target.Clear ();
 		}

@@ -3,7 +3,8 @@ using System.Collections;
 
 public class SaltoEscena : MonoBehaviour {
 
-	public int nivel;
+	private ControladorNiveles manager;
+	public string nivel;
 
 	// Use this for initialization
 	void Start () {
@@ -11,7 +12,7 @@ public class SaltoEscena : MonoBehaviour {
 	}
 	void OnTriggerEnter (Collider other){
 		if (other.transform.tag == "Player"){
-			Application.LoadLevel(nivel);
+			ControladorNiveles.instanceRef.CambiarEstado (new EscenarioVecindario(manager));
 
 		}
 	}

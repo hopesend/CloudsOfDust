@@ -10,7 +10,7 @@ public class ControladorNiveles : MonoBehaviour
     /// </summary>
 	public Texture2D imagenCargando;
 
-	private static ControladorNiveles instanceRef;
+	public static ControladorNiveles instanceRef;
 
 	void Awake()
 	{
