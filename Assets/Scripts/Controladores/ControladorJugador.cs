@@ -151,18 +151,23 @@ public class ControladorJugador : MonoBehaviour
 
 	public bool Inicializar_Valores_XML(string personaje)
 	{
-		string UserPath = Application.persistentDataPath;
+		string UserPath = Application.persistentDataPath + @"/PlayerData/XML";
+
+		//Creamos los directorios
+		if(!Directory.Exists(UserPath))
+			Directory.CreateDirectory (UserPath);
 
 		try
 		{
 			string destino = null;
 			TextAsset origen = null;
-			
-			//Creacion del xml de las descripciones
-			origen = (TextAsset)Resources.Load("XML/Personaje", typeof(TextAsset));
-			destino = Path.Combine(UserPath,personaje+ ".xml");
+
+			//Creacion del xml del personaje
+			origen = (TextAsset)Resources.Load("XML/spa/"+personaje, typeof(TextAsset));
+			destino = Path.Combine(UserPath,personaje+".xml");
 			if (!File.Exists (destino))
 				Crear_Fichero (origen, destino);
+
 		}
 		catch
 		{
@@ -181,6 +186,7 @@ public class ControladorJugador : MonoBehaviour
 			sw.Close();
 		} 
 			catch (IOException ex) {
+			Debug.Log(ex.Message);
 			Console.WriteLine(ex.Message);
 		}
 	}

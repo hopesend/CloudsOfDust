@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\AnimLeveler.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladorBaseMundo.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladorBatalla.cs" />
+     <Compile Include="Assets\Scripts\Controladores\ControladorGlobal.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladorJugador.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladorNiveles.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladoraBaseBatalla.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\Scripts\Controladores\IControlador.cs" />
      <Compile Include="Assets\Scripts\EntradaEscena.cs" />
      <Compile Include="Assets\Scripts\Enums\EstadosAlterados.cs" />
+     <Compile Include="Assets\Scripts\Enums\Idiomas.cs" />
      <Compile Include="Assets\Scripts\Escenas\EscenarioVecindario.cs" />
      <Compile Include="Assets\Scripts\Escenas\MenuPrincipal.cs" />
      <Compile Include="Assets\Scripts\HUD.cs" />
@@ -81,6 +83,8 @@
      <Compile Include="Assets\Scripts\Turno.cs" />
      <Compile Include="Assets\Scripts\VueloLeveler.cs" />
      <Compile Include="Assets\Scripts\XML\CloudsXML.cs" />
+     <Compile Include="Assets\Scripts\XML\Informacion.cs" />
+     <Compile Include="Assets\Scripts\XML\Texto.cs" />
      <Compile Include="Assets\ShaderBox\Script\Activator.cs" />
      <Compile Include="Assets\ShaderBox\Script\ControllerSwitcher.cs" />
      <Compile Include="Assets\ShaderBox\ShaderBox\Probe Light Scripts\ProbeCharacterEnvironment.cs" />
@@ -127,6 +131,7 @@
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Opaque Bump.shader" />
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\DNSRT_CutoutTransp.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Transparent.shader" />
+     <None Include="Assets\GlobalData\XML\spa\Conversaciones.xml" />
      <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\dependencies.txt" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Opaque Diffuse.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Transparent Diffuse.shader" />
@@ -163,6 +168,7 @@
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\DNSRI_Detail_VertexTransp.shader" />
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\D_VertexTransp.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Transparent Diffuse.shader" />
+     <None Include="Assets\Resources\XML\spa\Trasher.xml" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Opaque.shader" />
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\DNSRT_Detail_Transp.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Specular.shader" />
@@ -181,6 +187,7 @@
      <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\JsonFx\Readme.txt" />
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\DNSRI_VertexTransp.shader" />
      <None Include="Assets\ShaderBox\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
+     <None Include="Assets\Resources\XML\spa\Conversaciones.xml" />
      <None Include="Assets\ShaderBox\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\ShaderBox\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\DI.shader" />
