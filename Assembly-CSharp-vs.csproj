@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Animator Controller\AnimPlayer.cs" />
+     <Compile Include="Assets\Cubemapper\CubemapNode.cs" />
+     <Compile Include="Assets\Cubemapper\CubemapNodeContainer.cs" />
+     <Compile Include="Assets\Cubemapper\CubemapUser.cs" />
+     <Compile Include="Assets\Cubemapper\Cubemapper.cs" />
+     <Compile Include="Assets\Escenarios\Puerta\animPuerta.cs" />
      <Compile Include="Assets\Escenarios\Volumetric Clouds\Scripts\CloudsToy.cs" />
      <Compile Include="Assets\Scripts\AnimLeveler.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladorBaseMundo.cs" />
@@ -60,6 +65,7 @@
      <Compile Include="Assets\Scripts\EntradaEscena.cs" />
      <Compile Include="Assets\Scripts\Enums\EstadosAlterados.cs" />
      <Compile Include="Assets\Scripts\Enums\Idiomas.cs" />
+     <Compile Include="Assets\Scripts\Escenas\EscenarioCasaInterior.cs" />
      <Compile Include="Assets\Scripts\Escenas\EscenarioVecindario.cs" />
      <Compile Include="Assets\Scripts\Escenas\MenuPrincipal.cs" />
      <Compile Include="Assets\Scripts\HUD.cs" />

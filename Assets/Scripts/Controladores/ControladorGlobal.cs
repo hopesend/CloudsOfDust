@@ -14,6 +14,13 @@ public class ControladorGlobal : MonoBehaviour
 	[HideInInspector]
 	public static ControladorGlobal instanceRef;
 
+	private ControladorNiveles manager;
+	public ControladorNiveles Manager
+	{
+		get {return manager;}
+		set { manager = value;}
+	}
+
 	void Awake()
 	{
 		if(instanceRef == null)
@@ -65,6 +72,15 @@ public class ControladorGlobal : MonoBehaviour
 		} 
 		catch (IOException ex) {
 			Console.WriteLine(ex.Message);
+		}
+	}
+
+	public void Lanzar_Pantalla(int id)
+	{
+		switch (id) 
+		{
+			case 1: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioVecindario(Manager));
+					break;
 		}
 	}
 }

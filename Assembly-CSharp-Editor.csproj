@@ -59,6 +59,13 @@
      <Compile Include="Assets\AstarPathfindingEditor\Editor\ModifierEditors\RaycastModifierEditor.cs" />
      <Compile Include="Assets\AstarPathfindingEditor\Editor\ModifierEditors\SmoothModifierEditor.cs" />
      <Compile Include="Assets\AstarPathfindingEditor\Editor\SeekerEditor.cs" />
+     <Compile Include="Assets\Cubemapper\Editor\CubemapHelpers.cs" />
+     <Compile Include="Assets\Cubemapper\Editor\CubemapNodeEditor.cs" />
+     <Compile Include="Assets\Cubemapper\Editor\CubemapToolPNGExtract.cs" />
+     <Compile Include="Assets\Cubemapper\Editor\CubemapToolPropertyModifier.cs" />
+     <Compile Include="Assets\Cubemapper\Editor\CubemapToolUserOverview.cs" />
+     <Compile Include="Assets\Cubemapper\Editor\CubemapWindow.cs" />
+     <Compile Include="Assets\Cubemapper\Editor\CubemapperEditor.cs" />
      <Compile Include="Assets\Escenarios\Hard Surface Free\Editor\Reset Fresnel Reflection Value.cs" />
      <Compile Include="Assets\Escenarios\Volumetric Clouds\Editor\CloudsToyEditor.cs" />
      <Compile Include="Assets\MecanimAnimationStore\Editor\MixamoStoreWindow.cs" />

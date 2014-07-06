@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\XML\Texto.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Escenas\EscenarioVecindario.cs">
     <Files>
-      <File FileName="Assets\Scripts\XML\Informacion.cs" Line="101" Column="73" />
-      <File FileName="Assets\Scripts\XML\Texto.cs" Line="62" Column="14" />
-      <File FileName="Assets\Scripts\Controladores\ControladorJugador.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Controladores\ControladorGlobal.cs" Line="82" Column="83" />
+      <File FileName="Assets\Scripts\SaltoEscena.cs" Line="13" Column="1" />
+      <File FileName="Assets\Scripts\Escenas\MenuPrincipal.cs" Line="35" Column="62" />
+      <File FileName="Assets\Scripts\Escenas\EscenarioVecindario.cs" Line="45" Column="1" />
+      <File FileName="Assets\Scripts\Escenas\EscenarioCasaInterior.cs" Line="45" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

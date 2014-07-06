@@ -32,7 +32,7 @@ public class MenuPrincipal: IControlador
 				if(ControladorGlobal.instanceRef.Inicializar_Valores_XML())
 				{
 					//Cambiamos de Escenario
-					manager.CambiarEstado (new EscenarioVecindario(manager));
+					manager.CambiarEstado (new EscenarioCasaInterior(manager));
 				}
 				else
 				{

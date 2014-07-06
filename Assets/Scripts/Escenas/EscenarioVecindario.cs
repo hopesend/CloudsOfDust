@@ -8,6 +8,7 @@ public class EscenarioVecindario: IControlador
 	public EscenarioVecindario(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
+		ControladorGlobal.instanceRef.Manager = managerRef;
 		
 		if(Application.loadedLevelName != "Vecindario")
 		{
@@ -31,7 +32,7 @@ public class EscenarioVecindario: IControlador
 
 	public void NivelCargado(int level)
 	{
-		if (level == 1)
+		if (level == 2)
 		{
 			CargarDatosPlayer();
 		}

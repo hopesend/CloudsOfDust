@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Config>
   <Conversaciones>
     <HAPQ>
-      <Mensaje personaje="Tuly">Trasher, despierta... Hoy tienes que ir a por la nueva versión de tu HAPQ, que ganas tengo de cumplir 21 para poder ir yo… Por cierto, felicidades dormilón. Trasher, antes de convertirte en un adulto aburrido me prometiste una última batalla a CloudsMagic. Estaré en la plaza.</Mensaje>
-      <Mensaje personaje="Leveler">Viaje a la Sede Gubernamental: 15 Aureos</Mensaje>
-      <Mensaje personaje="Ascensor">-Actualizaciones.</Mensaje>
-      <Mensaje personaje="Doctor">Actualizacion Completada</Mensaje>
+      <Mensaje id="01" personaje="Tuly">Trasher, despierta... Hoy tienes que ir a por la nueva versión de tu HAPQ, que ganas tengo de cumplir 21 para poder ir yo… Por cierto, felicidades dormilón. Trasher, antes de convertirte en un adulto aburrido me prometiste una última batalla a CloudsMagic. Estaré en la plaza.</Mensaje>
+      <Mensaje id="01" personaje="Leveler">Viaje a la Sede Gubernamental: 15 Aureos</Mensaje>
+      <Mensaje id="01" personaje="Ascensor">-Actualizaciones.</Mensaje>
+      <Mensaje id="01" personaje="Doctor">Actualizacion Completada</Mensaje>
     </HAPQ>
-    <Leveler>
-      <Mensaje id="01">Los guardianes de la Oween han vuelto a hacer una excelente labor en el desfile del día pasado.</Mensaje>
-      <Mensaje id="02">Sale nueva información sobre la nueva versión de los nanobots X-3, la habilidad de piel resistente ahora aguanta hasta 10 MPa de presión.</Mensaje>
-      <Mensaje id="03">La producción de comida ha vuelto a ser brillante esta temporada, una muestra más del progreso de la ciudad Oween.</Mensaje>
-    </Leveler>
+    <Pantallas>
+      <Mensaje id="01" objeto="leveler">Los guardianes de la Oween han vuelto a hacer una excelente labor en el desfile del día pasado.</Mensaje>
+      <Mensaje id="02" objeto="leveler">Sale nueva información sobre la nueva versión de los nanobots X-3, la habilidad de piel resistente ahora aguanta hasta 10 MPa de presión.</Mensaje>
+      <Mensaje id="03" objeto="leveler">La producción de comida ha vuelto a ser brillante esta temporada, una muestra más del progreso de la ciudad Oween.</Mensaje>
+    </Pantallas>
     <Lilian>
       <Mensaje id="01" receptor="Trasher" codigoRecepcion="01">¡Muchas felicidades hijo! Ya tienes 21 años, hoy es el primer día para poder empezar a devolver a esta ciudad todo lo que nos da día a día.</Mensaje>
       <Mensaje id="02" receptor="Trasher" codigoRecepcion="01">Cuando los jóvenes de Oween cumplen 21 años, se acaba su etapa de niños y se les empieza a considerar adultos con responsabilidades y tienen que actualizar su HAPQ con programación más sofisticada y especializada para poder contribuir mejor con su trabajo en la ciudad.</Mensaje>

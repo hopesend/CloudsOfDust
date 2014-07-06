@@ -8,6 +8,7 @@ public class EscenarioCasaInterior: IControlador
 	public EscenarioCasaInterior(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
+		ControladorGlobal.instanceRef.Manager = managerRef;
 		
 		if(Application.loadedLevelName != "Casa interior")
 		{
