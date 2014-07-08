@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Trasher_Virtual>
+	<Parametros>
+		<VIT>100</VIT>
+		<ESM>20</ESM>
+		<PM>10</PM>
+		<FUE>10</FUE>
+		<RES>10</RES>
+		<CON>5</CON>
+		<ESP>5</ESP>
+		<EVA>10</EVA>
+		<PNT>5</PNT>
+		<RAP>10</RAP>
+		<SUE>1</SUE>
+	</Parametros>
+	<Habilidades>
+		<Movimiento>
+			
+		</Movimiento>
+		<Fisico>
+		
+		</Fisico>
+		<Magia>
+		
+		</Magia>
+	</Habilidades>
+</Trasher_Virtual>
