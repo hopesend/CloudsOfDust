@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-
-public class ControladorNiveles : MonoBehaviour 
+[System.Serializable]
+public class ControladorNiveles
 {
 	//[HideInInspector]
 	public IControlador estadoActivo;
@@ -10,27 +10,24 @@ public class ControladorNiveles : MonoBehaviour
     /// </summary>
 	public Texture2D imagenCargando;
 
+    Vector3 lastPosWorld;
 	public static ControladorNiveles instanceRef;
 
-	void Awake()
+	public static ControladorNiveles InstanceRef()
 	{
 		if(instanceRef == null)
 		{
-			instanceRef = this;
-			DontDestroyOnLoad(gameObject);
+            instanceRef = new ControladorNiveles();
 		}
-		else
-		{
-			DestroyImmediate(gameObject);
-		}
+
+        return instanceRef;
 	}
 
-	void Start()
-	{
-		estadoActivo = new MenuPrincipal(this);
-	}
+    private ControladorNiveles()
+    {
+    }
 	
-	void Update()
+	public void Update()
 	{
 		if(estadoActivo != null)
 		{
@@ -38,16 +35,16 @@ public class ControladorNiveles : MonoBehaviour
 		}
 	}
 	
-	void OnGUI()
+	public void OnGUI()
 	{
 		if(estadoActivo != null)
 			estadoActivo.Mostrar();
 	}
 
-	void OnLevelWasLoaded(int level)
+	public void OnLevelWasLoaded(int level)
 	{
 		if (estadoActivo != null)
-			estadoActivo.NivelCargado (level);
+            estadoActivo.NivelCargado();
 	}
 	
 	public void CambiarEstado(IControlador nuevoEstado)
@@ -55,10 +52,22 @@ public class ControladorNiveles : MonoBehaviour
 		estadoActivo = nuevoEstado;
 	}
 
-    /*public void OnLevelWasLoaded(int level){
-        if (level == 1)
-        {
-            ((EscenarioVecindario)estadoActivo).CargarDatosPlayer();
-        }
-    }*/
+    public void IrMenuPrincipal()
+    {
+        estadoActivo = new MenuPrincipal(this);
+        GameMaster.instanceRef.EstadoActual = EstadoJuego.MenuPrincipal;
+    }
+
+    public void IrSceneVecindario()
+    {
+        estadoActivo = new EscenarioVecindario(this);
+        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+    }
+
+    public void IrSceneBatallaTutorial()
+    {
+        lastPosWorld = GameMaster.instanceRef.controladoraMundo.PosicionPersonajeWorld;
+        estadoActivo = new EscenarioBatallaTutorial(this);
+        GameMaster.instanceRef.EstadoActual = EstadoJuego.Batalla;
+    }
 }

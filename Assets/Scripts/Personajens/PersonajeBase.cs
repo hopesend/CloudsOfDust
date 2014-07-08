@@ -7,7 +7,10 @@ public class PersonajeBase : MonoBehaviour {
 
     private List<EstadosAlterados> estadosAlterados = new List<EstadosAlterados>();
 
-   
+    public ComportamientoJugador comportamientoActual;
+
+
+
 	public struct parametro{
 		/// <summary>
 		/// Valor absoluto del parametro
@@ -92,6 +95,7 @@ public class PersonajeBase : MonoBehaviour {
     /// <summary>
     /// Rapidez
     /// </summary>
+    [SerializeField]
 	public parametro rap;
 
     /// <summary>
@@ -111,6 +115,7 @@ public class PersonajeBase : MonoBehaviour {
 
     public virtual void Awake()
     {
+        comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
     }
 	//Gets y Sets
 		//Nombre

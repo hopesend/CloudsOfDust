@@ -14,9 +14,9 @@ public class HAPQ : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//estado = gameObject.GetComponent<Historia>().estado; //esto es para la cuando estemos programando la historia.
-		gameObject.GetComponent<CharacterController>().enabled = !menu; //desactiva el movimiento del personaje cuando este activo el menu
-		gameObject.GetComponent<AnimPlayer>().enabled = !menu; //desactiva la animacion del personaje cuando este activo el menu
-		Camera.main.GetComponent<MouseOrbitImproved>().enabled = !menu; //desactiva el movimiento de la camara
+		gameObject.GetComponent<CharacterController>().enabled = !menu; //desactiva el movimiento del Personaje cuando este activo el menu
+		gameObject.GetComponent<AnimPlayer>().enabled = !menu; //desactiva la animacion del Personaje cuando este activo el menu
+		//Camera.main.GetComponent<MouseOrbitImproved>().enabled = !menu; //desactiva el movimiento de la camara
 		if (Input.GetKeyDown(KeyCode.Tab)){	
 			menu = !menu;
 		}
@@ -35,7 +35,6 @@ public class HAPQ : MonoBehaviour {
                 {
                     if (i == 5)
                     {
-                        Debug.Log(ControladorJugador.instanceRef.Trasher.esn.Valor);
                     }
                 }
 			}

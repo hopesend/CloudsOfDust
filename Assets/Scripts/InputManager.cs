@@ -21,11 +21,10 @@ public class InputManager : MonoBehaviour {
         {
             if (Physics.Raycast(rayPrueba, out hit, Mathf.Infinity))
             {
-                Debug.Log(hit.collider.tag);
                 if (hit.collider.tag == "Arena")
                 {
                     
-                    ControladorJugador.instanceRef.OrdenarMover(ControladorJugador.instanceRef.trasher, hit.point);
+                    //ControladorJugador.instanceRef.OrdenarMover(ControladorJugador.instanceRef.trasher, hit.point);
                 }
             }
         }

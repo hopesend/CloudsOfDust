@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class Turno {
 
     private PersonajeBase personaje;
@@ -11,11 +12,12 @@ public class Turno {
     }
     float tiempoActual = 0;
 
-    bool listo = false;
+   public bool listo = false;
 
     public void Listo()
     {
         listo = true;
+        
     }
 
 
@@ -33,6 +35,7 @@ public class Turno {
     {
         if (!listo)
         {
+            Debug.Log(personaje.rap.Valor);
             tiempoActual += personaje.rap.Valor * Time.deltaTime; 
         }
     }
@@ -49,5 +52,6 @@ public class Turno {
         }
 
         listo = false;
+        personaje.comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
     }
 }

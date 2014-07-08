@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{2F3ABD47-7FA3-C470-E460-CA3F99246C52}</ProjectGuid>
+	<ProjectGuid>{A35119D1-BECB-B179-793E-72A803E8AE32}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_1;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity401/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity401/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -61,15 +61,25 @@
      <Compile Include="Assets\Scripts\Controladores\ControladorNiveles.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladoraBaseBatalla.cs" />
      <Compile Include="Assets\Scripts\Controladores\ControladoraTurno.cs" />
+     <Compile Include="Assets\Scripts\Controladores\GameMaster.cs" />
      <Compile Include="Assets\Scripts\Controladores\IControlador.cs" />
+     <Compile Include="Assets\Scripts\DB\Controladores\DBMaster.cs" />
+     <Compile Include="Assets\Scripts\DB\Controladores\DBPersonajens.cs" />
+     <Compile Include="Assets\Scripts\DB\Estructura Datos\DataDBPersonaje.cs" />
      <Compile Include="Assets\Scripts\EntradaEscena.cs" />
+     <Compile Include="Assets\Scripts\Enums\ComportamientoJugador.cs" />
+     <Compile Include="Assets\Scripts\Enums\EstadoJuego.cs" />
      <Compile Include="Assets\Scripts\Enums\EstadosAlterados.cs" />
+     <Compile Include="Assets\Scripts\Enums\FasesBatalla.cs" />
+     <Compile Include="Assets\Scripts\Enums\IDPersonajes.cs" />
      <Compile Include="Assets\Scripts\Enums\Idiomas.cs" />
+     <Compile Include="Assets\Scripts\Escenas\EscenarioBatallaTutorial.cs" />
      <Compile Include="Assets\Scripts\Escenas\EscenarioCasaInterior.cs" />
      <Compile Include="Assets\Scripts\Escenas\EscenarioVecindario.cs" />
      <Compile Include="Assets\Scripts\Escenas\MenuPrincipal.cs" />
      <Compile Include="Assets\Scripts\HUD.cs" />
      <Compile Include="Assets\Scripts\Historia.cs" />
+     <Compile Include="Assets\Scripts\IniciarPeleaTrigger.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\Items\AbsItem.cs" />
      <Compile Include="Assets\Scripts\Items\Accesorio.cs" />
@@ -128,6 +138,7 @@
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\ProbeLight\D_HalfLambertAmbientCube.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Cut Out Opaque Bump.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Opaque.shader" />
+     <None Include="Assets\PlayerData\XML\Trasher.xml" />
      <None Include="Assets\ShaderBox\Scene\boxroom\BeastSettings.xml" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Diffuse.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Opaque Diffuse.shader" />
@@ -145,7 +156,6 @@
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\DNSRT_Detail_CutoutTransp.shader" />
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\AdvLighting.cginc" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Cut Out Diffuse.shader" />
-     <None Include="Assets\PlayerData\XML\Trasher.xml" />
      <None Include="Assets\ShaderBox\ShaderBox\Shaders Pack\BeastPipeline\Alpha-VertexLit.shader" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Opaque Diffuse.shader" />
      <None Include="Assets\ShaderBox\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderYUV.shader" />
@@ -222,7 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{261D26CA-4964-A214-510B-3CCF102D6D70}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+      <Project>{784FE567-BC59-7215-52D2-6BDB2AAFA83D}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,52 +8,28 @@ using System.Xml;
 /// <summary>
 /// Encargada de manejar todo lo relacionado con los PersonajesControlables
 /// </summary>
-public class ControladorJugador : MonoBehaviour 
+/// 
+public class ControladorJugador
 {
-
-	public	PersonajeControlable trasher;
-
-	public PersonajeControlable Trasher{
-        get
-        {
-            if (trasher == null)
-            {
-                trasher = GameObject.FindObjectOfType<PersonajeControlable>();
-            }
-            return trasher;
-        }
-
-        set
-        {
-            if (trasher == null)
-            {
-                trasher = GameObject.FindObjectOfType<PersonajeControlable>();
-            }
-        }
-	}
 
 	//Instancia de la clase (Singleton)
 	[HideInInspector]
-	public static ControladorJugador instanceRef;
+	private static ControladorJugador instanceRef;
 
-	void Awake()
+	public static ControladorJugador InstanceRef()
 	{
-        Debug.Log("Segundo");
 		if(instanceRef == null)
 		{
-			instanceRef = this;
-			DontDestroyOnLoad(gameObject);
+            instanceRef = new ControladorJugador();
 		}
-		else
-		{
-			DestroyImmediate(gameObject);
-		}
+
+        return instanceRef;
 		
 	}
 
-	public bool Cargar_Datos_XML(string personaje)
+	public bool Cargar_Datos_XML(DataDBPersonaje data)
 	{
-		string xmlPersonaje = Path.Combine(Application.dataPath,"PlayerData/XML/"+personaje+".xml");
+		string xmlPersonaje = Path.Combine(Application.dataPath,"PlayerData/XML/"+data.ID.ToString()+".xml");
 		try
 		{
 			CloudsXML personajeXML = new CloudsXML ();
@@ -64,7 +40,7 @@ public class ControladorJugador : MonoBehaviour
 			foreach (XmlNode nodoSeleccionado in nodoAuxiliar.ChildNodes)
 			{
                 
-				Pasar_Valor(nodoSeleccionado, true);
+				Pasar_Valor(data.GO, nodoSeleccionado, true);
 			}
 
 			personajeXML.Cerrar();
@@ -76,80 +52,80 @@ public class ControladorJugador : MonoBehaviour
 		return true;
 	}
 
-	private void Pasar_Valor (XmlNode nodo, bool seleccion)
+	private void Pasar_Valor (PersonajeControlable jugador, XmlNode nodo, bool seleccion)
 	{
 		//si es true rescatamos valores, si es false guardamos valores
 		switch (nodo.Name) 
 		{
 			case "VIT": if(seleccion)
-							trasher.vit.Valor = int.Parse(nodo.InnerText);
+							jugador.vit.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.vit.Valor.ToString();
+                            nodo.InnerText = jugador.vit.Valor.ToString();
 						break;
 
 			case "ESM": if(seleccion)
-							trasher.esn.Valor = int.Parse(nodo.InnerText);
+							jugador.esn.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.esn.Valor.ToString();
+                            nodo.InnerText = jugador.esn.Valor.ToString();
 						break;
 
 			case "PM": 	if(seleccion)
-							trasher.pm.Valor = int.Parse(nodo.InnerText);
+							jugador.pm.Valor = int.Parse(nodo.InnerText);
 						else
-							nodo.InnerText = trasher.pm.Valor.ToString();
+							nodo.InnerText = jugador.pm.Valor.ToString();
 						break;
 
 			case "FUE": if(seleccion)
-							trasher.fue.Valor = int.Parse(nodo.InnerText);
+							jugador.fue.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.fue.Valor.ToString();
+                            nodo.InnerText = jugador.fue.Valor.ToString();
 						break;
 
 			case "RES": if(seleccion)
-                            trasher.res.Valor = int.Parse(nodo.InnerText);
+                            jugador.res.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.res.Valor.ToString();
+                            nodo.InnerText = jugador.res.Valor.ToString();
 						break;
 
 			case "CON": if(seleccion)
-                            trasher.con.Valor = int.Parse(nodo.InnerText);
+                            jugador.con.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.con.Valor.ToString();
+                            nodo.InnerText = jugador.con.Valor.ToString();
 						break;
 
 			case "ESP": if(seleccion)
-                            trasher.esp.Valor = int.Parse(nodo.InnerText);
+                            jugador.esp.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.esp.Valor.ToString();
+                            nodo.InnerText = jugador.esp.Valor.ToString();
 						break;
 
 			case "EVA": if(seleccion)
-                            trasher.eva.Valor = int.Parse(nodo.InnerText);
+                            jugador.eva.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.eva.Valor.ToString();
+                            nodo.InnerText = jugador.eva.Valor.ToString();
 						break;
 
 			case "PNT": if(seleccion)
-                            trasher.pnt.Valor = int.Parse(nodo.InnerText);
+                            jugador.pnt.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.pnt.Valor.ToString();
+                            nodo.InnerText = jugador.pnt.Valor.ToString();
 						break;
 
 			case "RAP": if(seleccion)
-							trasher.rap.Valor = int.Parse(nodo.InnerText);
+							jugador.rap.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.rap.Valor.ToString();
+                            nodo.InnerText = jugador.rap.Valor.ToString();
 						break;
 
 			case "SUE": if(seleccion)
-                            trasher.sue.Valor = int.Parse(nodo.InnerText);
+                            jugador.sue.Valor = int.Parse(nodo.InnerText);
 						else
-                            nodo.InnerText = trasher.sue.Valor.ToString();
+                            nodo.InnerText = jugador.sue.Valor.ToString();
 						break;
 		}
 	}
 
-	public bool Inicializar_Valores_XML(string personaje)
+	public bool Inicializar_Valores_XML(DataDBPersonaje data)
 	{
 		string UserPath = Application.persistentDataPath + @"/PlayerData/XML";
 
@@ -163,8 +139,8 @@ public class ControladorJugador : MonoBehaviour
 			TextAsset origen = null;
 
 			//Creacion del xml del personaje
-			origen = (TextAsset)Resources.Load("XML/spa/"+personaje, typeof(TextAsset));
-			destino = Path.Combine(UserPath,personaje+".xml");
+			origen = (TextAsset)Resources.Load("XML/spa/"+data.ID.ToString(), typeof(TextAsset));
+            destino = Path.Combine(UserPath, data.ID.ToString() + ".xml");
 			if (!File.Exists (destino))
 				Crear_Fichero (origen, destino);
 
@@ -191,11 +167,11 @@ public class ControladorJugador : MonoBehaviour
 		}
 	}
 
-	public bool Grabar_Datos_XML(string personaje)
+	public bool Grabar_Datos_XML(DataDBPersonaje data)
 	{
 		try
 		{
-			string xmlPersonaje = Path.Combine(Application.persistentDataPath,personaje +".xml");
+			string xmlPersonaje = Path.Combine(Application.persistentDataPath,data.ID.ToString() +".xml");
 
 			//Creamos el objetoXml y cargamos el xml del personaje
 			CloudsXML personajeXML = new CloudsXML ();
@@ -207,7 +183,7 @@ public class ControladorJugador : MonoBehaviour
 			//Recorremos todos los nodos colgantes para grabar sus datos
 			foreach (XmlNode nodoSeleccionado in nodoAuxiliar.ChildNodes)
 			{
-				Pasar_Valor(nodoSeleccionado, false);
+				Pasar_Valor(data.GO, nodoSeleccionado, false);
 			}
 
 			//Guardamos el XML
@@ -223,9 +199,9 @@ public class ControladorJugador : MonoBehaviour
 		return true;
 	}
 
-    public void CambiarAccesorio(Accesorio nuevoAccesorio)
+    public void CambiarAccesorio(PersonajeControlable personaje, Accesorio nuevoAccesorio)
     {
-        trasher.Equipamento.CambiarAccesorio(nuevoAccesorio);
+        personaje.Equipamento.CambiarAccesorio(nuevoAccesorio);
     }
 
     public bool AplicarEstadoAlterado(EstadosAlterados estado)

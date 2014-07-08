@@ -4,38 +4,30 @@ using System.IO;
 public class EscenarioVecindario: IControlador
 {
 	private ControladorNiveles manager;
+
+    public Vector3 posicionInicial = new Vector3(173.7028f, 0.2f, 2.057544f);
 	
 	public EscenarioVecindario(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
-		ControladorGlobal.instanceRef.Manager = managerRef;
+		//ControladorGlobal.instanceRef.Manager = managerRef;
 		
 		if(Application.loadedLevelName != "Vecindario")
 		{
 			Application.LoadLevel("Vecindario");
 		}
 	}
-
-    public void CargarDatosPlayer()
-    {
-        if (!ControladorJugador.instanceRef.Cargar_Datos_XML(ControladorJugador.instanceRef.Trasher.Get_Nombre()))
-        {
-            //TODO: Lanzar un mensaje de Error que no existe el fichero xml
-        }
-        
-    }
 	
 	public void EstadoUpdate()
 	{
 		
 	}
 
-	public void NivelCargado(int level)
+    public void NivelCargado()
 	{
-		if (level == 2)
-		{
-			CargarDatosPlayer();
-		}
+        GameMaster.instanceRef.InicializarMundo(posicionInicial);
+        GameMaster.instanceRef.controladoraMundo.PrepararJugadorScripts();
+
 	}
 	
 	public void Mostrar()

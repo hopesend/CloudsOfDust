@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class ControladoraTurno {
 
 
@@ -9,20 +10,37 @@ public class ControladoraTurno {
     [SerializeField]
     public List<Turno> listaOrdenTurnos = new List<Turno>();
     public Queue<Turno> turnosCompletos = new Queue<Turno>();
+
     public ControladoraTurno()
     {
-        listaOrdenTurnos.Add(new Turno(ControladorJugador.instanceRef.Trasher));
     }
+
+    public void CargarDatosParaTurnos(List<PersonajeControlable> listaJugadores, List<Enemigo> listaEnemigos)
+    {
+        foreach (PersonajeControlable a in listaJugadores)
+        {
+            listaOrdenTurnos.Add(new Turno(a));
+        }
+
+        foreach (Enemigo b in listaEnemigos)
+        {
+            listaOrdenTurnos.Add(new Turno(b));
+        }
+    }
+
 
     public void Update()
     {
         foreach (Turno a in listaOrdenTurnos)
         {
-            a.Update();
-            if (a.TiempoActual >= tiempoParaTurno)
+            if (!a.listo)
             {
-                a.Listo();
-                turnosCompletos.Enqueue(a);
+                a.Update();
+                if (a.TiempoActual >= tiempoParaTurno)
+                {
+                    a.Listo();
+                    turnosCompletos.Enqueue(a);
+                } 
             }
         }
     }
