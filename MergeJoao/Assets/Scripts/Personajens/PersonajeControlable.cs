@@ -77,7 +77,7 @@ public class PersonajeControlable : PersonajeBase {
                         }
                         else
                         {
-					target.RemoveAt(0);
+					        target.RemoveAt(0);
                         }
 			
 			    
