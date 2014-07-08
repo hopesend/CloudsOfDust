@@ -29,6 +29,7 @@ public class PersonajeControlable : PersonajeBase {
         equipamento = new Equipamento();
 
 		planoBatalla = new Plane(Vector3.up,transform.position); //plano para el raycast
+        lineRenderer = new LineRenderer();
 		lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
 		lineRenderer.SetColors(Color.blue, Color.cyan);
 		lineRenderer.SetWidth(0.2F, 0.2F);

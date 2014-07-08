@@ -6,6 +6,10 @@ public class IniciarPeleaTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        GameMaster.instanceRef.controladoraNiveles.IrSceneBatallaTutorial();
+        if (col.tag == "Player")
+        {
+            GameMaster.instanceRef.controladoraNiveles.IrSceneBatallaTutorial();
+        }
+        
     }
 }
