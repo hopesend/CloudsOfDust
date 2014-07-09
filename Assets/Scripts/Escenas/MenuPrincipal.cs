@@ -9,9 +9,9 @@ public class MenuPrincipal: IControlador
 	{
 		manager = managerRef;
 
-		if(Application.loadedLevelName != "Menu Principal")
+		if(Application.loadedLevelName != ScenesParaCambio.MenuPrincipal.ToString())
 		{
-			Application.LoadLevel("Menu Principal");
+            Application.LoadLevel(ScenesParaCambio.MenuPrincipal.ToString());
 		}
 	}
 	

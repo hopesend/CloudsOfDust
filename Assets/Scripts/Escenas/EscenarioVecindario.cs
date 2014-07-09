@@ -11,10 +11,10 @@ public class EscenarioVecindario: IControlador
 	{
 		manager = managerRef;
 		//ControladorGlobal.instanceRef.Manager = managerRef;
-		
-		if(Application.loadedLevelName != "Vecindario")
+
+        if (Application.loadedLevelName != ScenesParaCambio.Vecindario.ToString())
 		{
-			Application.LoadLevel("Vecindario");
+            Application.LoadLevel(ScenesParaCambio.Vecindario.ToString());
 		}
 	}
 	

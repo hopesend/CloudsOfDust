@@ -93,7 +93,7 @@ public class ControladorGlobal : MonoBehaviour
 
 		case 5: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioRecepcion(Manager));
 			break;
-		case 6: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioSalaDoctor(Manager));
+		case 6: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioSalaActualizacion(Manager));
 			break;
 		}
 

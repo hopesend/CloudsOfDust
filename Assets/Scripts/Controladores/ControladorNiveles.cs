@@ -64,6 +64,36 @@ public class ControladorNiveles
         GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
     }
 
+    public void IrSceneSalaActualizacion()
+    {
+        estadoActivo = new EscenarioSalaActualizacion(this);
+        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+    }
+
+    public void IrSceneCasaInterior()
+    {
+        estadoActivo = new EscenarioCasaInterior(this);
+        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+    }
+
+    public void IrSceneRecepcion()
+    {
+        estadoActivo = new EscenarioRecepcion(this);
+        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+    }
+
+    public void IrSceneInteriorLeveler()
+    {
+        estadoActivo = new EscenarioInteriorLeveler(this);
+        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+    }
+
+    public void IrSceneEdificioOficial()
+    {
+        estadoActivo = new EscenarioEdificioOficial(this);
+        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+    }
+
     public void IrSceneBatallaTutorial()
     {
         lastPosWorld = GameMaster.instanceRef.controladoraMundo.PosicionPersonajeWorld;

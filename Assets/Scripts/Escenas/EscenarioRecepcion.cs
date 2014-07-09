@@ -9,19 +9,15 @@ public class EscenarioRecepcion: IControlador
 	{
 		manager = managerRef;
 		ControladorGlobal.instanceRef.Manager = managerRef;
-		
-		if(Application.loadedLevel != 5)
+
+        if (Application.loadedLevelName != ScenesParaCambio.Recepcion.ToString())
 		{
-			Application.LoadLevel(5);
+            Application.LoadLevel(ScenesParaCambio.Recepcion.ToString());
 		}
 	}
 
     public void CargarDatosPlayer()
     {
-        if (!ControladorJugador.instanceRef.Cargar_Datos_XML(ControladorJugador.instanceRef.Trasher.Get_Nombre()))
-        {
-            //TODO: Lanzar un mensaje de Error que no existe el fichero xml
-        }
         
     }
 	
@@ -30,12 +26,8 @@ public class EscenarioRecepcion: IControlador
 		
 	}
 
-	public void NivelCargado(int level)
+	public void NivelCargado()
 	{
-		if (level == 1)
-		{
-			CargarDatosPlayer();
-		}
 	}
 	
 	public void Mostrar()

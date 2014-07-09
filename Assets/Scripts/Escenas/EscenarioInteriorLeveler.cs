@@ -10,18 +10,15 @@ public class EscenarioInteriorLeveler: IControlador
 		manager = managerRef;
 		ControladorGlobal.instanceRef.Manager = managerRef;
 		
-		if(Application.loadedLevelName != "InteriorLeveler")
+		if(Application.loadedLevelName != ScenesParaCambio.InteriorLeveler.ToString())
 		{
-			Application.LoadLevel("InteriorLeveler");
+            Application.LoadLevel(ScenesParaCambio.InteriorLeveler.ToString());
 		}
 	}
 
     public void CargarDatosPlayer()
     {
-        if (!ControladorJugador.instanceRef.Cargar_Datos_XML(ControladorJugador.instanceRef.Trasher.Get_Nombre()))
-        {
-            //TODO: Lanzar un mensaje de Error que no existe el fichero xml
-        }
+
         
     }
 	
@@ -30,12 +27,8 @@ public class EscenarioInteriorLeveler: IControlador
 		
 	}
 
-	public void NivelCargado(int level)
+	public void NivelCargado()
 	{
-		if (level == 2)
-		{
-			CargarDatosPlayer();
-		}
 	}
 	
 	public void Mostrar()

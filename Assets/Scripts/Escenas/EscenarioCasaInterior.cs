@@ -8,11 +8,11 @@ public class EscenarioCasaInterior: IControlador
 	public EscenarioCasaInterior(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
-		ControladorGlobal.instanceRef.Manager = managerRef;
-		
-		if(Application.loadedLevelName != "Casa interior")
+		//ControladorGlobal.instanceRef.Manager = managerRef;
+
+        if (Application.loadedLevelName != ScenesParaCambio.CasaInterior.ToString())
 		{
-			Application.LoadLevel("Casa interior");
+            Application.LoadLevel(ScenesParaCambio.CasaInterior.ToString());
 		}
 	}
 

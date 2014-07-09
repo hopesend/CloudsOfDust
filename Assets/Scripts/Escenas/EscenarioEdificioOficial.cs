@@ -9,19 +9,16 @@ public class EscenarioEdificioOficial: IControlador
 	{
 		manager = managerRef;
 		ControladorGlobal.instanceRef.Manager = managerRef;
-		
-		if(Application.loadedLevelName != "Edificio Oficial")
+
+        if (Application.loadedLevelName != ScenesParaCambio.EdificioOficial.ToString())
 		{
-			Application.LoadLevel("Edificio Oficial");
+            Application.LoadLevel(ScenesParaCambio.EdificioOficial.ToString());
 		}
 	}
 
     public void CargarDatosPlayer()
     {
-        if (!ControladorJugador.instanceRef.Cargar_Datos_XML(ControladorJugador.instanceRef.Trasher.Get_Nombre()))
-        {
-            //TODO: Lanzar un mensaje de Error que no existe el fichero xml
-        }
+
         
     }
 	
@@ -47,4 +44,9 @@ public class EscenarioEdificioOficial: IControlador
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), manager.imagenCargando, ScaleMode.StretchToFill);
 		}
 	}
+
+
+    public void NivelCargado()
+    {
+    }
 }

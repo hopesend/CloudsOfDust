@@ -11,9 +11,9 @@ public class EscenarioBatallaTutorial : IControlador {
     {
         manager = managerRef;
 
-        if (Application.loadedLevelName != "BatallaTutorial")
+        if (Application.loadedLevelName != ScenesParaCambio.BatallaTutorial.ToString())
         {
-            Application.LoadLevel("BatallaTutorial");
+            Application.LoadLevel(ScenesParaCambio.BatallaTutorial.ToString());
         }
     }
 
