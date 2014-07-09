@@ -79,8 +79,24 @@ public class ControladorGlobal : MonoBehaviour
 	{
 		switch (id) 
 		{
-			case 1: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioVecindario(Manager));
+		case 1: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioCasaInterior(Manager));
+			break;
+			
+		case 2: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioVecindario(Manager));
 					break;
+
+		case 3: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioInteriorLeveler(Manager));
+			break;
+
+		case 4: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioEdificioOficial(Manager));
+			break;
+
+		case 5: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioRecepcion(Manager));
+			break;
+		case 6: ControladorNiveles.instanceRef.CambiarEstado (new EscenarioSalaDoctor(Manager));
+			break;
 		}
+
+
 	}
 }
