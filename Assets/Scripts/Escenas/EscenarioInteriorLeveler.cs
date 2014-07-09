@@ -8,7 +8,6 @@ public class EscenarioInteriorLeveler: IControlador
 	public EscenarioInteriorLeveler(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
-		ControladorGlobal.instanceRef.Manager = managerRef;
 		
 		if(Application.loadedLevelName != ScenesParaCambio.InteriorLeveler.ToString())
 		{

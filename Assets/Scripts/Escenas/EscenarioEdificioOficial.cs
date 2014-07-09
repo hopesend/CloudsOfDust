@@ -8,7 +8,6 @@ public class EscenarioEdificioOficial: IControlador
 	public EscenarioEdificioOficial(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
-		ControladorGlobal.instanceRef.Manager = managerRef;
 
         if (Application.loadedLevelName != ScenesParaCambio.EdificioOficial.ToString())
 		{
@@ -27,12 +26,8 @@ public class EscenarioEdificioOficial: IControlador
 		
 	}
 
-	public void NivelCargado(int level)
+	public void NivelCargado()
 	{
-		if (level == 2)
-		{
-			CargarDatosPlayer();
-		}
 	}
 	
 	public void Mostrar()
@@ -44,9 +39,4 @@ public class EscenarioEdificioOficial: IControlador
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), manager.imagenCargando, ScaleMode.StretchToFill);
 		}
 	}
-
-
-    public void NivelCargado()
-    {
-    }
 }

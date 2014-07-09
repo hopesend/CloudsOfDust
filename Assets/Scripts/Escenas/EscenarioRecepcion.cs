@@ -8,7 +8,6 @@ public class EscenarioRecepcion: IControlador
 	public EscenarioRecepcion(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
-		ControladorGlobal.instanceRef.Manager = managerRef;
 
         if (Application.loadedLevelName != ScenesParaCambio.Recepcion.ToString())
 		{

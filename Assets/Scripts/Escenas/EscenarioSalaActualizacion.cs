@@ -8,7 +8,6 @@ public class EscenarioSalaActualizacion: IControlador
 	public EscenarioSalaActualizacion(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
-		ControladorGlobal.instanceRef.Manager = managerRef;
 
         if (Application.loadedLevelName != ScenesParaCambio.SalaActualizacion.ToString())
 		{

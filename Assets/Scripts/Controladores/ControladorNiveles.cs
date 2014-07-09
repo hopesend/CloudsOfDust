@@ -47,7 +47,11 @@ public class ControladorNiveles
             estadoActivo.NivelCargado();
 	}
 	
-	public void CambiarEstado(IControlador nuevoEstado)
+    /// <summary>
+    /// Este metodo no debe llamarse externamente, se puede usar los metodos mas directos como IrMenuPrincipal()
+    /// </summary>
+    /// <param name="nuevoEstado"></param>
+	private void CambiarEstado(IControlador nuevoEstado)
 	{
 		estadoActivo = nuevoEstado;
 	}
