@@ -17,7 +17,7 @@ public class DBPersonajens {
         {
             if (lista[i].ID == nombre)
             {
-                ControladorJugador.InstanceRef().Cargar_Datos_XML(lista[i]);
+				
                 return lista[i];
             }
         }

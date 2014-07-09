@@ -27,9 +27,9 @@ public class ControladorJugador
 		
 	}
 
-	public bool Cargar_Datos_XML(DataDBPersonaje data)
+	public bool Cargar_Datos_XML(PersonajeControlable jugador)
 	{
-		string xmlPersonaje = Path.Combine(Application.dataPath,"PlayerData/XML/"+data.ID.ToString()+".xml");
+		string xmlPersonaje = Path.Combine(Application.dataPath,"PlayerData/XML/"+jugador.Get_Nombre()+".xml");
 		try
 		{
 			CloudsXML personajeXML = new CloudsXML ();
@@ -40,7 +40,7 @@ public class ControladorJugador
 			foreach (XmlNode nodoSeleccionado in nodoAuxiliar.ChildNodes)
 			{
                 
-				Pasar_Valor(data.GO, nodoSeleccionado, true);
+				Pasar_Valor(jugador, nodoSeleccionado, true);
 			}
 
 			personajeXML.Cerrar();

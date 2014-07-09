@@ -3,13 +3,13 @@ using System.Collections;
 
 public class SaltoEscena : MonoBehaviour {
 
-	public int nivel;
+    public ScenesParaCambio cambiarA;
 
 	void OnTriggerEnter (Collider other)
 	{
 		if (other.transform.tag == "Player")
 		{
-			ControladorGlobal.instanceRef.Lanzar_Pantalla(nivel);
+            GameMaster.instanceRef.controladoraNiveles.CambiarSceneSegunEnum(cambiarA);
 		}
 	}
 }

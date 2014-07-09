@@ -84,7 +84,8 @@ public class GameMaster : MonoBehaviour {
 
     public void InicializarMundo(Vector3 posJugador)
     {
-        controladoraMundo.AddPersonajeSeleccionado(Instantiate(controladorDB.DBpersonajes.GetPersonajeByID(IDPersonajes.Trasher).GO, posJugador, Quaternion.identity) as PersonajeControlable, true);
+        controladoraMundo.AddPersonajeSeleccionado(InstanciarJugador(controladorDB.DBpersonajes.GetPersonajeByID(IDPersonajes.Trasher), posJugador), true); ;
+        
         
     }
 
@@ -142,6 +143,13 @@ public class GameMaster : MonoBehaviour {
             //case 1: ControladorNiveles.instanceRef.CambiarEstado(new EscenarioVecindario(Manager));
                 break;
         }*/
+    }
+
+    private PersonajeControlable InstanciarJugador(DataDBPersonaje data, Vector3 pos)
+    {
+        PersonajeControlable temp = Instantiate(data.GO, pos, Quaternion.identity) as PersonajeControlable;
+        controladorJugador.Cargar_Datos_XML(temp);
+        return temp;
     }
 
 

@@ -70,4 +70,26 @@ public class ControladorNiveles
         estadoActivo = new EscenarioBatallaTutorial(this);
         GameMaster.instanceRef.EstadoActual = EstadoJuego.Batalla;
     }
+
+    public void CambiarSceneSegunEnum(ScenesParaCambio temp)
+    {
+        switch (temp) 
+        {
+            case ScenesParaCambio.MenuPrincipal:
+                {
+                    IrMenuPrincipal();
+                    break;
+                }
+            case ScenesParaCambio.Vecindario:
+                {
+                    IrSceneVecindario();
+                    break;
+                }
+            case ScenesParaCambio.BatallaTutorial:
+                {
+                    IrSceneBatallaTutorial();
+                    break;
+                }
+        }
+    }
 }
