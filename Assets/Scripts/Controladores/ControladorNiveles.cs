@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 [System.Serializable]
 public class ControladorNiveles
 {
@@ -43,8 +44,10 @@ public class ControladorNiveles
 
 	public void OnLevelWasLoaded(int level)
 	{
-		if (estadoActivo != null)
+        if (estadoActivo != null)
+        {
             estadoActivo.NivelCargado();
+        }
 	}
 	
     /// <summary>

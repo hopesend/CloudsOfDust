@@ -10,7 +10,6 @@ public class EscenarioVecindario: IControlador
 	public EscenarioVecindario(ControladorNiveles managerRef)
 	{
 		manager = managerRef;
-		//ControladorGlobal.instanceRef.Manager = managerRef;
 
         if (Application.loadedLevelName != ScenesParaCambio.Vecindario.ToString())
 		{

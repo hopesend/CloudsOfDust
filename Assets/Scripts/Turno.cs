@@ -4,13 +4,13 @@ using System.Collections;
 [System.Serializable]
 public class Turno {
 
-    private PersonajeBase personaje;
+    public PersonajeBase personaje;
 
     public PersonajeBase Personaje
     {
         get { return personaje; }
     }
-    float tiempoActual = 0;
+    public float tiempoActual = 0;
 
    public bool listo = false;
 
@@ -35,7 +35,6 @@ public class Turno {
     {
         if (!listo)
         {
-            Debug.Log(personaje.rap.Valor);
             tiempoActual += personaje.rap.Valor * Time.deltaTime; 
         }
     }

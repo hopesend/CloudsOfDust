@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class HUD {
 	
 	bool b_movimiento;
@@ -9,13 +10,25 @@ public class HUD {
 	bool b_objeto;
 	public Vector2 scrollPosition = Vector2.zero;
 
-	PersonajeBase[] personajes;
 
-    PersonajeControlable personajeActual;
+    public PersonajeControlable personajeActual;
 
-    bool showHud = false;
+    public bool showHudPLayer = false;
 
-    private static HUD instanceRef;
+    Rect HUDBox;
+    Rect Ataques;
+
+    GUIStyle style1;
+    GUIStyle style2;
+    GUIStyle style3;
+    GUIStyle style4;
+    Texture2D textura1;
+    Texture2D textura2;
+    Texture2D textura3;
+    Texture2D textura4;
+
+
+    public static HUD instanceRef;
 
     public static HUD InstanceRef()
     {
@@ -31,49 +44,43 @@ public class HUD {
 	
 
 	// Use this for initialization
-	void Start () {
-		
-		//h = GameObject.FindGameObjectWithTag("aliado").GetComponentInChildren<personaje>().h;	
-		personajes = new PersonajeBase[3];
-		//personajeActual = GameObject.Find("trasherv0 1").GetComponent<PersonajeBase>();
-        //personajes = ControladoraBaseBatalla.InstanceRef.
-	
+	public HUD() {
 	}
+
+    public void PrepararTexturas()
+    {
+        HUDBox = new Rect(0, Screen.height * 4 / 5, Screen.width, Screen.height / 5);
+        Ataques = new Rect(0, 0, Screen.width / 3, Screen.height / 2);
+        style1 = new GUIStyle();
+        style2 = new GUIStyle();
+        style3 = new GUIStyle();
+        style4 = new GUIStyle();
+        textura1 = new Texture2D(1, 1);
+        textura2 = new Texture2D(1, 1);
+        textura3 = new Texture2D(1, 1);
+        textura4 = new Texture2D(1, 1);
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
         if (personajeActual != null)
         {
-            showHud = true;
+            showHudPLayer = true;
         }
 
         else
         {
-            if (ControladoraBaseBatalla.InstanceRef().turnoActual != null)
+            if (ControladoraBaseBatalla.InstanceRef().TurnoActual != null)
             {
-                personajeActual = (PersonajeControlable)ControladoraBaseBatalla.InstanceRef().turnoActual.Personaje;
+                personajeActual = (PersonajeControlable)ControladoraBaseBatalla.InstanceRef().TurnoActual.Personaje;
             }
         }
 	}
 	
-	void OnGUI(){
-
-        if (showHud)
+	public void OnGUI(){
+       
+        if (showHudPLayer)
         {
-            Rect HUD = new Rect(0, Screen.height * 4 / 5, Screen.width, Screen.height / 5);
-            Rect Ataques = new Rect(0, 0, Screen.width / 3, Screen.height / 2);
-
-            GUIStyle style1 = new GUIStyle();
-            GUIStyle style2 = new GUIStyle();
-            GUIStyle style3 = new GUIStyle();
-            GUIStyle style4 = new GUIStyle();
-            Texture2D textura1 = new Texture2D(1, 1);
-            Texture2D textura2 = new Texture2D(1, 1);
-            Texture2D textura3 = new Texture2D(1, 1);
-            Texture2D textura4 = new Texture2D(1, 1);
-
-
-            
             scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width / 3, 0, Ataques.width * 2 / 3, Ataques.height), scrollPosition, new Rect(0, 0, Ataques.width * 2 / 3, Screen.height));
 
             GUI.EndScrollView();
@@ -139,36 +146,39 @@ public class HUD {
                     GUI.EndScrollView();
                 } 
             }
+            
+        }
+        //HUD
+        GUI.Box(HUDBox, "");
 
-
-
-            //HUD
-            GUI.Box(HUD, "");
-
+        for (int i = 0; i < ControladoraBaseBatalla.jugadores.Count; i++)
+        {
+            PersonajeControlable temp = ControladoraBaseBatalla.jugadores[i];
             GUI.backgroundColor = Color.clear;
-            GUI.TextArea(new Rect(HUD.x + 5, HUD.y + 5, 100, 30), personajeActual.Get_Nombre()); //Nombre
-            GUI.TextArea(new Rect(HUD.x + 5, HUD.y + 35, 100, 30), "Vit: " + personajeActual.vit.Actual + "/" + personajeActual.vit.Valor); //vitalidad
-            GUI.TextArea(new Rect(HUD.x + 5, HUD.y + 55, 100, 30), "Esn: " + personajeActual.esn.Actual + "/" + personajeActual.esn.Valor);	//estamina
-            GUI.TextArea(new Rect(HUD.x + 5, HUD.y + 75, 100, 40), "PM: " + personajeActual.pm.Actual + "/" + personajeActual.pm.Valor);	//puntos magicos
+            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 5, 100, 30), temp.Get_Nombre()); //Nombre
+            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 35, 100, 30), "Vit: " + temp.vit.Actual + "/" + temp.vit.Valor); //vitalidad
+            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 55, 100, 30), "Esn: " + temp.esn.Actual + "/" + temp.esn.Valor);	//estamina
+            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 75, 100, 40), "PM: " + temp.pm.Actual + "/" + temp.pm.Valor);	//puntos magicos
 
 
             GUI.backgroundColor = Color.red;
             textura1.SetPixel(1, 1, Color.red);
             style1.normal.background = textura1;
-            GUI.Box(new Rect(HUD.x + 105, HUD.y + 40, personajeActual.vit.Actual * (Screen.width / 3 - 110) / personajeActual.vit.Valor, 10), "", style1);
+            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 40, temp.vit.Actual * (Screen.width / 3 - 110) / temp.vit.Valor, 10), "", style1);
 
             GUI.backgroundColor = Color.green;
             textura2.SetPixel(1, 1, Color.green);
             style2.normal.background = textura2;
-            GUI.Box(new Rect(HUD.x + 105, HUD.y + 60, personajeActual.esn.Actual * (Screen.width / 3 - 110) / personajeActual.esn.Valor, 10), "", style2);
+            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 60, temp.esn.Actual * (Screen.width / 3 - 110) / temp.esn.Valor, 10), "", style2);
 
             GUI.backgroundColor = Color.blue;
             textura3.SetPixel(1, 1, Color.yellow);
             style3.normal.background = textura3;
-            GUI.Box(new Rect(HUD.x + 105, HUD.y + 80, personajeActual.pm.Actual * (Screen.width / 3 - 110) / personajeActual.pm.Valor, 10), "", style3);
+            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 80, temp.pm.Actual * (Screen.width / 3 - 110) / temp.pm.Valor, 10), "", style3);
 
-            GUI.Box(new Rect(HUD.x + 105, HUD.y + 5, ControladoraBaseBatalla.InstanceRef().controladoraTurno.listaOrdenTurnos[0].TiempoActual * (Screen.width / 3 - 110) / 100, 10), "", style3);
+            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 5, ControladoraBaseBatalla.InstanceRef().controladoraTurno.listaOrdenTurnos[0].TiempoActual * (Screen.width / 3 - 110) / 100, 10), "", style3); 
         }
+ 
         
 	}
 }

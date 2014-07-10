@@ -25,12 +25,16 @@ public class ControladoraBaseBatalla{
     public static List<PersonajeControlable> jugadores= new List<PersonajeControlable>();
     public static List<Enemigo> enemigos = new List<Enemigo>();
 
-    [SerializeField]
-    public Turno turnoActual;
+    private Turno turnoActual;
+
+    public Turno TurnoActual
+    {
+        get { return turnoActual; }
+    }
 
     float count = 0;
 
-    void Awake()
+    public ControladoraBaseBatalla()
     {
         controladoraTurno = new ControladoraTurno();
     }
@@ -45,7 +49,7 @@ public class ControladoraBaseBatalla{
         {
             case FasesBatalla.EsperandoTurno:
                 {
-
+                    
                     if (controladoraTurno.turnosCompletos.Count > 0 && turnoActual == null)
                     {
                         faseActual = FasesBatalla.Estrategia;
@@ -114,13 +118,14 @@ public class ControladoraBaseBatalla{
             a.GetComponent<Historia>().enabled = false;
             a.GetComponentInChildren<Camera>().enabled = false;
             a.GetComponentInChildren<MouseOrbitImproved>().enabled = false;
+            a.GetComponent<AudioListener>().enabled = false;
         }
         
     }
 
     public void IniciarPelea(List<PersonajeControlable> listaPersonajesControlables,List<Enemigo> listaEnemigos)
     {
-        faseActual = FasesBatalla.PosicionandoJugadores;
+        faseActual = FasesBatalla.EsperandoTurno;
         SetPersonajesControlables(listaPersonajesControlables);
         SetEnemigos(listaEnemigos);
         controladoraTurno.CargarDatosParaTurnos(listaPersonajesControlables, listaEnemigos);

@@ -9,6 +9,7 @@ public class ControladoraTurno {
 
     [SerializeField]
     public List<Turno> listaOrdenTurnos = new List<Turno>();
+    [SerializeField]
     public Queue<Turno> turnosCompletos = new Queue<Turno>();
 
     public ControladoraTurno()
@@ -31,15 +32,15 @@ public class ControladoraTurno {
 
     public void Update()
     {
-        foreach (Turno a in listaOrdenTurnos)
+        foreach (Turno turno in listaOrdenTurnos)
         {
-            if (!a.listo)
+            if (!turno.listo)
             {
-                a.Update();
-                if (a.TiempoActual >= tiempoParaTurno)
+                turno.Update();
+                if (turno.TiempoActual >= tiempoParaTurno)
                 {
-                    a.Listo();
-                    turnosCompletos.Enqueue(a);
+                    turno.Listo();
+                    turnosCompletos.Enqueue(turno);
                 } 
             }
         }

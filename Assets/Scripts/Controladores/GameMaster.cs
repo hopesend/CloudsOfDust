@@ -6,8 +6,10 @@ using Clouds.xml;
 using System.Xml;
 
 public class GameMaster : MonoBehaviour {
+    //Esto sirve para debug nomas
+    public ScenesParaCambio pantallaInicial;
 
-    private EstadoJuego estadoActual;
+    public EstadoJuego estadoActual;
 
     public EstadoJuego EstadoActual
     {
@@ -54,8 +56,10 @@ public class GameMaster : MonoBehaviour {
         controladoraBatalla = ControladoraBaseBatalla.InstanceRef();
         controladorJugador = ControladorJugador.InstanceRef();
         controladoraHUD = HUD.InstanceRef();
+        controladoraHUD.PrepararTexturas();
 
-        controladoraNiveles.IrMenuPrincipal();
+        controladoraNiveles.CambiarSceneSegunEnum(pantallaInicial);
+        controladoraNiveles.estadoActivo.NivelCargado();
     }
 
     public void IniciarPelea()
@@ -70,6 +74,10 @@ public class GameMaster : MonoBehaviour {
     void OnGUI()
     {
         controladoraNiveles.OnGUI();
+        if (estadoActual == EstadoJuego.Batalla)
+        {
+            controladoraHUD.OnGUI();
+        }
         
         
     }
@@ -78,7 +86,9 @@ public class GameMaster : MonoBehaviour {
     {
         if (estadoActual == EstadoJuego.Batalla)
         {
-            controladoraBatalla.Update(); 
+            controladoraHUD.Update();
+            controladoraBatalla.Update();
+            
         }
     }
 
@@ -92,6 +102,7 @@ public class GameMaster : MonoBehaviour {
     void OnLevelWasLoaded(int level)
     {
         controladoraNiveles.OnLevelWasLoaded(level);
+        
     }
 
     public bool Inicializar_Valores_XML()
@@ -137,12 +148,6 @@ public class GameMaster : MonoBehaviour {
 
     public void Lanzar_Pantalla(int id)
     {
-        /*switch (id)
-        {
-            Debug.Log("S");
-            //case 1: ControladorNiveles.instanceRef.CambiarEstado(new EscenarioVecindario(Manager));
-                break;
-        }*/
     }
 
     private PersonajeControlable InstanciarJugador(DataDBPersonaje data, Vector3 pos)
