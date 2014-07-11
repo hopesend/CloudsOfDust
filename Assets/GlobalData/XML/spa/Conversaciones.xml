@@ -8,7 +8,7 @@
       <Mensaje id="01" personaje="Doctor">Actualizacion Completada</Mensaje>
     </HAPQ>
     <Pantallas>
-      <Mensaje id="01" objeto="leveler">Los guardianes de la Oween han vuelto a hacer una excelente labor en el desfile del día pasado.</Mensaje>
+      <Mensaje id="01" objeto="leveler">Los guardianes de Oween han vuelto a hacer una excelente labor en el desfile del día pasado.</Mensaje>
       <Mensaje id="02" objeto="leveler">Sale nueva información sobre la nueva versión de los nanobots X-3, la habilidad de piel resistente ahora aguanta hasta 10 MPa de presión.</Mensaje>
       <Mensaje id="03" objeto="leveler">La producción de comida ha vuelto a ser brillante esta temporada, una muestra más del progreso de la ciudad Oween.</Mensaje>
     </Pantallas>
