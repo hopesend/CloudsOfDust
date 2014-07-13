@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class PersonajeControlable : PersonajeBase {
 
+    public IDPersonajes ID;
+
     public Equipamento equipamento;
     
 	  
