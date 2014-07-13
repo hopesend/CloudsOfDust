@@ -4,7 +4,7 @@ using System;
 public class ControladorNiveles
 {
 	//[HideInInspector]
-	public IControlador estadoActivo;
+	public IEscenarios estadoActivo;
 
     /// <summary>
     /// Imagen que se mostrara en la pantalla de carga de la scene que se cargue.
@@ -54,7 +54,7 @@ public class ControladorNiveles
     /// Este metodo no debe llamarse externamente, se puede usar los metodos mas directos como IrMenuPrincipal()
     /// </summary>
     /// <param name="nuevoEstado"></param>
-	private void CambiarEstado(IControlador nuevoEstado)
+	private void CambiarEstado(IEscenarios nuevoEstado)
 	{
 		estadoActivo = nuevoEstado;
 	}

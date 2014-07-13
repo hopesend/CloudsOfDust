@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EscenarioBatallaTutorial : IControlador {
+public class EscenarioBatallaTutorial : IEscenarios {
 
     private ControladorNiveles manager;
 

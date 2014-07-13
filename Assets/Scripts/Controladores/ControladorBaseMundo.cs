@@ -35,7 +35,6 @@ public class ControladorBaseMundo
 	
 	private ControladorBaseMundo()
 	{
-		dinero=100;
         personajesSeleccionados = new List<PersonajeControlable>(cantidadJugadoresSeleccionados);
 	}
 

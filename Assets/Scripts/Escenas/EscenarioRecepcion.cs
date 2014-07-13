@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 
-public class EscenarioRecepcion: IControlador
+public class EscenarioRecepcion: IEscenarios
 {
 	private ControladorNiveles manager;
 	

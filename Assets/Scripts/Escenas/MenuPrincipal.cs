@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 
-public class MenuPrincipal: IControlador
+public class MenuPrincipal: IEscenarios
 {
 	private ControladorNiveles manager;
 

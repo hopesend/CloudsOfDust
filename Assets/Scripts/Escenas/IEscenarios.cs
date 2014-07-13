@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public interface IControlador
+public interface IEscenarios
 {
 	void EstadoUpdate();
 	void Mostrar();

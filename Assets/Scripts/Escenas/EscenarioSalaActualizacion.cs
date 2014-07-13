@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 
-public class EscenarioSalaActualizacion: IControlador
+public class EscenarioSalaActualizacion: IEscenarios
 {
 	private ControladorNiveles manager;
 	

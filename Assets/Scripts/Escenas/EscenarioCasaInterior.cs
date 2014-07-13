@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 
-public class EscenarioCasaInterior: IControlador
+public class EscenarioCasaInterior: IEscenarios
 {
 	private ControladorNiveles manager;
 	

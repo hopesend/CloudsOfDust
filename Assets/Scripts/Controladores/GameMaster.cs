@@ -92,8 +92,13 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Llamar este metodo solo una vez en todo el juego.
+    /// </summary>
+    /// <param name="posJugador"></param>
     public void InicializarMundo(Vector3 posJugador)
     {
+        controladoraMundo.dinero = 100;
         controladoraMundo.AddPersonajeSeleccionado(InstanciarJugador(controladorDB.DBpersonajes.GetPersonajeByID(IDPersonajes.Trasher), posJugador), true); ;
         
         
