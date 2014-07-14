@@ -42,7 +42,7 @@ public class Texto
 	public string TextoMostrar
 	{
 		get { return textoMostrar; }
-		set { TextoMostrar = value; }
+		set { textoMostrar = value; }
 	}
 
 	/// <summary>

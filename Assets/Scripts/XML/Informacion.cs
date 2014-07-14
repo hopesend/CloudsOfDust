@@ -13,7 +13,7 @@ public class Informacion
 	/// <summary>
 	/// Variable con la Ruta del xml de Textos
 	/// </summary>
-	private string rutaConversaciones = Path.Combine(Application.persistentDataPath,"/GlobalData/XML/Conversaciones.xml");
+	private string rutaConversaciones = Application.persistentDataPath+"/GlobalData/XML/Conversaciones.xml";
 
 	/// <summary>
 	/// Constructor de la Clase
