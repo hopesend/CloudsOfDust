@@ -58,7 +58,7 @@ public class GameMaster : MonoBehaviour {
         controladoraBatalla = ControladoraBaseBatalla.InstanceRef();
         controladorJugador = ControladorJugador.InstanceRef();
         controladoraHUD = HUD.InstanceRef();
-        hudBatalla = HUDBatalla.instanceRef();
+        hudBatalla = HUDBatalla.InstanceRef();
         hudBatalla.PrepararTexturas();
 
         controladoraNiveles.CambiarSceneSegunEnum(pantallaInicial);
