@@ -32,6 +32,8 @@ public class GameMaster : MonoBehaviour {
 
     public HUD controladoraHUD;
 
+    public HUDBatalla hudBatalla;
+
     public static GameMaster instanceRef;
 
     void Awake()
@@ -56,7 +58,8 @@ public class GameMaster : MonoBehaviour {
         controladoraBatalla = ControladoraBaseBatalla.InstanceRef();
         controladorJugador = ControladorJugador.InstanceRef();
         controladoraHUD = HUD.InstanceRef();
-        controladoraHUD.PrepararTexturas();
+        hudBatalla = HUDBatalla.instanceRef();
+        hudBatalla.PrepararTexturas();
 
         controladoraNiveles.CambiarSceneSegunEnum(pantallaInicial);
         controladoraNiveles.estadoActivo.NivelCargado();
