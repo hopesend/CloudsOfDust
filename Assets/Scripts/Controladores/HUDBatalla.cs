@@ -25,7 +25,8 @@ public class HUDBatalla{
 
     public PersonajeControlable personajeActual;
 
-    public bool showHudPLayer = false;
+    public bool showAccionesPlayer = false;
+    public bool showMovConfPlayer = false;
 
     Rect HUDBox;
     Rect Ataques;
@@ -57,7 +58,7 @@ public class HUDBatalla{
     {
         if (personajeActual != null)
         {
-            showHudPLayer = true;
+            showAccionesPlayer = true;
         }
 
         else
@@ -72,16 +73,35 @@ public class HUDBatalla{
     public void OnGUI()
     {
 
-        if (showHudPLayer)
+        if (showAccionesPlayer)
         {
-            mostrarHudPlayer();
+            MostrarAccionesPlayer();
         }
 
-        mostrarHudBase();
+        if (showMovConfPlayer)
+        {
+            MostrarMovConfPlayer();
+        }
+
+        MostrarHudBase();
 
 
     }
-    private void mostrarHudPlayer()
+
+    private void MostrarMovConfPlayer()
+    {
+        Rect aceptar = new Rect(Screen.width * 3 / 4, 0, Screen.width / 4, Screen.height / 5);
+        GUI.Box(aceptar, "");
+        if (GUI.Button(new Rect(aceptar.x + aceptar.width / 8, aceptar.height / 2 - 10, aceptar.width / 4, 20), "Aceptar"))
+        {
+            personajeActual.AceptarMovimiento();
+        }
+        if (GUI.Button(new Rect(aceptar.x + aceptar.width * 5 / 8, aceptar.height / 2 - 10, aceptar.width / 4, 20), "Cancelar"))
+        {
+            personajeActual.CancelarMovimiento();
+        }
+    }
+    private void MostrarAccionesPlayer()
     {
         scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width / 3, 0, Ataques.width * 2 / 3, Ataques.height), scrollPosition, new Rect(0, 0, Ataques.width * 2 / 3, Screen.height));
 
@@ -123,7 +143,7 @@ public class HUDBatalla{
                 GUI.EndScrollView();
             }
 
-            if (b_magia = GUILayout.Toggle(b_magia, "Magia", "Button", GUILayout.Height(Ataques.height / 4 - 5)))
+            if (b_magia = GUILayout.Toggle(b_magia, "Nanoenergia", "Button", GUILayout.Height(Ataques.height / 4 - 5)))
             {
                 b_movimiento = false;
                 b_fisico = false;
@@ -150,7 +170,7 @@ public class HUDBatalla{
         }
     }
 
-    private void mostrarHudBase()
+    private void MostrarHudBase()
     {
         //HUD
         GUI.Box(HUDBox, "");

@@ -70,7 +70,7 @@ public class GameMaster : MonoBehaviour {
         estadoActual = EstadoJuego.Batalla;
         controladoraBatalla.IniciarPelea(controladoraMundo.personajesSeleccionados, new System.Collections.Generic.List<Enemigo>());
         
-        //Instantiate(controladorDB.DBpersonajes.GetPersonajeByID(IDPersonajes.Trasher).GO);
+
         controladoraBatalla.PrepararJugadorScripts();
     }
 
@@ -79,7 +79,7 @@ public class GameMaster : MonoBehaviour {
         controladoraNiveles.OnGUI();
         if (estadoActual == EstadoJuego.Batalla)
         {
-            controladoraHUD.OnGUI();
+            hudBatalla.OnGUI();
         }
         
         
@@ -91,6 +91,7 @@ public class GameMaster : MonoBehaviour {
         {
             controladoraHUD.Update();
             controladoraBatalla.Update();
+            hudBatalla.Update();
             
         }
     }

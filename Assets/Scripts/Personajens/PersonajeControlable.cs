@@ -35,6 +35,7 @@ public class PersonajeControlable : PersonajeBase {
 		lineRenderer.SetColors(Color.blue, Color.cyan);
 		lineRenderer.SetWidth(0.2F, 0.2F);
 		lineRenderer.SetVertexCount(1);
+        base.Awake();
 
     }
 
@@ -80,8 +81,6 @@ public class PersonajeControlable : PersonajeBase {
                         {
 					        target.RemoveAt(0);
                         }
-			
-			    
                     }
                     else
                     { //significa que ha llegado al destino
@@ -114,24 +113,7 @@ public class PersonajeControlable : PersonajeBase {
                 {
                     case ComportamientoJugador.MarcandoCamino:
                         {
-                            Rect aceptar = new Rect(Screen.width * 3 / 4, 0, Screen.width / 4, Screen.height / 5);
-                            GUI.Box(aceptar, "");
-                            if (GUI.Button(new Rect(aceptar.x + aceptar.width / 8, aceptar.height / 2 - 10, aceptar.width / 4, 20), "Aceptar"))
-                            {
-                                comportamientoActual = ComportamientoJugador.Moviendo;
-                                lineRenderer.SetVertexCount(target.Count+1);
-                                i = 0;
-                            }
-                            if (GUI.Button(new Rect(aceptar.x + aceptar.width * 5 / 8, aceptar.height / 2 - 10, aceptar.width / 4, 20), "Cancelar"))
-                            {
-                                foreach (GameObject g in target)
-                                {
-                                    Destroy(g);
-                                }
-				                lineRenderer.SetVertexCount (1);
-                                target.Clear();
-                                comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
-                            }
+                            HUDBatalla.InstanceRef().showMovConfPlayer = true;
                             break;
                         }
                 }
@@ -139,6 +121,8 @@ public class PersonajeControlable : PersonajeBase {
         }
 
 	}
+
+    
 
 
 
@@ -151,6 +135,26 @@ public class PersonajeControlable : PersonajeBase {
 			target.Clear ();
 		}
 	}
+
+    public void AceptarMovimiento()
+    {
+        comportamientoActual = ComportamientoJugador.Moviendo;
+        lineRenderer.SetVertexCount(target.Count + 1);
+        i = 0;
+        HUDBatalla.InstanceRef().showMovConfPlayer = false ;
+    }
+
+    public void CancelarMovimiento() 
+    {
+        foreach (GameObject g in target)
+        {
+            Destroy(g);
+        }
+        lineRenderer.SetVertexCount(1);
+        target.Clear();
+        comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
+        HUDBatalla.InstanceRef().showMovConfPlayer = false;
+    }
 
     
 
