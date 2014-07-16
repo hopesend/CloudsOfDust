@@ -77,12 +77,12 @@ public class GameMaster : MonoBehaviour {
     void OnGUI()
     {
         controladoraNiveles.OnGUI();
+		controladoraHUD.OnGUI ();   
         if (estadoActual == EstadoJuego.Batalla)
         {
             hudBatalla.OnGUI();
         }
-        
-        
+
     }
 
     void Update()

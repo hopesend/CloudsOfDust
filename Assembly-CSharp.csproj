@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\Controladores\ControladoraTurno.cs" />
      <Compile Include="Assets\Scripts\Controladores\GameMaster.cs" />
      <Compile Include="Assets\Scripts\Controladores\HUD.cs" />
+     <Compile Include="Assets\Scripts\Controladores\HUDBatalla.cs" />
      <Compile Include="Assets\Scripts\Controladores\InputManager.cs" />
      <Compile Include="Assets\Scripts\Controladores\Turnos\Turno.cs" />
      <Compile Include="Assets\Scripts\DB\Controladores\DBMaster.cs" />
@@ -98,6 +99,13 @@
      <Compile Include="Assets\Scripts\Personajens\Enemigo.cs" />
      <Compile Include="Assets\Scripts\Personajens\Equipamento.cs" />
      <Compile Include="Assets\Scripts\Personajens\HAPQ.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\AtaqueBasico.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\HabilidadBase.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\HabilidadFisica.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\HabilidadNanoEnergetica.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\IDamage.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\IHeal.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\TipoElementoDamage.cs" />
      <Compile Include="Assets\Scripts\Personajens\NPC.cs" />
      <Compile Include="Assets\Scripts\Personajens\PersonajeBase.cs" />
      <Compile Include="Assets\Scripts\Personajens\PersonajeControlable.cs" />

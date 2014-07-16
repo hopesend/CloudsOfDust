@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public class HUD {
-	
-	
-
 	//Variables Texto
 	public bool mostrarInteraccion = false;
 	public string cabecera;
@@ -14,9 +11,7 @@ public class HUD {
 	public int ventanaIDTextos = 1;
 	private Vector2 posicionBarraScrollTextos;
 	//--------------
-
-
-
+	
     public static HUD instanceRef;
 
     public static HUD InstanceRef()
@@ -28,30 +23,22 @@ public class HUD {
 
         return instanceRef;
     }
-
-
 	
-
 	// Use this for initialization
-	public HUD() {
+	public HUD() 
+	{
 	}
 
-    public void Update(){
+    public void Update()
+	{
     }
 
-    
-	
-	// Update is called once per frame
-	
-	
 	public void OnGUI()
 	{
-		//Todo lo que vaya en la GUI, hay que insertarla en metodos...
     	if (mostrarInteraccion) 
 		{
 			mostrarHudInteraccion();
-		}
-        
+		}    
 	}
 
 	private void mostrarHudInteraccion()
@@ -67,7 +54,7 @@ public class HUD {
 			VentanaDescripciones();
 			break;
 		case 2:	
-			//VentanaConversaciones();
+			VentanaConversaciones();
 			break;
 		}
 	}
@@ -84,6 +71,22 @@ public class HUD {
 		GUILayout.EndScrollView();
 	}
 
-	
+	public void VentanaConversaciones()
+	{
+		posicionBarraScrollTextos = GUILayout.BeginScrollView (posicionBarraScrollTextos);
+			GUILayout.BeginVertical ();
+				foreach (Texto nuevoTexto in cuerpo) 
+				{
+					/*if (GUILayout.Button(textoBoton1))
+					{
+						Insertar_Label_Tabla(true, textoBoton1, Color.green);
+						posicionBarraScrollObjeto.y = Mathf.Infinity;
+						Limpiar_Datos();
+						Iniciar_Conversacion(numeroPregunta1.ToString(), ControladorEstadoJugador.instanceRef.objetoPulsado.tag.ToString ());
+					}*/
+				}
+			GUILayout.EndVertical();
+		GUILayout.EndScrollView();
+	}
 }
 
