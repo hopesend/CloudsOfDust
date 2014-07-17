@@ -113,6 +113,7 @@ public class ControladoraBaseBatalla{
     {
         foreach (PersonajeControlable a in jugadores)
         {
+            a.transform.position = new Vector3(0f, 0.5f, 0f);
             a.GetComponent<ThirdPersonController>().enabled = false;
             a.GetComponent<HAPQ>().enabled = false;
             a.GetComponent<Historia>().enabled = false;
