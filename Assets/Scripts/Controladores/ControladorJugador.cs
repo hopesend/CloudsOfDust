@@ -116,6 +116,11 @@ public class ControladorJugador
 						else
                             nodo.InnerText = jugador.rap.Valor.ToString();
 						break;
+            case "MOV": if (seleccion)
+                            jugador.mov.Valor = int.Parse(nodo.InnerText);
+                        else
+                            nodo.InnerText = jugador.mov.Valor.ToString();
+                        break;
 
 			case "SUE": if(seleccion)
                             jugador.sue.Valor = int.Parse(nodo.InnerText);

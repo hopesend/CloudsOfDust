@@ -10,8 +10,9 @@
 		<ESP>5</ESP>
 		<EVA>10</EVA>
 		<PNT>5</PNT>
-		<RAP>10</RAP>
+		<RAP>25</RAP>
 		<SUE>1</SUE>
+    <MOV>100</MOV>
 	</Parametros>
 	<Habilidades>
 		<Movimiento>

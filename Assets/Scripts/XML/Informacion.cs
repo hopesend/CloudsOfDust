@@ -29,10 +29,10 @@ public class Informacion
 	/// el valor del id del texto que lanza ese personaje
 	/// </param>
 	/// <param name="personaje">
-	/// el nombre del personaje que lanza un texto
+	/// el Nombre del personaje que lanza un texto
 	/// </param>
 	/// <return>
-	/// Devuelve una lista de Objetos tipo Texto
+	/// Devuelve una lista de Objetos Tipo Texto
 	/// </return>
 	public List<Texto> Devolver_Texto(string id, string personaje)
 	{
@@ -65,10 +65,10 @@ public class Informacion
 	/// el valor del id del texto que lanza ese personaje
 	/// </param>
 	/// <param name="personaje">
-	/// el nombre del personaje que lanza un texto
+	/// el Nombre del personaje que lanza un texto
 	/// </param>
 	/// <return>
-	/// Devuelve una lista de Objetos tipo Texto
+	/// Devuelve una lista de Objetos Tipo Texto
 	/// </return>
 	public List<Texto> Devolver_Texto_HAPQ(string id, string personaje)
 	{
@@ -104,10 +104,10 @@ public class Informacion
 	/// el valor del id del texto que lanza ese personaje
 	/// </param>
 	/// <param name="personaje">
-	/// el nombre del personaje que lanza un texto
+	/// el Nombre del personaje que lanza un texto
 	/// </param>
 	/// <return>
-	/// Devuelve una lista de Objetos tipo Texto
+	/// Devuelve una lista de Objetos Tipo Texto
 	/// </return>
 	public List<Texto> Devolver_Texto_Pantallas(string id, string objeto)
 	{

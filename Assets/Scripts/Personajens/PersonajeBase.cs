@@ -9,9 +9,11 @@ public class PersonajeBase : MonoBehaviour {
 
     public ComportamientoJugador comportamientoActual;
 
+    public List<Habilidad> listaHabilidades;
 
+    #region parametros
 
-	public struct parametro{
+    public struct parametro{
 		/// <summary>
 		/// Valor absoluto del parametro
 		/// </summary>
@@ -95,16 +97,16 @@ public class PersonajeBase : MonoBehaviour {
     /// <summary>
     /// Rapidez
     /// </summary>
-    [SerializeField]
 	public parametro rap;
 
     /// <summary>
     /// Suerte
     /// </summary>
-	public parametro sue; 
+	public parametro sue;
 
+    #endregion
 
-	// Use this for initialization
+    // Use this for initialization
 	public virtual void Start () {
 	}
 	
@@ -116,6 +118,7 @@ public class PersonajeBase : MonoBehaviour {
     public virtual void Awake()
     {
         comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
+        listaHabilidades = new List<Habilidad>();
     }
 	//Gets y Sets
 		//Nombre

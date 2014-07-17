@@ -12,11 +12,12 @@ public class PersonajeControlable : PersonajeBase {
 
 	public List<GameObject> target = new List<GameObject>();
 	int i; //auxiliar
-	int movimiento; //maximo movimiento
 	Plane planoBatalla;
 	public LineRenderer lineRenderer;
+    public List<Vector3> listaPosicionLine = new List<Vector3>();
 
-    public int rapide;
+    public float movimientoRestante;
+    public float gastoActual;
 
     public Equipamento Equipamento
     {
@@ -41,7 +42,6 @@ public class PersonajeControlable : PersonajeBase {
 
     public override void Update()
     {
-        rapide = rap.Valor;
         if (GameMaster.instanceRef.EstadoActual == EstadoJuego.Batalla)
         {
             switch (comportamientoActual)
@@ -55,12 +55,14 @@ public class PersonajeControlable : PersonajeBase {
                         RaycastHit hit;
 			            Physics.Raycast (ray,out hit);
 			            lineRenderer.SetPosition (target.Count+1,hit.point);
+                        gastoActual = Vector3.Distance(listaPosicionLine[listaPosicionLine.Count-1], hit.point);
                         if (Input.GetKeyDown(KeyCode.Mouse1)){
                             GameObject t = new GameObject("Target" + target.Count.ToString());
                             t.transform.position = hit.point;
                             t.tag = "Target";
                             target.Add(t);
-                            target[target.Count-1].transform.position = hit.point;
+                            listaPosicionLine.Add(hit.point);
+                            mov.Actual -= (int)gastoActual;
                         }
 				        
                         
@@ -68,7 +70,7 @@ public class PersonajeControlable : PersonajeBase {
                     }
                 case ComportamientoJugador.Moviendo: //Movimiento
                     if (i < target.Count)
-                    { //si estamos dentro del rango de target
+                    { //si estamos dentro del Rango de target
                         lineRenderer.SetPosition (0,transform.position);
                         if (Vector3.Distance(transform.position, target[i].transform.position) > 0.01)
                         {//si no ha llegado al siguiente destino
@@ -79,16 +81,13 @@ public class PersonajeControlable : PersonajeBase {
                         }
                         else
                         {
+                            Destroy(target[0]);
 					        target.RemoveAt(0);
                         }
                     }
                     else
                     { //significa que ha llegado al destino
                         comportamientoActual = ComportamientoJugador.MovimientoFinalizado;
-                        
-                        foreach (GameObject g in target){
-                            Destroy (g);
-                        }
                         target.Clear();
                     }
 
@@ -126,15 +125,22 @@ public class PersonajeControlable : PersonajeBase {
 
 
 
-	public void MoverBatalla(int CantidadMovimiento)
+	public void MoverBatalla()
 	{
         comportamientoActual = ComportamientoJugador.MarcandoCamino;
-		movimiento = CantidadMovimiento;
+        movimientoRestante = mov.Actual;
 		lineRenderer.SetPosition(0,transform.position);
+        listaPosicionLine.Add(transform.position);
 		if (target.Count>0){
 			target.Clear ();
 		}
 	}
+
+    public void NOMoverBatalla()
+    {
+        comportamientoActual = ComportamientoJugador.MovimientoFinalizado;
+        
+    }
 
     public void AceptarMovimiento()
     {

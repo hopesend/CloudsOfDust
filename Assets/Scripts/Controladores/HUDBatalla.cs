@@ -91,6 +91,8 @@ public class HUDBatalla{
     private void MostrarMovConfPlayer()
     {
         Rect aceptar = new Rect(Screen.width * 3 / 4, 0, Screen.width / 4, Screen.height / 5);
+        GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200, 20), "Movimiento restante :" + personajeActual.mov.Actual.ToString());
+        GUI.Label(new Rect(Screen.width / 2, (Screen.height / 2) +50, 200, 20), "Gasto actual :" + personajeActual.gastoActual.ToString()); 
         GUI.Box(aceptar, "");
         if (GUI.Button(new Rect(aceptar.x + aceptar.width / 8, aceptar.height / 2 - 10, aceptar.width / 4, 20), "Aceptar"))
         {
@@ -123,8 +125,13 @@ public class HUDBatalla{
                 {
                     if (GUI.Button(new Rect(0, 0, 100, 20), "Mover"))
                     {
-                        personajeActual.MoverBatalla(20);
+                        personajeActual.MoverBatalla();
                     }
+                    if (GUI.Button(new Rect(0, 20, 100, 20), "No Mover"))
+                    {
+                        personajeActual.NOMoverBatalla();
+                    }
+
                 }
                 GUI.EndScrollView();
             }
