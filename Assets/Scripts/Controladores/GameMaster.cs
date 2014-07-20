@@ -63,6 +63,8 @@ public class GameMaster : MonoBehaviour {
 
         controladoraNiveles.CambiarSceneSegunEnum(pantallaInicial);
         controladoraNiveles.estadoActivo.NivelCargado();
+
+		Inicializar_Valores_XML ();
     }
 
     public void IniciarPelea()
@@ -127,11 +129,28 @@ public class GameMaster : MonoBehaviour {
             string destino = null;
             TextAsset origen = null;
 
-            //Creacion del xml de los textos
+			//Archivo para las conversaciones y textos que se mostraran en el juego
             origen = (TextAsset)Resources.Load("XML/spa/Conversaciones", typeof(TextAsset));
             destino = Path.Combine(UserPath, "Conversaciones.xml");
             if (!File.Exists(destino))
                 Crear_Fichero(origen, destino);
+			else
+			{
+				//TODO: quitar cuando se termine el juego
+				File.Delete(destino);
+				Crear_Fichero(origen, destino);
+			}
+
+			//Archivo para informacion sobre la HAPQ
+			origen = (TextAsset)Resources.Load("XML/HAPQ", typeof(TextAsset));
+			destino = Path.Combine(UserPath, "HAPQ.xml");
+			if (!File.Exists(destino))
+				Crear_Fichero(origen, destino);
+			{
+				//TODO: quitar cuando se termine el juego
+				File.Delete(destino);
+				Crear_Fichero(origen, destino);
+			}
         }
         catch
         {
@@ -153,10 +172,6 @@ public class GameMaster : MonoBehaviour {
         {
             Console.WriteLine(ex.Message);
         }
-    }
-
-    public void Lanzar_Pantalla(int id)
-    {
     }
 
     private PersonajeControlable InstanciarJugador(DataDBPersonaje data, Vector3 pos)

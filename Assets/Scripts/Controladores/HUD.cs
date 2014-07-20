@@ -3,14 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class HUD {
-	//Variables Texto
+public class HUD 
+{
+	//Variables Mensaje Interaccion
+	[HideInInspector]
 	public bool mostrarInteraccion = false;
+	[HideInInspector]
 	public string cabecera;
+	[HideInInspector]
 	public List<Texto> cuerpo;
+	[HideInInspector]
 	public int ventanaIDTextos = 1;
 	private Vector2 posicionBarraScrollTextos;
 	//--------------
+
+	//Variables Boton Mensaje Nuevo HAPQ
+	[HideInInspector]
+	public bool mostrarMensajeHAPQ = false;
+	[HideInInspector]
+	public string idMensajeHAPQ;
+	public string ObjetoMensajeHAPQ;
+	//--------------
+
 	
     public static HUD instanceRef;
 
@@ -35,10 +49,23 @@ public class HUD {
 
 	public void OnGUI()
 	{
-    	if (mostrarInteraccion) 
+		if (mostrarInteraccion)
 		{
-			mostrarHudInteraccion();
-		}    
+			mostrarHudInteraccion ();
+		} 
+
+		if (mostrarMensajeHAPQ) 
+		{
+			mostrarHudMensajeHAPQ();
+		}
+	}
+
+	private void mostrarHudMensajeHAPQ()
+	{
+		if (GUILayout.Button ("Nuevo Mensaje HAPQ")) 
+		{
+			mostrarMensajeHAPQ = false;
+		}
 	}
 
 	private void mostrarHudInteraccion()
@@ -87,6 +114,20 @@ public class HUD {
 				}
 			GUILayout.EndVertical();
 		GUILayout.EndScrollView();
+	}
+
+	public void InsertarMensajeHAPQ(string id, string objeto)
+	{
+		idMensajeHAPQ = id;
+		ObjetoMensajeHAPQ = objeto;
+
+		Informacion nuevaInformacion = new Informacion();
+		foreach (Texto nuevoTexto in nuevaInformacion.Devolver_Texto_HAPQ (id, objeto)) 
+		{
+			nuevaInformacion.Insertar_Mensaje_HAPQ(nuevoTexto.Receptor, nuevoTexto.TextoMostrar);
+		}
+
+		HUD.instanceRef.mostrarMensajeHAPQ = true;
 	}
 }
 

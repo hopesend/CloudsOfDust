@@ -99,13 +99,11 @@
      <Compile Include="Assets\Scripts\Personajens\Enemigo.cs" />
      <Compile Include="Assets\Scripts\Personajens\Equipamento.cs" />
      <Compile Include="Assets\Scripts\Personajens\HAPQ.cs" />
-     <Compile Include="Assets\Scripts\Personajens\Habilidades\AtaqueBasico.cs" />
-     <Compile Include="Assets\Scripts\Personajens\Habilidades\HabilidadBase.cs" />
-     <Compile Include="Assets\Scripts\Personajens\Habilidades\HabilidadFisica.cs" />
-     <Compile Include="Assets\Scripts\Personajens\Habilidades\HabilidadNanoEnergetica.cs" />
-     <Compile Include="Assets\Scripts\Personajens\Habilidades\IDamage.cs" />
-     <Compile Include="Assets\Scripts\Personajens\Habilidades\IHeal.cs" />
-     <Compile Include="Assets\Scripts\Personajens\Habilidades\TipoElementoDamage.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\EfectosHabilidad.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\Habilidad.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\TipoEfecto.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\TipoHabilidad.cs" />
+     <Compile Include="Assets\Scripts\Personajens\Habilidades\TipoObjetivoEfecto.cs" />
      <Compile Include="Assets\Scripts\Personajens\NPC.cs" />
      <Compile Include="Assets\Scripts\Personajens\PersonajeBase.cs" />
      <Compile Include="Assets\Scripts\Personajens\PersonajeControlable.cs" />
@@ -154,6 +152,7 @@
      <None Include="Assets\PlayerData\XML\Trasher.xml" />
      <None Include="Assets\ShaderBox\Scene\boxroom\BeastSettings.xml" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Diffuse.shader" />
+     <None Include="Assets\Resources\XML\HAPQ.xml" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Opaque Diffuse.shader" />
      <None Include="Assets\Escenarios\Resources\CloudsToy Shaders\CloudRealistic.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

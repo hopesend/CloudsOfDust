@@ -28,6 +28,7 @@ public class EscenarioCasaInterior: IEscenarios
 
 	public void NivelCargado()
 	{
+		HUD.instanceRef.InsertarMensajeHAPQ ("01", "Tuly");
 	}
 	
 	public void Mostrar()

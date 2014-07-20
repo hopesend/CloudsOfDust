@@ -142,6 +142,7 @@
      <None Include="Assets\PlayerData\XML\Trasher.xml" />
      <None Include="Assets\ShaderBox\Scene\boxroom\BeastSettings.xml" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Diffuse.shader" />
+     <None Include="Assets\Resources\XML\HAPQ.xml" />
      <None Include="Assets\Escenarios\Hard Surface Free\HardSurface Shaders\HardSurface Free Cut Out Opaque Diffuse.shader" />
      <None Include="Assets\Escenarios\Resources\CloudsToy Shaders\CloudRealistic.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

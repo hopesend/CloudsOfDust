@@ -16,6 +16,11 @@ public class Informacion
 	private string rutaConversaciones = Application.persistentDataPath+"/GlobalData/XML/Conversaciones.xml";
 
 	/// <summary>
+	/// Variable con la Ruta del xml del HAPQ
+	/// </summary>
+	private string rutaHAPQ = Application.persistentDataPath+"/GlobalData/XML/HAPQ.xml";
+
+	/// <summary>
 	/// Constructor de la Clase
 	/// </summary>
 	public Informacion()
@@ -134,5 +139,56 @@ public class Informacion
 		} 
 		
 		return listaAuxiliar;
+	}
+
+	/// <summary>
+	/// Metodo para la Devolucion de la lista de Mensajes guardados en xml de HAPQ
+	/// </summary>
+	/// <return>
+	/// Devuelve una lista de Objetos Tipo Texto
+	/// </return>
+	public List<Texto> Devolver_Lista_Mensajes_HAPQ()
+	{
+		List<Texto> listaAuxiliar = new List<Texto> ();
+		
+		if (File.Exists (rutaConversaciones)) 
+		{
+			CloudsXML archivoHAPQ = new CloudsXML ();
+			archivoHAPQ.Abrir (rutaHAPQ);
+			
+			XmlNode nodoPersonaje = archivoHAPQ.DevolverElementos("Mensajes")[0];
+			foreach(XmlNode nodoHijo in nodoPersonaje.ChildNodes)
+			{
+				listaAuxiliar.Add(new Texto(nodoHijo.Attributes["personaje"].Value.ToString(), nodoHijo.InnerText));
+			}
+			
+			archivoHAPQ.Cerrar ();
+		} 
+		
+		return listaAuxiliar;
+	}
+
+	/// <summary>
+	/// Metodo para la insercion de nuevo mensaje en la lista de mensajes leidos y por leer de la HAPQ
+	/// </summary>
+	/// <param name="personaje">
+	/// el nombre del personaje u objeto que lanza el mensaje
+	/// </param>
+	/// <param name="texto">
+	/// el texto que que a lanzado el personaje u objeto
+	/// </param>
+	public void Insertar_Mensaje_HAPQ(string personaje, string texto)
+	{
+		if (File.Exists (rutaHAPQ)) 
+		{
+			CloudsXML archivoHAPQ = new CloudsXML ();
+			archivoHAPQ.Abrir (rutaHAPQ);
+
+			XmlNode nodoAuxiliar = archivoHAPQ.CrearElemento("Mensajes", "Mensaje", texto, new string[]{"personaje:"+personaje});
+
+			archivoHAPQ.Grabar();
+			
+			archivoHAPQ.Cerrar ();
+		} 
 	}
 }

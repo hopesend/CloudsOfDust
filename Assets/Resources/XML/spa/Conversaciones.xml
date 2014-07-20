@@ -2,10 +2,10 @@
 <Config>
   <Conversaciones>
     <HAPQ>
-      <Mensaje personaje="Tuly">Trasher, despierta... Hoy tienes que ir a por la nueva versión de tu HAPQ, que ganas tengo de cumplir 21 para poder ir yo… Por cierto, felicidades dormilón. Trasher, antes de convertirte en un adulto aburrido me prometiste una última batalla a CloudsMagic. Estaré en la plaza.</Mensaje>
-      <Mensaje personaje="Leveler">Viaje a la Sede Gubernamental: 15 Aureos</Mensaje>
-      <Mensaje personaje="Ascensor">-Actualizaciones.</Mensaje>
-      <Mensaje personaje="Doctor">Actualizacion Completada</Mensaje>
+      <Mensaje id="01" personaje="Tuly">Trasher, despierta... Hoy tienes que ir a por la nueva versión de tu HAPQ, que ganas tengo de cumplir 21 para poder ir yo… Por cierto, felicidades dormilón. Trasher, antes de convertirte en un adulto aburrido me prometiste una última batalla a CloudsMagic. Estaré en la plaza.</Mensaje>
+      <Mensaje id="01" personaje="Leveler">Viaje a la Sede Gubernamental: 15 Aureos</Mensaje>
+      <Mensaje id="01" personaje="Ascensor">-Actualizaciones.</Mensaje>
+      <Mensaje id="01" personaje="Doctor">Actualizacion Completada</Mensaje>
     </HAPQ>
     <Leveler>
       <Mensaje id="01">Los guardianes de la Oween han vuelto a hacer una excelente labor en el desfile del día pasado.</Mensaje>
