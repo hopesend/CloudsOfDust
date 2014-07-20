@@ -13,6 +13,8 @@ public class HUD
 	[HideInInspector]
 	public List<Texto> cuerpo;
 	[HideInInspector]
+	public List<Texto> preguntas;
+	[HideInInspector]
 	public int ventanaIDTextos = 1;
 	private Vector2 posicionBarraScrollTextos;
 	//--------------
@@ -51,6 +53,10 @@ public class HUD
 	{
 		if (mostrarInteraccion)
 		{
+			if(cuerpo[0].Conversacion)
+				ventanaIDTextos = 2;
+			else
+				ventanaIDTextos = 1;
 			mostrarHudInteraccion ();
 		} 
 
@@ -70,7 +76,7 @@ public class HUD
 
 	private void mostrarHudInteraccion()
 	{
-		GUILayout.Window (ventanaIDTextos, new Rect(0, Screen.height-(Screen.height/5), Screen.width, Screen.height), Creacion_Ventana_Textos, cabecera);
+		GUILayout.Window (ventanaIDTextos, new Rect(0, Screen.height-(Screen.height/3), Screen.width, Screen.height), Creacion_Ventana_Textos, cabecera);
 	}
 
 	private void Creacion_Ventana_Textos(int Id) 
@@ -102,18 +108,36 @@ public class HUD
 	{
 		posicionBarraScrollTextos = GUILayout.BeginScrollView (posicionBarraScrollTextos);
 			GUILayout.BeginVertical ();
+				//Mostrar Texto
 				foreach (Texto nuevoTexto in cuerpo) 
 				{
-					/*if (GUILayout.Button(textoBoton1))
-					{
-						Insertar_Label_Tabla(true, textoBoton1, Color.green);
-						posicionBarraScrollObjeto.y = Mathf.Infinity;
-						Limpiar_Datos();
-						Iniciar_Conversacion(numeroPregunta1.ToString(), ControladorEstadoJugador.instanceRef.objetoPulsado.tag.ToString ());
-					}*/
+					GUILayout.Label(nuevoTexto.TextoMostrar);
 				}
+
+				//Mostrar Preguntas
+				int cont = 0;
+				foreach (Texto nuevoTexto in preguntas) 
+				{
+					if(GUILayout.Button(nuevoTexto.TextoMostrar))
+					{
+						Calcular_Nueva_Conversacion(cont);
+					}
+					cont++;
+				}
+				
 			GUILayout.EndVertical();
 		GUILayout.EndScrollView();
+	}
+
+	private void Calcular_Nueva_Conversacion(int id)
+	{
+		Texto preguntaSeleccionada = preguntas [id];
+
+		Informacion nuevaInformacion = new Informacion();
+		cuerpo = nuevaInformacion.Devolver_Texto(preguntaSeleccionada.CodigoReceptor, preguntaSeleccionada.Receptor);
+
+		if(!cuerpo [0].Receptor.Contains("Salida"))
+			preguntas = nuevaInformacion.Devolver_Texto (cuerpo [0].CodigoReceptor, cuerpo [0].Receptor);
 	}
 
 	public void InsertarMensajeHAPQ(string id, string objeto)

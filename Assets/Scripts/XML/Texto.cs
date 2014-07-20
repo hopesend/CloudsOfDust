@@ -46,6 +46,16 @@ public class Texto
 	}
 
 	/// <summary>
+	/// Variable que devuelve mantiene un true si el texto esta expuesto a una conversacion y false si solo es un texto
+	/// </summary>
+	private bool conversacion;
+	public bool Conversacion
+	{
+		get { return conversacion; }
+		set { conversacion = value; }
+	}
+
+	/// <summary>
 	/// Constructor de la clase para Conversaciones
 	/// </summary>
 	/// <param name="nuevoId">
@@ -64,6 +74,11 @@ public class Texto
 	{
 		Id = nuevoId;
 		Receptor = nuevoReceptor;
+		if (Receptor.Contains ("Salida")) 
+			Conversacion = false;
+		else
+			Conversacion = true;
+		
 		CodigoReceptor = nuevoCodigo;
 		TextoMostrar = nuevoTexto;
 	}
