@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
-using System;
 using Clouds.xml;
 using System.Xml;
 
 public class GameMaster : MonoBehaviour {
+
     //Esto sirve para debug nomas
     public ScenesParaCambio pantallaInicial;
 
@@ -34,7 +34,27 @@ public class GameMaster : MonoBehaviour {
 
     public HUDBatalla hudBatalla;
 
-    public static GameMaster instanceRef;
+    private static GameMaster instanceRef;
+
+    public static GameMaster InstanceRef
+    {
+        get 
+        {
+            if (instanceRef != null)
+            {
+                return instanceRef;
+            }
+            else
+            {
+                GameObject go = Resources.Load("GameMaster", typeof(GameObject)) as GameObject;
+                GameObject instaciado = Object.Instantiate(go) as GameObject;
+
+                instanceRef = instaciado.GetComponent<GameMaster>();
+            }
+
+            return instanceRef; 
+        }
+    }
 
     void Awake()
     {
@@ -42,16 +62,16 @@ public class GameMaster : MonoBehaviour {
         {
             instanceRef = this;
             DontDestroyOnLoad(this);
-            Init();
+            InitHandlers();
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         
     }
 
-    void Init()
+    void InitHandlers()
     {
         //-------------- Inicializo los Handlers ----------------\\
         controladoraMundo = ControladorBaseMundo.InstanceRef();
@@ -60,6 +80,9 @@ public class GameMaster : MonoBehaviour {
         controladoraHUD = HUD.InstanceRef();
         hudBatalla = HUDBatalla.InstanceRef();
         hudBatalla.PrepararTexturas();
+        pantallaInicial = pantallaInicial.SetEscenarioActual();
+        
+        
 
         controladoraNiveles.CambiarSceneSegunEnum(pantallaInicial);
         controladoraNiveles.estadoActivo.NivelCargado();
@@ -105,7 +128,17 @@ public class GameMaster : MonoBehaviour {
     public void InicializarMundo(Vector3 posJugador)
     {
         controladoraMundo.dinero = 100;
-        controladoraMundo.AddPersonajeSeleccionado(InstanciarJugador(controladorDB.DBpersonajes.GetPersonajeByID(IDPersonajes.Trasher), posJugador), true); ;
+
+        PersonajeControlable temp = GameObject.FindObjectOfType<PersonajeControlable>();
+        if (temp == null)
+        {
+            controladoraMundo.AddPersonajeSeleccionado(InstanciarJugador(controladorDB.DBpersonajes.GetPersonajeByID(IDPersonajes.Trasher), posJugador), true);
+        }
+        else
+        {
+            controladoraMundo.AddPersonajeSeleccionado(temp, true);
+        }
+        
         
         
     }
@@ -170,11 +203,11 @@ public class GameMaster : MonoBehaviour {
         }
         catch (IOException ex)
         {
-            Console.WriteLine(ex.Message);
+            //Console.WriteLine(ex.Message);
         }
     }
 
-    private PersonajeControlable InstanciarJugador(DataDBPersonaje data, Vector3 pos)
+    public PersonajeControlable InstanciarJugador(DataDBPersonaje data, Vector3 pos)
     {
         PersonajeControlable temp = Instantiate(data.GO, pos, Quaternion.identity) as PersonajeControlable;
         controladorJugador.Cargar_Datos_XML(temp);

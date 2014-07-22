@@ -62,50 +62,50 @@ public class ControladorNiveles
     public void IrMenuPrincipal()
     {
         estadoActivo = new MenuPrincipal(this);
-        GameMaster.instanceRef.EstadoActual = EstadoJuego.MenuPrincipal;
+        GameMaster.InstanceRef.EstadoActual = EstadoJuego.MenuPrincipal;
     }
 
     public void IrSceneVecindario()
     {
         estadoActivo = new EscenarioVecindario(this);
-        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+        GameMaster.InstanceRef.EstadoActual = EstadoJuego.Mundo;
     }
 
     public void IrSceneSalaActualizacion()
     {
         estadoActivo = new EscenarioSalaActualizacion(this);
-        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+        GameMaster.InstanceRef.EstadoActual = EstadoJuego.Mundo;
     }
 
     public void IrSceneCasaInterior()
     {
         estadoActivo = new EscenarioCasaInterior(this);
-        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+        GameMaster.InstanceRef.EstadoActual = EstadoJuego.Mundo;
     }
 
     public void IrSceneRecepcion()
     {
         estadoActivo = new EscenarioRecepcion(this);
-        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+        GameMaster.InstanceRef.EstadoActual = EstadoJuego.Mundo;
     }
 
     public void IrSceneInteriorLeveler()
     {
         estadoActivo = new EscenarioInteriorLeveler(this);
-        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+        GameMaster.InstanceRef.EstadoActual = EstadoJuego.Mundo;
     }
 
     public void IrSceneEdificioOficial()
     {
         estadoActivo = new EscenarioEdificioOficial(this);
-        GameMaster.instanceRef.EstadoActual = EstadoJuego.Mundo;
+        GameMaster.InstanceRef.EstadoActual = EstadoJuego.Mundo;
     }
 
     public void IrSceneBatallaTutorial()
     {
-        lastPosWorld = GameMaster.instanceRef.controladoraMundo.PosicionPersonajeWorld;
+        lastPosWorld = GameMaster.InstanceRef.controladoraMundo.PosicionPersonajeWorld;
         estadoActivo = new EscenarioBatallaTutorial(this);
-        GameMaster.instanceRef.EstadoActual = EstadoJuego.Batalla;
+        GameMaster.InstanceRef.EstadoActual = EstadoJuego.Batalla;
     }
 
     public void CambiarSceneSegunEnum(ScenesParaCambio temp)
@@ -125,6 +125,12 @@ public class ControladorNiveles
             case ScenesParaCambio.BatallaTutorial:
                 {
                     IrSceneBatallaTutorial();
+                    break;
+                }
+
+            case ScenesParaCambio.CasaInterior:
+                {
+                    IrSceneCasaInterior();
                     break;
                 }
         }

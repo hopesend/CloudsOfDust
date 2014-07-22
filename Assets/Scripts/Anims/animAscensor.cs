@@ -16,7 +16,7 @@ public class animAscensor : MonoBehaviour {
 	void Update () {
 		if (ascensor.GetCurrentAnimatorStateInfo (0).IsName ("AscensorArriba")) 
 		{
-            GameMaster.instanceRef.controladoraNiveles.IrSceneSalaActualizacion();
+            GameMaster.InstanceRef.controladoraNiveles.IrSceneSalaActualizacion();
 		}
 	}
 

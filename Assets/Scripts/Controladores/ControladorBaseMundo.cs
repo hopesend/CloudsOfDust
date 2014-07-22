@@ -87,6 +87,9 @@ public class ControladorBaseMundo
         personajesSeleccionados[0].GetComponent<Historia>().enabled = true;
     }
 
+    /// <summary>
+    /// Cambia la posicion del personaje que se muestra en el juego
+    /// </summary>
     public Vector3 PosicionPersonajeWorld
     {
         get { return personajesSeleccionados[0].transform.position; }

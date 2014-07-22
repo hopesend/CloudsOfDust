@@ -24,8 +24,9 @@ public class EscenarioVecindario: IEscenarios
 
     public void NivelCargado()
 	{
-        GameMaster.instanceRef.InicializarMundo(posicionInicial);
-        GameMaster.instanceRef.controladoraMundo.PrepararJugadorScripts();
+        GameMaster.InstanceRef.InicializarMundo(posicionInicial);
+        GameMaster.InstanceRef.controladoraMundo.PrepararJugadorScripts();
+        GameMaster.InstanceRef.controladoraMundo.PosicionPersonajeWorld = GameObject.FindGameObjectWithTag("Respawn").transform.position;
 
 	}
 	

@@ -29,7 +29,7 @@ public class EscenarioBatallaTutorial : IEscenarios {
 
     public void NivelCargado()
     {
-        GameMaster.instanceRef.IniciarPelea();
+        GameMaster.InstanceRef.IniciarPelea();
     }
 
 

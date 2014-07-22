@@ -42,7 +42,7 @@ public class PersonajeControlable : PersonajeBase {
 
     public override void Update()
     {
-        if (GameMaster.instanceRef.EstadoActual == EstadoJuego.Batalla)
+        if (GameMaster.InstanceRef.EstadoActual == EstadoJuego.Batalla)
         {
             switch (comportamientoActual)
             {
@@ -104,7 +104,7 @@ public class PersonajeControlable : PersonajeBase {
 
 	public void OnGUI(){
 
-        if (GameMaster.instanceRef.EstadoActual == EstadoJuego.Batalla)
+        if (GameMaster.InstanceRef.EstadoActual == EstadoJuego.Batalla)
         {
             if (target.Count > 0)
             {

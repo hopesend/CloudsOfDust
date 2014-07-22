@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour {
                 if (hit.collider.tag == "Arena")
                 {
                     
-                    //ControladorJugador.instanceRef.OrdenarMover(ControladorJugador.instanceRef.trasher, hit.point);
+                    //ControladorJugador.InstanceRef.OrdenarMover(ControladorJugador.InstanceRef.trasher, hit.point);
                 }
             }
         }

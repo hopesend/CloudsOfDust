@@ -9,7 +9,7 @@ public class SaltoEscena : MonoBehaviour {
 	{
 		if (other.transform.tag == "Player")
 		{
-            GameMaster.instanceRef.controladoraNiveles.CambiarSceneSegunEnum(cambiarA);
+            GameMaster.InstanceRef.controladoraNiveles.CambiarSceneSegunEnum(cambiarA);
 		}
 	}
 }
