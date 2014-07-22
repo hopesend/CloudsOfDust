@@ -129,6 +129,14 @@ public class GameMaster : MonoBehaviour {
     {
         controladoraMundo.dinero = 100;
 
+        BuscarOInstanciar(posJugador);
+        
+        
+        
+    }
+
+    public void BuscarOInstanciar(Vector3 posJugador)
+    {
         PersonajeControlable temp = GameObject.FindObjectOfType<PersonajeControlable>();
         if (temp == null)
         {
@@ -136,11 +144,9 @@ public class GameMaster : MonoBehaviour {
         }
         else
         {
+            temp.transform.position = posJugador;
             controladoraMundo.AddPersonajeSeleccionado(temp, true);
         }
-        
-        
-        
     }
 
     void OnLevelWasLoaded(int level)

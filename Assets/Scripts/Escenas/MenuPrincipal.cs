@@ -25,7 +25,7 @@ public class MenuPrincipal: IEscenarios
 		Rect menu = new Rect(Screen.width/2-50,Screen.height/2-80,100,400);
 		if (GUI.Button (new Rect (menu.x, menu.y, 100, 30), "Nuevo Juego")) {
 
-			manager.IrSceneCasaInterior();
+            manager.IrSceneVecindario();
 		}
 		GUI.Button(new Rect(menu.x, menu.y+40, 100,30), "Cargar");
 		GUI.Button(new Rect(menu.x, menu.y+80, 100,30), "Opciones");
