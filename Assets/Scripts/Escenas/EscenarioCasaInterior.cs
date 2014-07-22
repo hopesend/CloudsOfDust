@@ -29,18 +29,7 @@ public class EscenarioCasaInterior: IEscenarios
 	public void NivelCargado()
 	{
 		HUD.instanceRef.InsertarMensajeHAPQ ("01", "Tuly");
-
-        PersonajeControlable temp = GameObject.FindObjectOfType<PersonajeControlable>();
-        if (temp == null)
-        {
-            GameMaster.InstanceRef.controladoraMundo.AddPersonajeSeleccionado(GameMaster.InstanceRef.InstanciarJugador(GameMaster.InstanceRef.controladorDB.DBpersonajes.GetPersonajeByID(IDPersonajes.Trasher), GameObject.FindGameObjectWithTag("Respawn").transform.position), true);
-        }
-        else
-        {
-            GameMaster.InstanceRef.controladoraMundo.AddPersonajeSeleccionado(temp, true);
-            GameMaster.InstanceRef.controladoraMundo.PosicionPersonajeWorld = GameObject.FindGameObjectWithTag("Respawn").transform.position;
-        }
-        //
+        GameMaster.InstanceRef.BuscarOInstanciar(GameObject.FindGameObjectWithTag("Respawn").transform.position);
 	}
 	
 	public void Mostrar()
