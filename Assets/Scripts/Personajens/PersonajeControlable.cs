@@ -62,7 +62,7 @@ public class PersonajeControlable : PersonajeBase {
                             t.tag = "Target";
                             target.Add(t);
                             listaPosicionLine.Add(hit.point);
-                            mov.Actual -= (int)gastoActual;
+                            Movimiento.ValorActual -= (int)gastoActual;
                         }
 				        
                         
@@ -128,7 +128,7 @@ public class PersonajeControlable : PersonajeBase {
 	public void MoverBatalla()
 	{
         comportamientoActual = ComportamientoJugador.MarcandoCamino;
-        movimientoRestante = mov.Actual;
+        movimientoRestante = Movimiento.ValorActual;
 		lineRenderer.SetPosition(0,transform.position);
         listaPosicionLine.Add(transform.position);
 		if (target.Count>0){

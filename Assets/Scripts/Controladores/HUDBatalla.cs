@@ -21,6 +21,7 @@ public class HUDBatalla{
     bool b_magia;
     bool b_objeto;
     public Vector2 scrollPosition = Vector2.zero;
+    int i = 0;
 
 
     public PersonajeControlable personajeActual;
@@ -122,14 +123,21 @@ public class HUDBatalla{
                 scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width / 3, 0, Ataques.width * 2 / 3, Ataques.height), scrollPosition, new Rect(0, 0, Ataques.width * 2 / 3, Screen.height));
                 if (personajeActual.comportamientoActual == ComportamientoJugador.EsperandoComportamiento)
                 {
-                    if (GUI.Button(new Rect(0, 0, 100, 20), "Mover"))
+                    
+                    foreach (Habilidad habiliad in personajeActual.listaHabilidades)
                     {
-                        personajeActual.MoverBatalla();
+                        
+                        if (habiliad.Tipo == TipoHabilidad.Movimiento)
+                        {
+                            if (GUI.Button(new Rect(0, 0+20*i, 100, 20), new GUIContent(habiliad.Nombre, habiliad.Descripcion)))
+                            {
+                                habiliad.EjecutarMovimiento(personajeActual);
+                                personajeActual.MoverBatalla();
+                            }
+                            i++;
+                        }
                     }
-                    if (GUI.Button(new Rect(0, 20, 100, 20), "No Mover"))
-                    {
-                        personajeActual.NOMoverBatalla();
-                    }
+                    i = 0;
 
                 }
 
@@ -139,7 +147,7 @@ public class HUDBatalla{
 
             if (personajeActual.comportamientoActual == ComportamientoJugador.MarcandoCamino)
             {
-                GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200, 20), "Movimiento restante :" + personajeActual.mov.Actual.ToString());
+                GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200, 20), "Movimiento restante :" + personajeActual.GetMovimientoFinal().ToString());
                 GUI.Label(new Rect(Screen.width / 2, (Screen.height / 2) + 50, 200, 20), "Gasto actual :" + personajeActual.gastoActual.ToString());
             }
         }
@@ -194,25 +202,25 @@ public class HUDBatalla{
             PersonajeControlable temp = ControladoraBaseBatalla.jugadores[i];
             GUI.backgroundColor = Color.clear;
             GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 5, 100, 30), temp.Get_Nombre()); //Nombre
-            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 35, 100, 30), "Vit: " + temp.vit.Actual + "/" + temp.vit.Valor); //vitalidad
-            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 55, 100, 30), "Esn: " + temp.esn.Actual + "/" + temp.esn.Valor);	//estamina
-            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 75, 100, 40), "PM: " + temp.pm.Actual + "/" + temp.pm.Valor);	//puntos magicos
+            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 35, 100, 30), "Vit: " + temp.Vitalidad.ValorActual + "/" + temp.Vitalidad.ValorBase);
+            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 55, 100, 30), "Est: " + temp.Estamina.ValorActual + "/" + temp.Estamina.ValorBase);
+            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 75, 100, 40), "PM: " + temp.PM.ValorActual + "/" + temp.PM.ValorBase);
 
 
             GUI.backgroundColor = Color.red;
             textura1.SetPixel(1, 1, Color.red);
             style1.normal.background = textura1;
-            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 40, temp.vit.Actual * (Screen.width / 3 - 110) / temp.vit.Valor, 10), "", style1);
+            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 40, temp.Vitalidad.ValorActual * (Screen.width / 3 - 110) / temp.Vitalidad.ValorBase, 10), "", style1);
 
             GUI.backgroundColor = Color.green;
             textura2.SetPixel(1, 1, Color.green);
             style2.normal.background = textura2;
-            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 60, temp.esn.Actual * (Screen.width / 3 - 110) / temp.esn.Valor, 10), "", style2);
+            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 60, temp.Estamina.ValorActual * (Screen.width / 3 - 110) / temp.Estamina.ValorBase, 10), "", style2);
 
             GUI.backgroundColor = Color.blue;
             textura3.SetPixel(1, 1, Color.yellow);
             style3.normal.background = textura3;
-            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 80, temp.pm.Actual * (Screen.width / 3 - 110) / temp.pm.Valor, 10), "", style3);
+            GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 80, temp.PM.ValorActual * (Screen.width / 3 - 110) / temp.PM.ValorBase, 10), "", style3);
 
             GUI.Box(new Rect(HUDBox.x + 105, HUDBox.y + 5, ControladoraBaseBatalla.InstanceRef().controladoraTurno.listaOrdenTurnos[0].TiempoActual * (Screen.width / 3 - 110) / 100, 10), "", style3);
         }

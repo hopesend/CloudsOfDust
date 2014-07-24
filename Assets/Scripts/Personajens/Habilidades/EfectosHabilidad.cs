@@ -1,41 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class EfectosHabilidad {
-    TipoEfecto tipo;
+    public TipoEfecto tipoEfecto;
 
-    public TipoEfecto Tipo
+    public TipoEfecto TipoEfecto
     {
-        get { return tipo; }
-        set { tipo = value; }
+        get { return tipoEfecto; }
+        set { tipoEfecto = value; }
     }
-    int duracion;
+    public int duracion;
 
     public int Duracion
     {
         get { return duracion; }
         set { duracion = value; }
     }
-    TipoObjetivoEfecto tipoObjEfecto;
+    public TipoObjetivoEfecto tipoObjEfecto;
 
     public TipoObjetivoEfecto TipoObjEfecto
     {
         get { return tipoObjEfecto; }
         set { tipoObjEfecto = value; }
     }
-    PersonajeBase.parametro statAfectado;
+    public NombreAtributo statAfectado;
 
-    public PersonajeBase.parametro StatAfectado
+    public NombreAtributo StatAfectado
     {
         get { return statAfectado; }
         set { statAfectado = value; }
     }
-    float cantidadAfectada;
+    public float cantidadAfectada;
 
     public float CantidadAfectada
     {
         get { return cantidadAfectada; }
         set { cantidadAfectada = value; }
     }
+
+    public TipoModificador modificador;
+
+    public TipoModificador Modificador
+    {
+        get { return modificador; }
+        set { modificador = value; }
+    }
+
+    public EstadosAlterados estadoAlterado;
+
+    public EstadosAlterados EstadoAlterado
+    {
+        get { return estadoAlterado; }
+        set { estadoAlterado = value; }
+    }
+
+    
 
 }

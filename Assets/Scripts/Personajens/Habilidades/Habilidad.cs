@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Habilidad : ScriptableObject {
-    string nombre;
+[System.Serializable]
+public class Habilidad {
+    public string nombre;
 
     public string Nombre
     {
         get { return nombre; }
         set { nombre = value; }
     }
-    float costoPM;
+    public string descripcion;
+
+
+    public string Descripcion
+    {
+        get { return descripcion; }
+        set { descripcion = value; }
+    }
+    public float costoPM;
 
     public float CostoPM
     {
@@ -52,5 +61,30 @@ public class Habilidad : ScriptableObject {
         set { tipo = value; }
     }
 
-    public List<EfectosHabilidad> efectos;
+    public List<EfectosHabilidad> efectos = new List<EfectosHabilidad>();
+
+    public void AgregarEfecto(EfectosHabilidad nuevo)
+    {
+        if (nuevo != null)
+        {
+            efectos.Add(nuevo);
+        }
+    }
+
+    public void EjecutarMovimiento(PersonajeBase caster)
+    {
+        if (this.tipo == TipoHabilidad.Movimiento)
+        {
+            caster.Estamina.ValorActual -= costoEst;
+            caster.PM.ValorActual -= costoPM;
+            if (this.efectos.Count > 0)
+            {
+                foreach (EfectosHabilidad efecto in efectos)
+                {
+                    caster.AgregarAtributoAlterado(new AtributosAlterados(efecto.Duracion, efecto.StatAfectado, efecto.cantidadAfectada, efecto.Modificador));
+                }
+            }
+
+        }
+    }
 }

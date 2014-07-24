@@ -144,6 +144,7 @@ public class GameMaster : MonoBehaviour {
         }
         else
         {
+            controladorJugador.Cargar_Datos_XML(temp);
             temp.transform.position = posJugador;
             controladoraMundo.AddPersonajeSeleccionado(temp, true);
         }
@@ -216,6 +217,7 @@ public class GameMaster : MonoBehaviour {
     public PersonajeControlable InstanciarJugador(DataDBPersonaje data, Vector3 pos)
     {
         PersonajeControlable temp = Instantiate(data.GO, pos, Quaternion.identity) as PersonajeControlable;
+        temp.name = temp.Get_Nombre();
         controladorJugador.Cargar_Datos_XML(temp);
         return temp;
     }

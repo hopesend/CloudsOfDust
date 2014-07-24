@@ -11,100 +11,29 @@ public class PersonajeBase : MonoBehaviour {
 
     public List<Habilidad> listaHabilidades;
 
-    #region parametros
+    public List<AtributosAlterados> listaAtributosAlterados = new List<AtributosAlterados>();
 
-    public struct parametro{
-		/// <summary>
-		/// Valor absoluto del parametro
-		/// </summary>
-        private int valor;
+    public BaseAtributo Movimiento;
+    public BaseAtributo Vitalidad;
+    public BaseAtributo Estamina;
+    public BaseAtributo PM;
+    public BaseAtributo Fuerza;
+    public BaseAtributo Resistencia;
+    public BaseAtributo Concentracion;
+    public BaseAtributo Espiritu;
+    public BaseAtributo Evasion;
+    public BaseAtributo Punteria;
+    public BaseAtributo Rapidez;
+    public BaseAtributo Suerte;
 
-        /// <summary>
-        /// Al setear esta variable, cargo el valor actual con la misma
-        /// </summary>
-        public int Valor
-        {
-            get { return valor; }
-            set 
-            { 
-                valor = value;
-                actual = valor;
-            }
-        }
+    public float GetMovimientoFinal()
+    {
+        float temp = 0;
+        temp = Movimiento.ValorActual;
+        temp += listaAtributosAlterados.ReturnValorModificaciones(NombreAtributo.Movimiento);
+        return temp;
+    }
 
-		/// <summary>
-		/// Valor Actual, modificado mediante accesorios y buffs
-		/// </summary>
-        private int actual;
-
-        public int Actual
-        {
-            get { return actual; }
-            set { actual = value; }
-        }
-	}
-     [SerializeField]
-    /// <summary>
-    /// Movimiento
-    /// </summary>
-	public parametro mov; 
-
-    /// <summary>
-    /// Vitalidad
-    /// </summary>
-	public parametro vit;
-
-    /// <summary>
-    /// Estamina
-    /// </summary>
-	public parametro esn;
-
-    /// <summary>
-    /// Puntos Magicos
-    /// </summary>
-    public parametro pm;
-
-    /// <summary>
-    /// Fuerza
-    /// </summary>
-	public parametro fue; 
-
-    /// <summary>
-    /// Resistencia
-    /// </summary>
-	public parametro res; 
-
-    /// <summary>
-    /// Concentracion
-    /// </summary>
-	public parametro con;
-
-    /// <summary>
-    /// Espiritu
-    /// </summary>
-	public parametro esp;
-
-    /// <summary>
-    /// Evasion
-    /// </summary>
-	public parametro eva;
-
-    /// <summary>
-    /// Punteria
-    /// </summary>
-	public parametro pnt;
-
-    /// <summary>
-    /// Rapidez
-    /// </summary>
-	public parametro rap;
-
-    /// <summary>
-    /// Suerte
-    /// </summary>
-	public parametro sue;
-
-    #endregion
 
     // Use this for initialization
 	public virtual void Start () {
@@ -118,7 +47,9 @@ public class PersonajeBase : MonoBehaviour {
     public virtual void Awake()
     {
         comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
+        InicializarAtributos();
         listaHabilidades = new List<Habilidad>();
+        
     }
 	//Gets y Sets
 		//Nombre
@@ -148,5 +79,111 @@ public class PersonajeBase : MonoBehaviour {
         return estadosAlterados.Remove(estadoCurar);
     }
 
+    public void AgregarHabilidad(Habilidad nuevahabilidad)
+    {
+        if (nuevahabilidad != null)
+        {
+            listaHabilidades.Add(nuevahabilidad);
+        }
+    }
 
+    private void InicializarAtributos()
+    {
+        Movimiento = new BaseAtributo(NombreAtributo.Movimiento);
+        Vitalidad = new BaseAtributo(NombreAtributo.Vitalidad);
+        Estamina = new BaseAtributo(NombreAtributo.Estamina);
+        PM = new BaseAtributo(NombreAtributo.PM);
+        Fuerza = new BaseAtributo(NombreAtributo.Fuerza);
+        Resistencia = new BaseAtributo(NombreAtributo.Resistencia);
+        Concentracion = new BaseAtributo(NombreAtributo.Concentracion);
+        Espiritu = new BaseAtributo(NombreAtributo.Espiritu);
+        Evasion = new BaseAtributo(NombreAtributo.Evasion);
+        Punteria = new BaseAtributo(NombreAtributo.Punteria);
+        Rapidez = new BaseAtributo(NombreAtributo.Rapidez);
+        Suerte = new BaseAtributo(NombreAtributo.Suerte);
+    }
+
+    public void AgregarAtributoAlterado(AtributosAlterados nuevo)
+    {
+        listaAtributosAlterados.Add(CalcularModificacionAtributo(nuevo));
+        
+    }
+
+    private AtributosAlterados CalcularModificacionAtributo(AtributosAlterados nuevo)
+    {
+        switch (nuevo.atributoAfectado)
+        {
+            case NombreAtributo.Movimiento:
+                {
+                    if (nuevo.modificador == TipoModificador.Multiplicador)
+                    {
+                        nuevo.montoModificado = (nuevo.cantidadAModificar * Movimiento.ValorBase)-Movimiento.ValorBase;
+                    }
+
+                    if (nuevo.modificador == TipoModificador.Unidad)
+                    {
+                        //temp += att.cantidad;
+                    }
+                    break;
+                }
+                
+            case NombreAtributo.Vitalidad:
+                break;
+            case NombreAtributo.Estamina:
+                break;
+            case NombreAtributo.PM:
+                break;
+            case NombreAtributo.Fuerza:
+                break;
+            case NombreAtributo.Resistencia:
+                break;
+            case NombreAtributo.Concentracion:
+                break;
+            case NombreAtributo.Espiritu:
+                break;
+            case NombreAtributo.Evasion:
+                break;
+            case NombreAtributo.Punteria:
+                break;
+            case NombreAtributo.Rapidez:
+                break;
+            case NombreAtributo.Suerte:
+                break;
+            default:
+                break;
+        }
+
+        return nuevo;
+    }
+
+    public void VerificarAtributosAlterados()
+    {
+        listaAtributosAlterados.RemoveAll(item => item.duracionRestante == 0);
+    }
+
+    public void RestarTurno()
+    {
+        foreach (AtributosAlterados item in listaAtributosAlterados)
+        {
+            item.TurnoAtributoAlterado();
+        }
+    }
+
+
+}
+
+public static class ExtensionList
+{
+    public static float ReturnValorModificaciones(this List<AtributosAlterados> att, NombreAtributo nombre)
+    {
+        float temp = 0;
+        foreach (AtributosAlterados item in att)
+        {
+            if (item.atributoAfectado == nombre)
+            {
+                temp += item.montoModificado;
+            }
+        }
+        return temp;
+    }
 }

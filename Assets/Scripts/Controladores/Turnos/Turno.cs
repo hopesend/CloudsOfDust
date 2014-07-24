@@ -17,6 +17,9 @@ public class Turno {
     public void Listo()
     {
         listo = true;
+
+        personaje.VerificarAtributosAlterados();
+        personaje.RestarTurno();
         
     }
 
@@ -35,7 +38,7 @@ public class Turno {
     {
         if (!listo)
         {
-            tiempoActual += personaje.rap.Valor * Time.deltaTime; 
+            tiempoActual += personaje.Rapidez.ValorActual * Time.deltaTime; 
         }
     }
 
@@ -51,6 +54,6 @@ public class Turno {
         }
 
         listo = false;
-        personaje.comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
+        //personaje.comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
     }
 }

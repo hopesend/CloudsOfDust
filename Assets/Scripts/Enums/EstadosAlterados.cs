@@ -5,5 +5,5 @@ using System.Text;
 
 public enum EstadosAlterados
 {
-    Paralizis,
+    NONE, Paralizis,
 }
