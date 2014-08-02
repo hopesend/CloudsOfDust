@@ -56,13 +56,17 @@ public class PersonajeControlable : PersonajeBase {
 			            Physics.Raycast (ray,out hit);
 			            lineRenderer.SetPosition (target.Count+1,hit.point);
                         gastoActual = Vector3.Distance(listaPosicionLine[listaPosicionLine.Count-1], hit.point);
-                        if (Input.GetKeyDown(KeyCode.Mouse1)){
-                            GameObject t = new GameObject("Target" + target.Count.ToString());
-                            t.transform.position = hit.point;
-                            t.tag = "Target";
-                            target.Add(t);
-                            listaPosicionLine.Add(hit.point);
-                            Movimiento.ValorActual -= (int)gastoActual;
+                        if (gastoActual < Movimiento.ValorActual)
+                        {
+                            if (Input.GetKeyDown(KeyCode.Mouse1))
+                            {
+                                GameObject t = new GameObject("Target" + target.Count.ToString());
+                                t.transform.position = hit.point;
+                                t.tag = "Target";
+                                target.Add(t);
+                                listaPosicionLine.Add(hit.point);
+                                Movimiento.ValorActual -= (int)gastoActual;
+                            } 
                         }
 				        
                         
