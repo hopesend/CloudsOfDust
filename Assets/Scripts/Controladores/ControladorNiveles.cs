@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System;
+/// <summary>
+/// Encargada de manejar los cambios de escenarios
+/// </summary>
 [System.Serializable]
 public class ControladorNiveles
 {
-	//[HideInInspector]
+    /// <summary>
+    /// Escenario actual.
+    /// </summary>
 	public IEscenarios estadoActivo;
 
     /// <summary>
@@ -110,7 +115,7 @@ public class ControladorNiveles
 
     public void CambiarSceneSegunEnum(ScenesParaCambio temp)
     {
-        switch (temp) 
+        switch (temp)
         {
             case ScenesParaCambio.MenuPrincipal:
                 {
@@ -127,12 +132,38 @@ public class ControladorNiveles
                     IrSceneBatallaTutorial();
                     break;
                 }
-
+            case ScenesParaCambio.Batalla:
+                break;
+            case ScenesParaCambio.EdificioOficial:
+                {
+                    IrSceneEdificioOficial();
+                    break;
+                }
             case ScenesParaCambio.CasaInterior:
                 {
                     IrSceneCasaInterior();
                     break;
                 }
+            case ScenesParaCambio.InteriorLeveler:
+                {
+                    IrSceneInteriorLeveler();
+                    break;
+                }
+            case ScenesParaCambio.Recepcion:
+                {
+                    IrSceneRecepcion();
+                    break;
+                }
+            case ScenesParaCambio.SalaActualizacion:
+                {
+                    IrSceneSalaActualizacion();
+                    break;
+                }
+            default:
+                break;
         }
+
+
+        
     }
 }

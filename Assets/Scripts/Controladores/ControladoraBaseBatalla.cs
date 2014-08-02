@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/// <summary>
+/// Controla todos los aspectos de las batallas.
+/// </summary>
 [System.Serializable]
 public class ControladoraBaseBatalla{
 
     [SerializeField]
     public ControladoraTurno controladoraTurno;
 
+    /// <summary>
+    /// La fase en que se encuentra la batalla.
+    /// </summary>
     public FasesBatalla faseActual = FasesBatalla.EsperandoTurno;
 
     private static ControladoraBaseBatalla instanceRef;
@@ -21,10 +27,19 @@ public class ControladoraBaseBatalla{
         return instanceRef;
     }
 
-
+    /// <summary>
+    /// Lista de jugadores participantes en la batalla.
+    /// </summary>
     public static List<PersonajeControlable> jugadores= new List<PersonajeControlable>();
+
+    /// <summary>
+    /// Lista de enemigos en la batalla.
+    /// </summary>
     public static List<Enemigo> enemigos = new List<Enemigo>();
 
+    /// <summary>
+    /// Turno listo, sacado de la controladora de Turnos.
+    /// </summary>
     private Turno turnoActual;
 
     public Turno TurnoActual
@@ -109,6 +124,10 @@ public class ControladoraBaseBatalla{
         enemigos.AddRange(enemi);
     }
 
+
+    /// <summary>
+    /// Prepara los GO de la lista de Jugadores, para que funcionen correctamente en la scene de batalla
+    /// </summary>
     public void PrepararJugadorScripts()
     {
         foreach (PersonajeControlable a in jugadores)

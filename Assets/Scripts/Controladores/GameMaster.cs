@@ -3,12 +3,16 @@ using System.Collections;
 using System.IO;
 using Clouds.xml;
 using System.Xml;
+using System;
 
+/// <summary>
+/// Se encarga de Incializar todas las controladoras, y hace las llamadas a los metodos mas importantes del juego.
+/// </summary>
 public class GameMaster : MonoBehaviour {
 
-    //Esto sirve para debug nomas
-    public ScenesParaCambio pantallaInicial;
-
+    /// <summary>
+    /// en que estado se encuentra el juego.
+    /// </summary>
     public EstadoJuego estadoActual;
 
     public EstadoJuego EstadoActual
@@ -47,7 +51,7 @@ public class GameMaster : MonoBehaviour {
             else
             {
                 GameObject go = Resources.Load("GameMaster", typeof(GameObject)) as GameObject;
-                GameObject instaciado = Object.Instantiate(go) as GameObject;
+                GameObject instaciado = UnityEngine.Object.Instantiate(go) as GameObject;
 
                 instanceRef = instaciado.GetComponent<GameMaster>();
             }
@@ -58,6 +62,7 @@ public class GameMaster : MonoBehaviour {
 
     void Awake()
     {
+
         if (instanceRef == null)
         {
             instanceRef = this;
@@ -71,6 +76,9 @@ public class GameMaster : MonoBehaviour {
         
     }
 
+    /// <summary>
+    /// Inicia las controladoras, carga los datos globales del juego, y carga el nivel que estamos en controladora Niveles.
+    /// </summary>
     void InitHandlers()
     {
         //-------------- Inicializo los Handlers ----------------\\
@@ -80,16 +88,18 @@ public class GameMaster : MonoBehaviour {
         controladoraHUD = HUD.InstanceRef();
         hudBatalla = HUDBatalla.InstanceRef();
         hudBatalla.PrepararTexturas();
-        pantallaInicial = pantallaInicial.SetEscenarioActual();
-        
-        
 
-        controladoraNiveles.CambiarSceneSegunEnum(pantallaInicial);
+
+
+        controladoraNiveles.CambiarSceneSegunEnum((ScenesParaCambio)Enum.Parse(typeof(ScenesParaCambio), Application.loadedLevelName));
         controladoraNiveles.estadoActivo.NivelCargado();
 
 		Inicializar_Valores_XML ();
     }
 
+    /// <summary>
+    /// Inicio la pelea, pasando los jugadores seleccioandos en COntroladoraMundo y creando los enemigos
+    /// </summary>
     public void IniciarPelea()
     {
         estadoActual = EstadoJuego.Batalla;
@@ -122,7 +132,7 @@ public class GameMaster : MonoBehaviour {
     }
 
     /// <summary>
-    /// Llamar este metodo solo una vez en todo el juego.
+    /// Inicializa el mundo, Buscando o instanciado el jugador Actual
     /// </summary>
     /// <param name="posJugador"></param>
     public void InicializarMundo(Vector3 posJugador)
@@ -135,6 +145,11 @@ public class GameMaster : MonoBehaviour {
         
     }
 
+
+    /// <summary>
+    /// Busca o Instancia un jugador
+    /// </summary>
+    /// <param name="posJugador">Posicion en el Mundo que debe estar</param>
     public void BuscarOInstanciar(Vector3 posJugador)
     {
         PersonajeControlable temp = GameObject.FindObjectOfType<PersonajeControlable>();
@@ -210,7 +225,7 @@ public class GameMaster : MonoBehaviour {
         }
         catch (IOException ex)
         {
-            //Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 
+/// </summary>
 public class EntradaEscena : MonoBehaviour {
 
 	//public int escenaAnterior;
@@ -118,4 +121,6 @@ public class EntradaEscena : MonoBehaviour {
 	void Iniciar(){
 
 	}
+
+    
 }

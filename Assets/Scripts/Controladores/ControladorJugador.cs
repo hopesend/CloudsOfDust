@@ -27,6 +27,11 @@ public class ControladorJugador
 		
 	}
 
+    /// <summary>
+    /// Carga los datos del jugador buscando en un XML.
+    /// </summary>
+    /// <param name="jugador">Jugador que le cargare los datos</param>
+    /// <returns></returns>
 	public bool Cargar_Datos_XML(PersonajeControlable jugador)
 	{
 		string xmlPersonaje = Path.Combine(Application.dataPath,"PlayerData/XML/"+jugador.Get_Nombre()+".xml");
@@ -94,6 +99,12 @@ public class ControladorJugador
         jugador.AgregarHabilidad(nueva);
     }
 
+    /// <summary>
+    /// Obtener/Guardar valores del XMl de Stats.
+    /// </summary>
+    /// <param name="jugador">Jugador que estoy manejando</param>
+    /// <param name="nodo"></param>
+    /// <param name="seleccion">Obtener = true / Guardar = false</param>
 	private void Pasar_Valor_Stats (PersonajeControlable jugador, XmlNode nodo, bool seleccion)
 	{
 		//si es true rescatamos valores, si es false guardamos valores
@@ -267,7 +278,7 @@ public class ControladorJugador
                 }
 		}
 	}
-
+    [Obsolete("En realidad los XML ya estan creados")]
 	public bool Inicializar_Valores_XML(DataDBPersonaje data)
 	{
 		string UserPath = Application.persistentDataPath + @"/PlayerData/XML";
@@ -356,10 +367,5 @@ public class ControladorJugador
                 }
         }
         return false;
-    }
-
-    public void OrdenarMover(PersonajeControlable personaje, Vector3 pos)
-    {
-        
     }
 }

@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Encargada de animar los ascensores en el juego.
+/// </summary>
 public class animAscensor : MonoBehaviour {
 
+    /// <summary>
+    /// Cache de Animator
+    /// </summary>
 	public Animator ascensor;
 
 	bool animacion;

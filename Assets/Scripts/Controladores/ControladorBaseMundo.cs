@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/// <summary>
+/// Controla todos los aspectos del Mundo.
+/// </summary>
 [System.Serializable]
 public class ControladorBaseMundo
 {
@@ -11,10 +14,15 @@ public class ControladorBaseMundo
     
 
 	//Variables publicas o privadas
-	public float dinero;
-	public int escenaActual;
-	public Vector3[] entrada;
 
+    /// <summary>
+    /// Dinero actual del Jugador.
+    /// </summary>
+	public float dinero;
+
+    /// <summary>
+    /// Cantidad maxima de jugadores seleccioandos.
+    /// </summary>
     int cantidadJugadoresSeleccionados = 3;
 
     /// <summary>
@@ -38,6 +46,11 @@ public class ControladorBaseMundo
         personajesSeleccionados = new List<PersonajeControlable>(cantidadJugadoresSeleccionados);
 	}
 
+    /// <summary>
+    /// Agrega un nuevo jugador a los Personajes Seleccionados
+    /// </summary>
+    /// <param name="nuevo">El nuevo jugador</param>
+    /// <param name="isWorldPlayer">Es el que aparece en el Mundo ??</param>
     public void AddPersonajeSeleccionado(PersonajeControlable nuevo, bool isWorldPlayer)
     {
         if (nuevo != null)
@@ -61,7 +74,12 @@ public class ControladorBaseMundo
         }
     }
 
-
+    /// <summary>
+    /// Remueve un jugador y agrega otro nuevo
+    /// </summary>
+    /// <param name="nuevo">Jugador nuevo</param>
+    /// <param name="aRemover">El Jugador que tengo que remover.</param>
+    /// <param name="isWorldPlayer">Es el que aparece en el Mundo ??</param>
     public void CambiarPersonajeSeleccionado(PersonajeControlable nuevo, PersonajeControlable aRemover, bool isWorldPlayer)
     {
         if (personajesSeleccionados.Remove(aRemover))
@@ -80,6 +98,9 @@ public class ControladorBaseMundo
         }
     }
 
+    /// <summary>
+    /// Prepara los GO de la lista de Jugadores, para que funcionen correctamente en la scene de batalla
+    /// </summary>
     public void PrepararJugadorScripts()
     {
         personajesSeleccionados[0].GetComponent<ThirdPersonController>().enabled = true;

@@ -1,19 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Una instancia de turno.
+/// </summary>
 [System.Serializable]
 public class Turno {
 
+    /// <summary>
+    /// Personaje dueño del turno.
+    /// </summary>
     public PersonajeBase personaje;
 
     public PersonajeBase Personaje
     {
         get { return personaje; }
     }
+    /// <summary>
+    /// Tiempo que lleva el turno cargandose.
+    /// </summary>
     public float tiempoActual = 0;
 
+    /// <summary>
+    /// Esta listo el turno ??
+    /// </summary>
    public bool listo = false;
 
+    /// <summary>
+    /// Listo el turno !!
+    /// </summary>
     public void Listo()
     {
         listo = true;
@@ -29,6 +44,10 @@ public class Turno {
         get { return tiempoActual; }
     }
 
+    /// <summary>
+    /// Constructor obligatorio. 
+    /// </summary>
+    /// <param name="_personaje">El dueño del turno</param>
     public Turno(PersonajeBase _personaje)
     {
         personaje = _personaje;
@@ -42,6 +61,10 @@ public class Turno {
         }
     }
 
+    /// <summary>
+    /// Resta tiempo del turno, al usar una habilidad.
+    /// </summary>
+    /// <param name="tiempoRestar">El tiempo que hay que restar.</param>
     public void UsarHabilidad(float tiempoRestar)
     {
         if ((tiempoActual - tiempoRestar) <= 0)
