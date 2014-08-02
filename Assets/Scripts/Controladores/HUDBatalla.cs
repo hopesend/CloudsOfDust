@@ -144,16 +144,6 @@ public class HUDBatalla{
                 
                 GUI.EndScrollView();
             }
-
-            if (personajeActual.comportamientoActual == ComportamientoJugador.MarcandoCamino)
-            {
-                GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200, 20), "Movimiento restante :" + personajeActual.GetMovimientoFinal().ToString());
-                GUI.Label(new Rect(Screen.width / 2, (Screen.height / 2) + 50, 200, 20), "Gasto actual :" + personajeActual.gastoActual.ToString());
-            }
-        }
-
-        if (ControladoraBaseBatalla.InstanceRef().faseActual == FasesBatalla.Accion)
-        {
             if (b_fisico = GUILayout.Toggle(b_fisico, "Fisico", "Button", GUILayout.Height(Ataques.height / 4 - 5)))
             {
                 b_movimiento = false;
@@ -189,6 +179,13 @@ public class HUDBatalla{
 
                 GUI.EndScrollView();
             }
+
+
+            if (personajeActual.comportamientoActual == ComportamientoJugador.MarcandoCamino)
+            {
+                GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200, 20), "Movimiento restante :" + personajeActual.GetMovimientoFinal().ToString());
+                GUI.Label(new Rect(Screen.width / 2, (Screen.height / 2) + 50, 200, 20), "Gasto actual :" + personajeActual.gastoActual.ToString());
+            }
         }
     }
 
@@ -201,10 +198,10 @@ public class HUDBatalla{
         {
             PersonajeControlable temp = ControladoraBaseBatalla.jugadores[i];
             GUI.backgroundColor = Color.clear;
-            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 5, 100, 30), temp.Get_Nombre()); //Nombre
-            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 35, 100, 30), "Vit: " + temp.Vitalidad.ValorActual + "/" + temp.Vitalidad.ValorBase);
-            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 55, 100, 30), "Est: " + temp.Estamina.ValorActual + "/" + temp.Estamina.ValorBase);
-            GUI.TextArea(new Rect(HUDBox.x + 5, HUDBox.y + 75, 100, 40), "PM: " + temp.PM.ValorActual + "/" + temp.PM.ValorBase);
+            GUI.Label(new Rect(HUDBox.x + 5, HUDBox.y + 5, 100, 30), temp.Get_Nombre()); //Nombre
+            GUI.Label(new Rect(HUDBox.x + 5, HUDBox.y + 35, 100, 30), "Vit: " + temp.Vitalidad.ValorActual + "/" + temp.Vitalidad.ValorBase);
+            GUI.Label(new Rect(HUDBox.x + 5, HUDBox.y + 55, 100, 30), "Est: " + temp.Estamina.ValorActual + "/" + temp.Estamina.ValorBase);
+            GUI.Label(new Rect(HUDBox.x + 5, HUDBox.y + 75, 100, 40), "PM: " + temp.PM.ValorActual + "/" + temp.PM.ValorBase);
 
 
             GUI.backgroundColor = Color.red;

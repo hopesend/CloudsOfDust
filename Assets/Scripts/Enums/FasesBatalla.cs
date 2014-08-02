@@ -12,11 +12,7 @@ public enum FasesBatalla
     /// <summary>
     /// El jugador se esta moviendo.
     /// </summary>
-    Estrategia, 
-    /// <summary>
-    /// El jugador esta elegiendo una accion.
-    /// </summary>
-    Accion, 
+    Estrategia,
     /// <summary>
     /// Se esta ejecutando la accion (animacion)
     /// </summary>

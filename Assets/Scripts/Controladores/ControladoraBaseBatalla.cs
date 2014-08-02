@@ -80,16 +80,6 @@ public class ControladoraBaseBatalla{
                     }
                     break;
                 }
-            case FasesBatalla.Accion:
-                {
-                    if (Input.GetKeyUp(KeyCode.P))
-                    {
-                        turnoActual.UsarHabilidad(50);
-                        faseActual = FasesBatalla.EjecutandoAccion;
-                        
-                    }
-                    break;
-                }
 
             case FasesBatalla.EjecutandoAccion:
                 {
@@ -111,7 +101,7 @@ public class ControladoraBaseBatalla{
 
     void MovimientoFinalizado()
     {
-        faseActual = FasesBatalla.Accion;
+        faseActual = FasesBatalla.EjecutandoAccion;
     }
 
     private void SetPersonajesControlables(List<PersonajeControlable> personajes)
