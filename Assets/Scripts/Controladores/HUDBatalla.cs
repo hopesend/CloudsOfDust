@@ -105,9 +105,9 @@ public class HUDBatalla{
     }
     private void MostrarAccionesPlayer()
     {
-        scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width / 3, 0, Ataques.width * 2 / 3, Ataques.height), scrollPosition, new Rect(0, 0, Ataques.width * 2 / 3, Screen.height));
+        //scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width / 3, 0, Ataques.width * 2 / 3, Ataques.height), scrollPosition, new Rect(0, 0, Ataques.width * 2 / 3, Screen.height));
 
-        GUI.EndScrollView();
+       // GUI.EndScrollView();
 
 
         //Ataques

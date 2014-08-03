@@ -103,7 +103,6 @@ public class ControladorBaseMundo
     /// </summary>
     public void PrepararJugadorScripts()
     {
-        personajesSeleccionados[0].GetComponent<ThirdPersonController>().enabled = true;
         personajesSeleccionados[0].GetComponent<HAPQ>().enabled = true;
         personajesSeleccionados[0].GetComponent<Historia>().enabled = true;
     }

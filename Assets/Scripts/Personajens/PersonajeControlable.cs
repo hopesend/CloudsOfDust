@@ -54,8 +54,12 @@ public class PersonajeControlable : PersonajeBase {
                         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                         RaycastHit hit;
 			            Physics.Raycast (ray,out hit);
-			            lineRenderer.SetPosition (target.Count+1,hit.point);
-                        gastoActual = Vector3.Distance(listaPosicionLine[listaPosicionLine.Count-1], hit.point);
+                        if (Movimiento.ValorActual > 0.5f)
+                        {
+                            lineRenderer.SetPosition(target.Count + 1, hit.point);
+                            gastoActual = Vector3.Distance(listaPosicionLine[listaPosicionLine.Count - 1], hit.point);
+                        }
+                        
                         if (gastoActual < Movimiento.ValorActual)
                         {
                             if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -65,7 +69,7 @@ public class PersonajeControlable : PersonajeBase {
                                 t.tag = "Target";
                                 target.Add(t);
                                 listaPosicionLine.Add(hit.point);
-                                Movimiento.ValorActual -= (int)gastoActual;
+                                Movimiento.ValorActual -=gastoActual;
                             } 
                         }
 				        
