@@ -6,6 +6,7 @@ public class RPG_Camera : MonoBehaviour {
     public static RPG_Camera instance;
 
     public Transform cameraPivot;
+    public float distanceMin = 0.1f;
     public float distance = 5f;
     public float distanceMax = 30f;
     public float mouseSpeed = 8f;
@@ -97,7 +98,7 @@ public class RPG_Camera : MonoBehaviour {
 
     void GetInput() {
 
-        if (distance > 0.1) { // distance > 0.05 would be too close, so 0.1 is fine
+        if (distance > distanceMin) { // distance > 0.05 would be too close, so 0.1 is fine
             Debug.DrawLine(transform.position, transform.position - Vector3.up * camBottomDistance, Color.green);
             camBottom = Physics.Linecast(transform.position, transform.position - Vector3.up * camBottomDistance);
         }
@@ -137,8 +138,8 @@ public class RPG_Camera : MonoBehaviour {
         if (desiredDistance > distanceMax)
             desiredDistance = distanceMax;
 
-        if (desiredDistance < 0.05)
-            desiredDistance = 0.05f;
+        if (desiredDistance < distanceMin)
+            desiredDistance = distanceMin;
     }
 
 
