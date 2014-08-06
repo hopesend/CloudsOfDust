@@ -48,10 +48,20 @@ public class RPG_Controller : MonoBehaviour {
         float vertical = 0f;
 
         if (Input.GetButton("Horizontal Strafe"))
+        {
             horizontalStrafe = Input.GetAxis("Horizontal Strafe") < 0 ? -1f : Input.GetAxis("Horizontal Strafe") > 0 ? 1f : 0f;
+        }
+
+
 
         if (Input.GetButton("Vertical"))
+        {
+            
             vertical = Input.GetAxis("Vertical") < 0 ? -1f : Input.GetAxis("Vertical") > 0 ? 1f : 0f;
+            //Al moverme ajusto mi direccion al de la camera.
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, Camera.main.transform.eulerAngles.y,transform.eulerAngles.z);
+        }
+            
 
         if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
             vertical = 1f;
@@ -76,7 +86,7 @@ public class RPG_Controller : MonoBehaviour {
             }                                      // checks for an arbitrary key if it is pressed and, if true, calls "RPG_Animation.instance.YourAnimation()". After that you add
         }                                          // this method to the other animation clip methods in "RPG_Animation" (do not forget to make it public) 
 
-        rotation.y = Input.GetAxis("Horizontal") * turnSpeed;
+        //rotation.y = Input.GetAxis("Horizontal") * turnSpeed;
     }
 
 
@@ -85,7 +95,7 @@ public class RPG_Controller : MonoBehaviour {
         characterController.Move(playerDirWorld * Time.deltaTime);
 
         transform.Rotate(rotation);
-        if (!Input.GetMouseButton(0))
-            RPG_Camera.instance.RotateWithCharacter();
+        /*if (!Input.GetMouseButton(0))
+            RPG_Camera.instance.RotateWithCharacter();*/
     }
 }
