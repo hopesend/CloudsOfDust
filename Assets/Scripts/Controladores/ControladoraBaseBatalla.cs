@@ -28,6 +28,19 @@ public class ControladoraBaseBatalla{
     }
 
     /// <summary>
+    /// Jugador que estoy posicionando.
+    /// </summary>
+    public PersonajeControlable jugadorEnPosActual;
+
+    /// <summary>
+    /// Index que usare en la lista de jugadores.
+    /// </summary>
+    private int indexPersonajeEnListaPosActual = 0;
+
+    Ray rayPrueba;
+    RaycastHit hit = new RaycastHit();
+
+    /// <summary>
     /// Lista de jugadores participantes en la batalla.
     /// </summary>
     public static List<PersonajeControlable> jugadores= new List<PersonajeControlable>();
@@ -57,11 +70,49 @@ public class ControladoraBaseBatalla{
 	// Update is called once per frame
 	public void Update () {
 
-        controladoraTurno.Update();
+        if (faseActual != FasesBatalla.PosicionandoJugadores)
+        {
+            controladoraTurno.Update();
+        }
+        
 
 
         switch (faseActual)
         {
+            case FasesBatalla.PosicionandoJugadores:
+                {
+                    //Primero los enemigos.
+
+                    //Ahora los jugadores
+                    if (jugadorEnPosActual.enabled == false)
+                    {
+                        jugadorEnPosActual.enabled = true;
+                    }
+
+                    rayPrueba = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    
+                    if (Physics.Raycast(rayPrueba, out hit))
+                    {
+                        if (hit.collider.gameObject.tag == "Respawn")
+                        {
+                            jugadorEnPosActual.transform.position = hit.point;
+                            if (Input.GetMouseButtonUp(0))
+                            {
+                                indexPersonajeEnListaPosActual++;
+                                if (indexPersonajeEnListaPosActual < jugadores.Count)
+                                {
+                                    jugadorEnPosActual = jugadores[indexPersonajeEnListaPosActual];
+                                }
+                                else
+                                {
+                                    faseActual = FasesBatalla.EsperandoTurno;
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
+
             case FasesBatalla.EsperandoTurno:
                 {
                     
@@ -98,7 +149,7 @@ public class ControladoraBaseBatalla{
                 }
         }
 	}
-
+    
     void MovimientoFinalizado()
     {
         faseActual = FasesBatalla.EjecutandoAccion;
@@ -122,21 +173,22 @@ public class ControladoraBaseBatalla{
     {
         foreach (PersonajeControlable a in jugadores)
         {
-            a.transform.position = new Vector3(0f, 0.5f, 0f);
-            a.GetComponent<ThirdPersonController>().enabled = false;
+            a.transform.position = new Vector3(0f, 1f, 0f);
             a.GetComponent<HAPQ>().enabled = false;
             a.GetComponent<Historia>().enabled = false;
             a.GetComponentInChildren<Camera>().enabled = false;
-            a.GetComponentInChildren<MouseOrbitImproved>().enabled = false;
             a.GetComponent<AudioListener>().enabled = false;
+            a.GetComponent<RPG_Controller>().enabled = false;
+            a.GetComponentInChildren<RPG_Camera>().enabled = false;
         }
         
     }
 
     public void IniciarPelea(List<PersonajeControlable> listaPersonajesControlables,List<Enemigo> listaEnemigos)
     {
-        faseActual = FasesBatalla.EsperandoTurno;
+        faseActual = FasesBatalla.PosicionandoJugadores;
         SetPersonajesControlables(listaPersonajesControlables);
+        jugadorEnPosActual = listaPersonajesControlables[indexPersonajeEnListaPosActual];
         SetEnemigos(listaEnemigos);
         controladoraTurno.CargarDatosParaTurnos(listaPersonajesControlables, listaEnemigos);
     }

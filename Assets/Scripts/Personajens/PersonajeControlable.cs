@@ -49,19 +49,20 @@ public class PersonajeControlable : PersonajeBase {
 
                 case ComportamientoJugador.MarcandoCamino:
                     { //Marcar camino
-			
+                        HUDBatalla.InstanceRef().showMovConfPlayer = true;
                         lineRenderer.SetVertexCount (target.Count+2);
                         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                         RaycastHit hit;
 			            Physics.Raycast (ray,out hit);
                         if (Movimiento.ValorActual > 0.5f)
                         {
-                            lineRenderer.SetPosition(target.Count + 1, hit.point);
+                            
                             gastoActual = Vector3.Distance(listaPosicionLine[listaPosicionLine.Count - 1], hit.point);
                         }
                         
                         if (gastoActual < Movimiento.ValorActual)
                         {
+                            lineRenderer.SetPosition(target.Count + 1, hit.point);
                             if (Input.GetKeyDown(KeyCode.Mouse1))
                             {
                                 GameObject t = new GameObject("Target" + target.Count.ToString());
@@ -120,7 +121,7 @@ public class PersonajeControlable : PersonajeBase {
                 {
                     case ComportamientoJugador.MarcandoCamino:
                         {
-                            HUDBatalla.InstanceRef().showMovConfPlayer = true;
+                            
                             break;
                         }
                 }
