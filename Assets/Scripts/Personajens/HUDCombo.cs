@@ -25,63 +25,52 @@ public class HUDCombo : MonoBehaviour
 	private float HEIGHT;
 	private float WIDTH;
 
-	public string keyPressed;
-
-	void Start()
+	public void Start()
 	{
 		if(sizeTexure == 0) sizeTexure = 50;
 		if(marge == 0) marge = 0.25f;
 		HEIGHT = Screen.height;
 		WIDTH = Screen.width;
 	}
-	void OnGUI()
+	public void OnGUI()
 	{
         if(inCombo) //Muestra todos los botones
 		{
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2, HEIGHT/2 - sizeTexure/2, sizeTexure, sizeTexure), imageCombo)) //S
 			{
-				onPressed = true;
-				keyPressed = "S";
+				GetComponent<Combo>().buttonPressed = "5";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2, HEIGHT/2 - sizeTexure/2 + (sizeTexure + marge), sizeTexure, sizeTexure), imageCombo)) //X
 			{
-				onPressed = true;
-				keyPressed = "X";
+				GetComponent<Combo>().buttonPressed = "2";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2, HEIGHT/2 - sizeTexure/2 - (sizeTexure + marge), sizeTexure, sizeTexure), imageCombo)) //W
 			{
-				onPressed = true;
-				keyPressed = "W";
+				GetComponent<Combo>().buttonPressed = "8";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2 - (sizeTexure + marge), HEIGHT/2 - sizeTexure/2, sizeTexure, sizeTexure), imageCombo)) //A
 			{
-				onPressed = true;
-				keyPressed = "A";
+				GetComponent<Combo>().buttonPressed = "4";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2 + (sizeTexure + marge), HEIGHT/2 - sizeTexure/2, sizeTexure, sizeTexure), imageCombo))//D
 			{
-				onPressed = true;
-				keyPressed = "D";
+				GetComponent<Combo>().buttonPressed = "6";
 			}
-			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2 + (sizeTexure + marge), HEIGHT/2 - sizeTexure/2 + (sizeTexure + marge), sizeTexure, sizeTexure), imageCombo))//D
+			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2 + (sizeTexure + marge), HEIGHT/2 - sizeTexure/2 + (sizeTexure + marge), sizeTexure, sizeTexure), imageCombo))//C
 			{
-				onPressed = true;
-				keyPressed = "C";
+				GetComponent<Combo>().buttonPressed = "3";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2 + (sizeTexure + marge), HEIGHT/2 - sizeTexure/2 - (sizeTexure + marge), sizeTexure, sizeTexure), imageCombo))//D
 			{
-				onPressed = true;
-				keyPressed = "E";
+				GetComponent<Combo>().buttonPressed = "9";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2 - (sizeTexure + marge), HEIGHT/2 - sizeTexure/2 + (sizeTexure + marge), sizeTexure, sizeTexure), imageCombo)) //Z
 			{
-				onPressed = true;
-				keyPressed = "Z";
+				GetComponent<Combo>().buttonPressed = "1";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexure/2 - (sizeTexure + marge), HEIGHT/2 - sizeTexure/2 - (sizeTexure + marge), sizeTexure, sizeTexure), imageCombo)) //Q
 			{
-				onPressed = true;
-				keyPressed = "Q";
+				GetComponent<Combo>().buttonPressed = "7";
 			}
 		}
 	}
