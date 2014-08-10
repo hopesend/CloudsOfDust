@@ -37,7 +37,7 @@ public class Combo : MonoBehaviour
 		EVA = EVASION;
 		result = new float[COMBO.Length];
 	}
-	public float[] SucessCombo() return result; //funcion que retorna el porcentaje del combo
+	public float[] SucessCombo() { return result}; //funcion que retorna el porcentaje del combo
 	private void KeyPressed() //retorna la tecla presionada
 	{
 		if(Input.GetKey(KeyCode.Q)) keyPressed = "Q";
