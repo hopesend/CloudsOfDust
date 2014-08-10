@@ -5,16 +5,18 @@ public class Combo : MonoBehaviour
 {
 	private string[] listCombo; //lista del combo a seguir
 	private int nextKey;
-	private string keyCombo;  //tecla a presionar de la lista
 	
 	public string buttonPressed; //tecla clickeada
 	public string keyPressed; // tecla presionada
 
+	private string buttonCombo;
+	private string keyCombo;
+
 	public bool inCombo;
 	public float time;
 	public float timeResponde;
-	private float[] percentage = {100}; //test return 100%
-	private HUDCombo HUDCombo; //declaramos el hud
+	private float[] percentage; //return
+	private float sizeTimeDiscount;
 
 	private void Start() //Default
 	{
@@ -27,6 +29,9 @@ public class Combo : MonoBehaviour
 		GetComponent<HUDCombo> ().inCombo = true;
 		inCombo = true; //activa Combo
 		listCombo = COMBO;
+		nextKey = 0;
+		sizeTimeDiscount = GetComponent<HUDCombo> ().sizeTime / timeResponde;
+
 	}
 	public float[] SucessCombo() //funcion que retorna el porcentaje del combo
 	{
@@ -35,8 +40,6 @@ public class Combo : MonoBehaviour
 	}
 	private void KeyPressed() //retorna la tecla presionada
 	{
-		Event e = new Event ();
-
 		if(Input.GetKey(KeyCode.Q)) keyPressed = "Q";
 		if(Input.GetKey(KeyCode.W)) keyPressed = "W";
 		if(Input.GetKey(KeyCode.E)) keyPressed = "E";
@@ -59,26 +62,41 @@ public class Combo : MonoBehaviour
 	}
 	void Update()
 	{
-		if((keyPressed != "") && (buttonPressed != ""))
-		{
-			Debug.Log(keyPressed + buttonPressed);
-			keyPressed = "";
-			buttonPressed = "";
-		}
-
 		if(inCombo)
 		{
-			time += Time.deltaTime;
-			if(time < timeResponde) //si el tiempo es menor al tiempo disponible...
+			KeyPressed ();
+			if((keyPressed != "") && (buttonPressed != ""))
 			{
+				if(listCombo[nextKey] == keyPressed+buttonPressed) //combinacion correcta
+				{
+					Debug.Log("OK");
+					nextKey++;
+					time = 0;
+				}
+				else //combianacion incorrecta
+				{
+					Debug.Log("NOT OK");
+				}
+				keyPressed = "";
+				buttonPressed = "";
+			}
+			/////<>///////
+			time += Time.deltaTime;
+			if(time > timeResponde) //si el tiempo es mayor al tiempo disponible...
+			{
+				time = 0; //reinciamos tiempo
+				GetComponent<HUDCombo>().inCombo = false;
+				inCombo = false;
 			}
 			else
 			{
-				time = 0; //reinciamos tiempo
-				nextKey++;
+				GetComponent<HUDCombo>().sizeTime = sizeTimeDiscount * (timeResponde - Mathf.Round(time));
 			}
 		}
-		KeyPressed ();
+	}
+	private void Reset()
+	{
+
 	}
 
 
