@@ -15,8 +15,9 @@ public class Combo : MonoBehaviour
 	public bool inCombo;
 	public float time;
 	public float timeResponde;
-	private float[] percentage; //return
+	public float[] result; //return
 	private float sizeTimeDiscount;
+	private int SUE, PNT, EVA;
 
 	private void Start() //Default
 	{
@@ -31,12 +32,14 @@ public class Combo : MonoBehaviour
 		listCombo = COMBO;
 		nextKey = 0;
 		sizeTimeDiscount = GetComponent<HUDCombo> ().sizeTime / timeResponde;
-
+		SUE = SUERTE;
+		PNT = PUNTERIA;
+		EVA = EVASION;
+		result = new float[COMBO.Length];
 	}
 	public float[] SucessCombo() //funcion que retorna el porcentaje del combo
 	{
-
-		return percentage;
+		return result;
 	}
 	private void KeyPressed() //retorna la tecla presionada
 	{
@@ -65,28 +68,29 @@ public class Combo : MonoBehaviour
 		if(inCombo)
 		{
 			KeyPressed ();
+
+			if(nextKey > listCombo.Length - 1) Reset();
+
 			if((keyPressed != "") && (buttonPressed != ""))
 			{
 				if(listCombo[nextKey] == keyPressed+buttonPressed) //combinacion correcta
 				{
-					Debug.Log("OK");
+					result[nextKey] = (1+(SUE/100)*(1+((PNT - EVA)/100)))*Random.Range(0.0f,1.0f);
 					nextKey++;
-					time = 0;
 				}
 				else //combianacion incorrecta
 				{
-					Debug.Log("NOT OK");
+					nextKey++;
 				}
 				keyPressed = "";
 				buttonPressed = "";
 			}
+
 			/////<>///////
 			time += Time.deltaTime;
 			if(time > timeResponde) //si el tiempo es mayor al tiempo disponible...
 			{
-				time = 0; //reinciamos tiempo
-				GetComponent<HUDCombo>().inCombo = false;
-				inCombo = false;
+				Reset();
 			}
 			else
 			{
@@ -96,7 +100,9 @@ public class Combo : MonoBehaviour
 	}
 	private void Reset()
 	{
-
+		time = 0; //reinciamos tiempo
+		GetComponent<HUDCombo>().inCombo = false;
+		inCombo = false;
 	}
 
 
