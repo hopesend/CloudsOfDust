@@ -25,16 +25,16 @@ public class Combo : MonoBehaviour
 		buttonPressed = "";
 		keyPressed = "";
 	}	
-	public void StartCombo(int SUERTE, int PUNTERIA, int EVASION, string[] COMBO)
+	public void StartCombo(int suerteAtacante, int punteriaAtacante, int evasionContrincante, string[] COMBO)
 	{
 		GetComponent<HUDCombo> ().inCombo = true;
 		inCombo = true; //activa Combo
 		listCombo = COMBO;
 		nextKey = 0;
 		sizeTimeDiscount = GetComponent<HUDCombo> ().sizeTime / timeResponde;
-		SUE = SUERTE;
-		PNT = PUNTERIA;
-		EVA = EVASION;
+		SUE = suerteAtacante;
+		PNT = punteriaAtacante;
+		EVA = evasionContrincante;
 		result = new float[COMBO.Length];
 	}
 	public float[] SucessCombo() { return result;} //funcion que retorna el porcentaje del combo
