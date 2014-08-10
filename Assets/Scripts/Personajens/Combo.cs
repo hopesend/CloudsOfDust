@@ -14,7 +14,7 @@ public class Combo : MonoBehaviour
 
 	public bool inCombo;
 	public float time;
-	public float timeResponde;
+	private float timeResponde;
 	public float[] result; //return
 	private float sizeTimeDiscount;
 	private int SUE, PNT, EVA;
@@ -25,17 +25,18 @@ public class Combo : MonoBehaviour
 		buttonPressed = "";
 		keyPressed = "";
 	}	
-	public void StartCombo(int suerteAtacante, int punteriaAtacante, int evasionContrincante, string[] COMBO)
+	public void StartCombo(int suerteAtacante, int punteriaAtacante, int evasionContrincante, string[] combo, float timeCombo)
 	{
 		GetComponent<HUDCombo> ().inCombo = true;
 		inCombo = true; //activa Combo
-		listCombo = COMBO;
+		listCombo = combo;
 		nextKey = 0;
 		sizeTimeDiscount = GetComponent<HUDCombo> ().sizeTime / timeResponde;
 		SUE = suerteAtacante;
 		PNT = punteriaAtacante;
 		EVA = evasionContrincante;
-		result = new float[COMBO.Length];
+		result = new float[combo.Length];
+		timeResponde = timeCombo;
 	}
 	public float[] SucessCombo() { return result;} //funcion que retorna el porcentaje del combo
 	private void KeyPressed() //retorna la tecla presionada
