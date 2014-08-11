@@ -31,12 +31,12 @@ public class Combo : MonoBehaviour
 		inCombo = true; //activa Combo
 		listCombo = combo;
 		nextKey = 0;
-		sizeTimeDiscount = GetComponent<HUDCombo> ().sizeTime / timeResponde;
 		SUE = suerteAtacante;
 		PNT = punteriaAtacante;
 		EVA = evasionContrincante;
 		result = new float[combo.Length];
 		timeResponde = timeCombo;
+		sizeTimeDiscount = GetComponent<HUDCombo> ().sizeTime / timeCombo;
 	}
 	public float[] SucessCombo() { return result;} //funcion que retorna el porcentaje del combo
 	private void KeyPressed() //retorna la tecla presionada
