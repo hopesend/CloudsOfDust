@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Guardian>
+    <Parametros>
+      <MOV>7</MOV>
+      <VIT>100</VIT>
+      <E>30</E>
+      <NA>20</NA>
+      <FUE>15</FUE>
+      <RES>10</RES>
+      <CON>5</CON>
+      <ESP>5</ESP>
+      <EVA>10</EVA>
+      <PNT>10</PNT>
+      <RAP>8</RAP>
+      <SUE>0</SUE>
+      <PA>30</PA>
+    </Parametros>
+</Guardian>

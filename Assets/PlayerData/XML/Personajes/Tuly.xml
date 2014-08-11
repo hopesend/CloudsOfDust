@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tuly_CM>
+    <Parametros>
+      <MOV>10</MOV>
+      <VIT>2500</VIT>
+      <E>50</E>
+      <NA>150</NA>
+      <FUE>25</FUE>
+      <RES>30</RES>
+      <CON>45</CON>
+      <ESP>40</ESP>
+      <EVA>20</EVA>
+      <PNT>30</PNT>
+      <RAP>30</RAP>
+      <SUE>10</SUE>
+      <PA>30</PA>
+    </Parametros>
+</Tuly_CM>
