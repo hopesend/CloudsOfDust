@@ -38,7 +38,7 @@ public class HUDCombo : MonoBehaviour
 		if(marge == 0) marge = 0.25f;
 		HEIGHT = Screen.height;
 		WIDTH = Screen.width;
-		if(sizeTime == 0) sizeTime = 1000;
+		if(sizeTime == 0) sizeTime = 500;
 		style = new GUIStyle ();
 		style.fontSize = sizeTexture - 20;
 	}
