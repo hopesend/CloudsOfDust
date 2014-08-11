@@ -68,7 +68,11 @@ public class Combo : MonoBehaviour
 			KeyPressed ();
 
 			if(nextKey > listCombo.Length - 1) Reset();
-
+			else
+			{
+			    GetComponent<HUDCombo>().key = listCombo[nextKey][0].ToString();
+			    GetComponent<HUDCombo>().button = listCombo[nextKey][1].ToString();
+			}
 			if((keyPressed != "") && (buttonPressed != ""))
 			{
 				if(listCombo[nextKey] == keyPressed+buttonPressed) //combinacion correcta

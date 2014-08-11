@@ -21,11 +21,17 @@ public class HUDCombo : MonoBehaviour
 	public float  sizeTime;
 	public float marge;
 	public bool inCombo;
+	public bool showCombo;
 	private bool onPressed;
+
+	public string button;
+	public string key;
 
 	private float HEIGHT;
 	private float WIDTH;
 
+	private GUIStyle style;
+ 
 	public void Start()
 	{
 		if(sizeTexture == 0) sizeTexture = 50;
@@ -33,6 +39,8 @@ public class HUDCombo : MonoBehaviour
 		HEIGHT = Screen.height;
 		WIDTH = Screen.width;
 		if(sizeTime == 0) sizeTime = 1000;
+		style = new GUIStyle ();
+		style.fontSize = sizeTexture - 20;
 	}
 	public void OnGUI()
 	{
@@ -75,6 +83,37 @@ public class HUDCombo : MonoBehaviour
 				GetComponent<Combo>().buttonPressed = "7";
 			}
 			GUI.Box(new Rect(WIDTH/2 - sizeTime/2, HEIGHT/2 + sizeTexture * 2 + marge, sizeTime, sizeTexture/2), "TIME");
+
+			switch(button)
+			{
+			    case "1":
+				    GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge) + marge, HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge),sizeTexture ,sizeTexture), key, style);
+				    break;
+			    case "2":
+				    GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 + marge, HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge), sizeTexture ,sizeTexture), key, style);
+				    break;
+			    case "3":
+				GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge) + marge, HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge), sizeTexture ,sizeTexture), key, style);
+				    break;
+			    case "4":
+				GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge) + marge, HEIGHT/2 - sizeTexture/2, sizeTexture ,sizeTexture), key, style);
+				    break;
+			    case "5":
+				    GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 + marge, HEIGHT/2 - sizeTexture/2,sizeTexture ,sizeTexture), key, style);
+				    break;
+			    case "6":
+				GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge) + marge, HEIGHT/2 - sizeTexture/2,sizeTexture ,sizeTexture), key, style);
+				    break;
+			    case "7":
+				    GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge) + marge, HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge),sizeTexture ,sizeTexture), key, style);
+				    break;
+			    case "8":
+				    GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 + marge, HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge),sizeTexture ,sizeTexture), key, style);
+				    break;
+			    case "9":
+				    GUI.Label(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge) + marge, HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge),sizeTexture ,sizeTexture), key, style);
+				    break;
+			}
 		}
 	}
 }
