@@ -40,7 +40,7 @@ public class HUDCombo : MonoBehaviour
 		WIDTH = Screen.width;
 		if(sizeTime == 0) sizeTime = 500;
 		style = new GUIStyle ();
-		style.fontSize = sizeTexture - 20;
+		style.fontSize = sizeTexture - 25;
 	}
 	public void OnGUI()
 	{
