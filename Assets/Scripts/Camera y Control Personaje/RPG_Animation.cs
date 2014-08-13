@@ -5,6 +5,8 @@ public class RPG_Animation : MonoBehaviour {
 
     public static RPG_Animation instance;
 
+    public Animator _animplayer;
+
     public enum CharacterMoveDirection {
         None, Forward, Backward, StrafeLeft, StrafeRight, StrafeForwardLeft, StrafeForwardRight, StrafeBackLeft, StrafeBackRight
     }
@@ -19,6 +21,7 @@ public class RPG_Animation : MonoBehaviour {
 
 	void Awake() {
         instance = this;
+        _animplayer = GetComponent<Animator>();
 	}
 	
 
@@ -124,39 +127,39 @@ public class RPG_Animation : MonoBehaviour {
     #region Animation Methods 
     
     void Idle() {
-        animation.CrossFade("idle");
+        //animation.CrossFade("idle");
     }
 
     void Walk() {
-        animation.CrossFade("walk");
+        //animation.CrossFade("mover");
     }
 
     void StrafeForwardLeft() {
-        animation.CrossFade("strafeforwardleft");
+        //animation.CrossFade("strafeforwardleft");
     }
 
     void StrafeForwardRight() {
-        animation.CrossFade("strafeforwardright");
+        //animation.CrossFade("strafeforwardright");
     }
 
     void WalkBack() {
-        animation.CrossFade("walkback");
+        //animation.CrossFade("walkback");
     }
 
     void StrafeBackLeft() {
-        animation.CrossFade("strafebackleft");
+        //animation.CrossFade("strafebackleft");
     }
 
     void StrafeBackRight() {
-        animation.CrossFade("strafebackright");
+        //animation.CrossFade("strafebackright");
     }
         
     void StrafeLeft() {
-        animation.CrossFade("strafeleft");
+        //animation.CrossFade("strafeleft");
     }
 
     void StrafeRight() {
-        animation.CrossFade("straferight");
+        //animation.CrossFade("straferight");
     }
 
     public void Jump() { // this method is an exception because it is called by "RPG_Controller" (line 73) if the jump button was hit. Therefore it has the access level "public".
@@ -165,6 +168,24 @@ public class RPG_Animation : MonoBehaviour {
             animation.Stop("jump");
         
         animation.CrossFade("jump");
+    }
+
+    public void Correr(bool corre)
+    {
+        _animplayer.SetBool("mayus", corre);
+    }
+
+    public void Mover(bool mueve, bool atras)
+    {
+        _animplayer.SetBool("mover", mueve);
+        if (!atras)
+        {
+            //.speed = 1.0f;
+        }
+        else
+        {
+            _animplayer.speed = -1.0f;
+        }
     }
     #endregion
 }

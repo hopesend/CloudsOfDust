@@ -168,7 +168,7 @@ public class CameraBatalla : MonoBehaviour {
 		scrollValue += value;
 		scrollValue = Mathf.Clamp01(scrollValue);
 		wantPos.y = scrollHigh.Evaluate(scrollValue);
-		wantXAngle = scrollXAngle.Evaluate(scrollValue);
+		//wantXAngle = scrollXAngle.Evaluate(scrollValue);
 	}
 
 	float WrapAngle (float a){

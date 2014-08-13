@@ -65,6 +65,8 @@ public class RPG_Controller : MonoBehaviour {
 
         if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
             vertical = 1f;
+
+        
             
         playerDir = horizontalStrafe * Vector3.right + vertical * Vector3.forward;
         if (RPG_Animation.instance != null)
@@ -78,6 +80,23 @@ public class RPG_Controller : MonoBehaviour {
             
             playerDirWorld *= walkSpeed;
             playerDirWorld.y = fallingThreshold;
+            /*if (vertical != 0)
+            {
+                if (vertical > 0)
+                {
+                    RPG_Animation.instance.Mover(true, false);
+                }
+                else
+                {
+                    RPG_Animation.instance.Mover(true, true);
+                }
+
+                
+            }
+            else
+            {
+                RPG_Animation.instance.Mover(false, false);
+            }*/
             
             if (Input.GetButtonDown("Jump")) {
                 playerDirWorld.y = jumpHeight;

@@ -61,6 +61,14 @@ public class Habilidad {
         set { tipo = value; }
     }
 
+    Combo comboHabilidad;
+
+    public Combo ComboHabilidad
+    {
+        get { return comboHabilidad; }
+        set { comboHabilidad = value; }
+    }
+
     public List<EfectosHabilidad> efectos = new List<EfectosHabilidad>();
 
     public void AgregarEfecto(EfectosHabilidad nuevo)

@@ -34,7 +34,7 @@ public class ControladorJugador
     /// <returns></returns>
 	public bool Cargar_Datos_XML(PersonajeControlable jugador)
 	{
-		string xmlPersonaje = Path.Combine(Application.dataPath,"PlayerData/XML/"+jugador.Get_Nombre()+".xml");
+		string xmlPersonaje = Path.Combine(Application.dataPath,"PlayerData/XML/Personajes/"+jugador.Get_Nombre()+".xml");
 		try
 		{
 			CloudsXML personajeXML = new CloudsXML ();
@@ -62,7 +62,7 @@ public class ControladorJugador
 		}
 		catch(Exception e)
 		{
-            Debug.Log(e.Message);
+            Debug.Log(e.InnerException.Message);
 			return false;
 		}
 		return true;
@@ -95,6 +95,8 @@ public class ControladorJugador
                 nueva.AgregarEfecto(nuevoEfecto);
             }
         }
+        string[] a = {"A1"};
+        nueva.ComboHabilidad = new Combo(a, 20);
 
         jugador.AgregarHabilidad(nueva);
     }

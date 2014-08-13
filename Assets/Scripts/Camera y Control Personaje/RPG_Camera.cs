@@ -92,7 +92,7 @@ public class RPG_Camera : MonoBehaviour {
 
         PositionUpdate();
 
-        CharacterFade();
+        //CharacterFade();
 	}
 
 

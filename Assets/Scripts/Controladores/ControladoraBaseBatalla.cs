@@ -10,6 +10,9 @@ public class ControladoraBaseBatalla{
     [SerializeField]
     public ControladoraTurno controladoraTurno;
 
+    [SerializeField]
+    public ControladoraCombo controladoraCombo;
+
     /// <summary>
     /// La fase en que se encuentra la batalla.
     /// </summary>
@@ -35,7 +38,7 @@ public class ControladoraBaseBatalla{
     /// <summary>
     /// Index que usare en la lista de jugadores.
     /// </summary>
-    private int indexPersonajeEnListaPosActual = 0;
+    public int indexPersonajeEnListaPosActual = 0;
 
     Ray rayPrueba;
     RaycastHit hit = new RaycastHit();
@@ -62,9 +65,13 @@ public class ControladoraBaseBatalla{
 
     float count = 0;
 
+    public Habilidad ultimaHabilidadElegida;
+
     public ControladoraBaseBatalla()
     {
         controladoraTurno = new ControladoraTurno();
+        controladoraCombo = new ControladoraCombo();
+        controladoraCombo.Start();
     }
 	
 	// Update is called once per frame
@@ -96,7 +103,7 @@ public class ControladoraBaseBatalla{
                         if (hit.collider.gameObject.tag == "Respawn")
                         {
                             jugadorEnPosActual.transform.position = hit.point;
-                            if (Input.GetMouseButtonUp(0))
+                            if (Input.GetMouseButton(0))
                             {
                                 indexPersonajeEnListaPosActual++;
                                 if (indexPersonajeEnListaPosActual < jugadores.Count)
@@ -132,8 +139,23 @@ public class ControladoraBaseBatalla{
                     break;
                 }
 
+            case FasesBatalla.EjecutandoCombo:
+                {
+                    controladoraCombo.Update();
+                    break;
+                }
+
             case FasesBatalla.EjecutandoAccion:
                 {
+                    if (ultimaHabilidadElegida != null)
+                    {
+                        if (ultimaHabilidadElegida.Tipo == TipoHabilidad.Movimiento)
+                        {
+                            ultimaHabilidadElegida.EjecutarMovimiento(HUDBatalla.InstanceRef().personajeActual);
+                            HUDBatalla.InstanceRef().personajeActual.MoverBatalla();
+                        }
+                    }
+                    /*
                     if (count < 3)
                     {
                         count += Time.deltaTime;
@@ -144,7 +166,7 @@ public class ControladoraBaseBatalla{
                         turnoActual = null;
                         faseActual = FasesBatalla.EsperandoTurno;
                         count = 0;
-                    }
+                    }*/
                     break;
                 }
         }

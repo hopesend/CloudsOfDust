@@ -1,7 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class HUDCombo : MonoBehaviour 
+[System.Serializable]
+public class HUDCombo
 {
 	public Texture imageCombo;
 
@@ -20,7 +21,27 @@ public class HUDCombo : MonoBehaviour
 	public int sizeTexture;
 	public float  sizeTime;
 	public float marge;
-	public bool inCombo;
+    public bool inCombo;
+
+    public bool InCombo
+    {
+        get { return inCombo; }
+        set 
+        { 
+            inCombo = value;
+            if (inCombo)
+            {
+                ControladoraBaseBatalla.InstanceRef().faseActual = FasesBatalla.EjecutandoCombo;
+                Camera.main.GetComponent<CameraBatalla>().keyBoardControl = false;
+                Camera.main.GetComponent<CameraBatalla>().mouseControl = false;
+            }
+            else
+            {
+                Camera.main.GetComponent<CameraBatalla>().keyBoardControl = true;
+                Camera.main.GetComponent<CameraBatalla>().mouseControl = true;
+            }
+        }
+    }
 	public bool showCombo;
 	private bool onPressed;
 
@@ -31,56 +52,62 @@ public class HUDCombo : MonoBehaviour
 	private float WIDTH;
 
 	private GUIStyle style;
+
  
-	public void Start()
+	public HUDCombo()
 	{
 		if(sizeTexture == 0) sizeTexture = 50;
 		if(marge == 0) marge = 0.25f;
 		HEIGHT = Screen.height;
 		WIDTH = Screen.width;
 		if(sizeTime == 0) sizeTime = 500;
-		style = new GUIStyle ();
-		style.fontSize = sizeTexture - 25;
+		
 	}
+
+    public void PrepararFonts()
+    {
+        style = new GUIStyle();
+        style.fontSize = sizeTexture - 25;
+    }
 	public void OnGUI()
 	{
         if(inCombo) //Muestra todos los botones
 		{
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2, HEIGHT/2 - sizeTexture/2, sizeTexture, sizeTexture), imageCombo)) //S
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "5";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "5";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2, HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo)) //X
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "2";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "2";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2, HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo)) //W
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "8";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "8";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge), HEIGHT/2 - sizeTexture/2, sizeTexture, sizeTexture), imageCombo)) //A
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "4";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "4";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge), HEIGHT/2 - sizeTexture/2, sizeTexture, sizeTexture), imageCombo))//D
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "6";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "6";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge), HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo))//C
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "3";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "3";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge), HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo))//D
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "9";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "9";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge), HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo)) //Z
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "1";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "1";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge), HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo)) //Q
 			{
-				GetComponent<ControladoraCombo>().buttonPressed = "7";
+                ControladoraBaseBatalla.InstanceRef().controladoraCombo.buttonPressed = "7";
 			}
 			GUI.Box(new Rect(WIDTH/2 - sizeTime/2, HEIGHT/2 + sizeTexture * 2 + marge, sizeTime, sizeTexture/2), "TIME");
 

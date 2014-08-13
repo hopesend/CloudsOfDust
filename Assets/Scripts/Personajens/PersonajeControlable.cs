@@ -113,21 +113,6 @@ public class PersonajeControlable : PersonajeBase {
 
 	public void OnGUI(){
 
-        if (GameMaster.InstanceRef.EstadoActual == EstadoJuego.Batalla)
-        {
-            if (target.Count > 0)
-            {
-                switch (comportamientoActual)
-                {
-                    case ComportamientoJugador.MarcandoCamino:
-                        {
-                            
-                            break;
-                        }
-                }
-            } 
-        }
-
 	}
 
     

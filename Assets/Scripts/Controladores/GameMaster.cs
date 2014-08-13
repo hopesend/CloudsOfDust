@@ -88,6 +88,7 @@ public class GameMaster : MonoBehaviour {
         controladoraHUD = HUD.InstanceRef();
         hudBatalla = HUDBatalla.InstanceRef();
         hudBatalla.PrepararTexturas();
+        hudBatalla.hudCombo.PrepararFonts();
 
 
 

@@ -11,9 +11,15 @@ public class HUDBatalla{
         if (instanceRef == null)
         {
             instanceRef = new HUDBatalla();
+           
         }
 
         return instanceRef;
+    }
+
+    public HUDBatalla()
+    {
+        hudCombo = new HUDCombo();
     }
 
     bool b_movimiento;
@@ -41,6 +47,8 @@ public class HUDBatalla{
     Texture2D textura3;
     Texture2D textura4;
 
+    public HUDCombo hudCombo;
+
     public void PrepararTexturas()
     {
         HUDBox = new Rect(0, Screen.height * 4 / 5, Screen.width, Screen.height / 5);
@@ -57,7 +65,7 @@ public class HUDBatalla{
 
     public void Update()
     {
-        if (personajeActual != null)
+        if (personajeActual != null && !hudCombo.inCombo)
         {
             showAccionesPlayer = true;
         }
@@ -73,18 +81,27 @@ public class HUDBatalla{
 
     public void OnGUI()
     {
-
-        if (showAccionesPlayer)
+        if (hudCombo.InCombo)
         {
-            MostrarAccionesPlayer();
+            hudCombo.OnGUI();
+        }
+        else
+        {
+            if (showAccionesPlayer)
+            {
+                MostrarAccionesPlayer();
+            }
+
+            if (showMovConfPlayer)
+            {
+                MostrarMovConfPlayer();
+            }
+
+
+            MostrarHudBase();
         }
 
-        if (showMovConfPlayer)
-        {
-            MostrarMovConfPlayer();
-        }
-
-        MostrarHudBase();
+        
 
 
     }
@@ -124,15 +141,24 @@ public class HUDBatalla{
                 if (personajeActual.comportamientoActual == ComportamientoJugador.EsperandoComportamiento)
                 {
                     
-                    foreach (Habilidad habiliad in personajeActual.listaHabilidades)
+                    foreach (Habilidad habilidad in personajeActual.listaHabilidades)
                     {
                         
-                        if (habiliad.Tipo == TipoHabilidad.Movimiento)
+                        if (habilidad.Tipo == TipoHabilidad.Movimiento)
                         {
-                            if (GUI.Button(new Rect(0, 0+20*i, 100, 20), new GUIContent(habiliad.Nombre, habiliad.Descripcion)))
+                            if (GUI.Button(new Rect(0, 0+20*i, 100, 20), new GUIContent(habilidad.Nombre, habilidad.Descripcion)))
                             {
-                                habiliad.EjecutarMovimiento(personajeActual);
-                                personajeActual.MoverBatalla();
+                                //Si hay combo que hacer
+                                if (habilidad.ComboHabilidad.ListCombo.Length > 0)
+                                {
+                                    ControladoraBaseBatalla.InstanceRef().ultimaHabilidadElegida = habilidad;
+                                    ControladoraBaseBatalla.InstanceRef().controladoraCombo.StartCombo((int)personajeActual.Suerte.ValorActual, (int)personajeActual.Punteria.ValorActual, 2, habilidad.ComboHabilidad);
+                                }
+                                else//Sino
+                                {
+                                    habilidad.EjecutarMovimiento(personajeActual);
+                                    personajeActual.MoverBatalla();
+                                }
                             }
                             i++;
                         }
