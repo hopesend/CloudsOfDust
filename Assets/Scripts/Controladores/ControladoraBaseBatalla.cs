@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 /// <summary>
@@ -174,7 +174,7 @@ public class ControladoraBaseBatalla{
         foreach (PersonajeControlable a in jugadores)
         {
             a.transform.position = new Vector3(0f, 1f, 0f);
-            a.GetComponent<HAPQ>().enabled = false;
+            a.GetComponent<HAQPHUD>().enabled = false;
             a.GetComponent<Historia>().enabled = false;
             a.GetComponentInChildren<Camera>().enabled = false;
             a.GetComponent<AudioListener>().enabled = false;

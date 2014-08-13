@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 /// <summary>
@@ -103,7 +103,7 @@ public class ControladorBaseMundo
     /// </summary>
     public void PrepararJugadorScripts()
     {
-        personajesSeleccionados[0].GetComponent<HAPQ>().enabled = true;
+        //personajesSeleccionados[0].GetComponent<HAQPHUD2>().enabled = true;
         personajesSeleccionados[0].GetComponent<Historia>().enabled = true;
     }
 
