@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class HUDCombo : MonoBehaviour 
@@ -48,39 +48,39 @@ public class HUDCombo : MonoBehaviour
 		{
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2, HEIGHT/2 - sizeTexture/2, sizeTexture, sizeTexture), imageCombo)) //S
 			{
-				GetComponent<Combo>().buttonPressed = "5";
+				GetComponent<ControladoraCombo>().buttonPressed = "5";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2, HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo)) //X
 			{
-				GetComponent<Combo>().buttonPressed = "2";
+				GetComponent<ControladoraCombo>().buttonPressed = "2";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2, HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo)) //W
 			{
-				GetComponent<Combo>().buttonPressed = "8";
+				GetComponent<ControladoraCombo>().buttonPressed = "8";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge), HEIGHT/2 - sizeTexture/2, sizeTexture, sizeTexture), imageCombo)) //A
 			{
-				GetComponent<Combo>().buttonPressed = "4";
+				GetComponent<ControladoraCombo>().buttonPressed = "4";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge), HEIGHT/2 - sizeTexture/2, sizeTexture, sizeTexture), imageCombo))//D
 			{
-				GetComponent<Combo>().buttonPressed = "6";
+				GetComponent<ControladoraCombo>().buttonPressed = "6";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge), HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo))//C
 			{
-				GetComponent<Combo>().buttonPressed = "3";
+				GetComponent<ControladoraCombo>().buttonPressed = "3";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 + (sizeTexture + marge), HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo))//D
 			{
-				GetComponent<Combo>().buttonPressed = "9";
+				GetComponent<ControladoraCombo>().buttonPressed = "9";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge), HEIGHT/2 - sizeTexture/2 + (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo)) //Z
 			{
-				GetComponent<Combo>().buttonPressed = "1";
+				GetComponent<ControladoraCombo>().buttonPressed = "1";
 			}
 			if(GUI.Button(new Rect(WIDTH/2 - sizeTexture/2 - (sizeTexture + marge), HEIGHT/2 - sizeTexture/2 - (sizeTexture + marge), sizeTexture, sizeTexture), imageCombo)) //Q
 			{
-				GetComponent<Combo>().buttonPressed = "7";
+				GetComponent<ControladoraCombo>().buttonPressed = "7";
 			}
 			GUI.Box(new Rect(WIDTH/2 - sizeTime/2, HEIGHT/2 + sizeTexture * 2 + marge, sizeTime, sizeTexture/2), "TIME");
 
