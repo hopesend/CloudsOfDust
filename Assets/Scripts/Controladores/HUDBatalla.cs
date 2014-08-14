@@ -122,15 +122,11 @@ public class HUDBatalla{
     }
     private void MostrarAccionesPlayer()
     {
-        //scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width / 3, 0, Ataques.width * 2 / 3, Ataques.height), scrollPosition, new Rect(0, 0, Ataques.width * 2 / 3, Screen.height));
-
-       // GUI.EndScrollView();
-
-
-        //Ataques
-        GUI.Box(Ataques, "");
-        if (ControladoraBaseBatalla.InstanceRef().faseActual == FasesBatalla.Estrategia)
+        
+        if (ControladoraBaseBatalla.InstanceRef().faseActual == FasesBatalla.SeleccionandoHabilidad)
         {
+            GUI.Box(Ataques, "");
+            GUI.enabled = !ControladoraBaseBatalla.InstanceRef().TurnoActual.seMovio;
             if (b_movimiento = GUILayout.Toggle(b_movimiento, "Movimiento", "Button", GUILayout.Height(Ataques.height / 4 - 5), GUILayout.Width(Ataques.width / 3)))
             {
                 b_fisico = false;
@@ -146,30 +142,31 @@ public class HUDBatalla{
                         
                         if (habilidad.Tipo == TipoHabilidad.Movimiento)
                         {
+                            
                             if (GUI.Button(new Rect(0, 0+20*i, 100, 20), new GUIContent(habilidad.Nombre, habilidad.Descripcion)))
                             {
-                                //Si hay combo que hacer
-                                if (habilidad.ComboHabilidad.ListCombo.Length > 0)
+                                ControladoraBaseBatalla.InstanceRef().controladoraHabilidad.CargarDatos(personajeActual, habilidad);
+                                if (habilidad.TieneCombo())
                                 {
-                                    ControladoraBaseBatalla.InstanceRef().ultimaHabilidadElegida = habilidad;
-                                    ControladoraBaseBatalla.InstanceRef().controladoraCombo.StartCombo((int)personajeActual.Suerte.ValorActual, (int)personajeActual.Punteria.ValorActual, 2, habilidad.ComboHabilidad);
+                                    ControladoraBaseBatalla.InstanceRef().faseActual = FasesBatalla.EjecutandoCombo;
+                                    
                                 }
-                                else//Sino
+                                else
                                 {
-                                    habilidad.EjecutarMovimiento(personajeActual);
-                                    personajeActual.MoverBatalla();
+                                    ControladoraBaseBatalla.InstanceRef().faseActual = FasesBatalla.EjecutandoHabilidad;
                                 }
+                                
                             }
                             i++;
                         }
                     }
                     i = 0;
-
                 }
 
                 
                 GUI.EndScrollView();
             }
+            GUI.enabled = !ControladoraBaseBatalla.InstanceRef().TurnoActual.usoHabilidad;
             if (b_fisico = GUILayout.Toggle(b_fisico, "Fisico", "Button", GUILayout.Height(Ataques.height / 4 - 5)))
             {
                 b_movimiento = false;
@@ -177,10 +174,11 @@ public class HUDBatalla{
                 b_objeto = false;
 
                 scrollPosition = GUI.BeginScrollView(new Rect(Ataques.width / 3, 0, Ataques.width * 2 / 3, Ataques.height), scrollPosition, new Rect(0, 0, Ataques.width * 2 / 3, Screen.height));
+                
 
                 GUI.EndScrollView();
             }
-
+            GUI.enabled = !ControladoraBaseBatalla.InstanceRef().TurnoActual.usoHabilidad;
             if (b_magia = GUILayout.Toggle(b_magia, "Nanoenergia", "Button", GUILayout.Height(Ataques.height / 4 - 5)))
             {
                 b_movimiento = false;
@@ -194,7 +192,7 @@ public class HUDBatalla{
                 GUI.EndScrollView();
 
             }
-
+            GUI.enabled = !ControladoraBaseBatalla.InstanceRef().TurnoActual.usoHabilidad;
             if (b_objeto = GUILayout.Toggle(b_objeto, "Objeto", "Button", GUILayout.Height(Ataques.height / 4 - 5)))
             {
                 b_movimiento = false;
@@ -206,7 +204,12 @@ public class HUDBatalla{
                 GUI.EndScrollView();
             }
 
+            
+        }
 
+        if (ControladoraBaseBatalla.InstanceRef().faseActual == FasesBatalla.MarcandoCaminoJugador)
+        {
+            GUI.enabled = true;
             if (personajeActual.comportamientoActual == ComportamientoJugador.MarcandoCamino)
             {
                 GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200, 20), "Movimiento restante :" + personajeActual.GetMovimientoFinal().ToString());

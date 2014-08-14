@@ -21,6 +21,10 @@ public class Turno {
     /// </summary>
     public float tiempoActual = 0;
 
+    public bool seMovio;
+
+    public bool usoHabilidad;
+
     /// <summary>
     /// Esta listo el turno ??
     /// </summary>

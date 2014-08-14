@@ -95,4 +95,23 @@ public class Habilidad {
 
         }
     }
+
+    public bool TieneCombo()
+    {
+        if (comboHabilidad != null)
+        {
+            if (comboHabilidad.ListCombo.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

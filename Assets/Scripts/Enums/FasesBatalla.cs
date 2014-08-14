@@ -5,6 +5,10 @@
 /// </summary>
 public enum FasesBatalla 
 { 
+        /// <summary>
+    /// Se estan posicionando los jugadores.
+    /// </summary>
+    PosicionandoJugadores,
     /// <summary>
     /// Todavia no hay ningun turno en la cola.
     /// </summary>
@@ -12,14 +16,14 @@ public enum FasesBatalla
     /// <summary>
     /// El jugador se esta moviendo.
     /// </summary>
-    Estrategia,
+    SeleccionandoHabilidad,
+    SeleccionandoTarget,
+    EjecutandoHabilidad,
+    MarcandoCaminoJugador,
     EjecutandoCombo,
     /// <summary>
     /// Se esta ejecutando la accion (animacion)
     /// </summary>
-    EjecutandoAccion, 
-    /// <summary>
-    /// Se estan posicionando los jugadores.
-    /// </summary>
-    PosicionandoJugadores
+    EjecutandoAnimacion, 
+
 }

@@ -13,6 +13,8 @@ public class ControladoraBaseBatalla{
     [SerializeField]
     public ControladoraCombo controladoraCombo;
 
+    public ControladoraHabilidades controladoraHabilidad;
+
     /// <summary>
     /// La fase en que se encuentra la batalla.
     /// </summary>
@@ -65,12 +67,11 @@ public class ControladoraBaseBatalla{
 
     float count = 0;
 
-    public Habilidad ultimaHabilidadElegida;
-
     public ControladoraBaseBatalla()
     {
         controladoraTurno = new ControladoraTurno();
         controladoraCombo = new ControladoraCombo();
+        controladoraHabilidad = new ControladoraHabilidades();
         controladoraCombo.Start();
     }
 	
@@ -81,8 +82,6 @@ public class ControladoraBaseBatalla{
         {
             controladoraTurno.Update();
         }
-        
-
 
         switch (faseActual)
         {
@@ -125,56 +124,71 @@ public class ControladoraBaseBatalla{
                     
                     if (controladoraTurno.turnosCompletos.Count > 0 && turnoActual == null)
                     {
-                        faseActual = FasesBatalla.Estrategia;
-                        turnoActual = controladoraTurno.turnosCompletos.Dequeue();
+                        faseActual = FasesBatalla.SeleccionandoHabilidad;
+                        turnoActual = controladoraTurno.turnosCompletos.Peek();
                     }
                     break;
                 }
-            case FasesBatalla.Estrategia:
+
+            case FasesBatalla.MarcandoCaminoJugador:
                 {
-                    if (turnoActual.Personaje.comportamientoActual == ComportamientoJugador.MovimientoFinalizado)
+                    
+                    ((PersonajeControlable)controladoraHabilidad.caster).PrepararParaMarcarCamino();
+                    break;
+                }
+
+            case FasesBatalla.EjecutandoHabilidad:
+                {
+                    controladoraHabilidad.EjecutarHabilidad();
+                    if (controladoraHabilidad.habilidadUsada.Tipo == TipoHabilidad.Movimiento)
                     {
-                        MovimientoFinalizado();
+                        faseActual = FasesBatalla.MarcandoCaminoJugador;
                     }
                     break;
                 }
 
             case FasesBatalla.EjecutandoCombo:
                 {
+                    if (!controladoraCombo.inCombo)
+                    {
+                        controladoraCombo.StartCombo(controladoraHabilidad.habilidadUsada.ComboHabilidad); 
+                    }
                     controladoraCombo.Update();
+                    if (controladoraCombo.TerminoCombo)
+                    {
+                        if (controladoraHabilidad.habilidadUsada.Tipo == TipoHabilidad.Movimiento)
+                        {
+                            faseActual = FasesBatalla.EjecutandoHabilidad;
+                        }
+                    }
                     break;
                 }
 
-            case FasesBatalla.EjecutandoAccion:
+            case FasesBatalla.EjecutandoAnimacion:
                 {
-                    if (ultimaHabilidadElegida != null)
-                    {
-                        if (ultimaHabilidadElegida.Tipo == TipoHabilidad.Movimiento)
-                        {
-                            ultimaHabilidadElegida.EjecutarMovimiento(HUDBatalla.InstanceRef().personajeActual);
-                            HUDBatalla.InstanceRef().personajeActual.MoverBatalla();
-                        }
-                    }
-                    /*
-                    if (count < 3)
-                    {
-                        count += Time.deltaTime;
-
-                    }
-                    else
-                    {
-                        turnoActual = null;
-                        faseActual = FasesBatalla.EsperandoTurno;
-                        count = 0;
-                    }*/
                     break;
                 }
         }
 	}
     
-    void MovimientoFinalizado()
+    public void MovimientoFinalizado()
     {
-        faseActual = FasesBatalla.EjecutandoAccion;
+        turnoActual.seMovio = true;
+        if (turnoActual.usoHabilidad)
+        {
+            FinTurnoActual();
+        }
+        faseActual = FasesBatalla.SeleccionandoHabilidad;
+    }
+
+    public void HabilidadFinalizada()
+    {
+        turnoActual.usoHabilidad = true;
+        if (turnoActual.seMovio)
+        {
+            FinTurnoActual();
+        }
+        faseActual = FasesBatalla.SeleccionandoHabilidad;
     }
 
     private void SetPersonajesControlables(List<PersonajeControlable> personajes)
@@ -213,6 +227,18 @@ public class ControladoraBaseBatalla{
         jugadorEnPosActual = listaPersonajesControlables[indexPersonajeEnListaPosActual];
         SetEnemigos(listaEnemigos);
         controladoraTurno.CargarDatosParaTurnos(listaPersonajesControlables, listaEnemigos);
+    }
+
+    public void FinTurnoActual()
+    {
+        faseActual = FasesBatalla.EsperandoTurno;
+        controladoraTurno.turnosCompletos.Dequeue();
+        turnoActual = null;
+    }
+
+    public void FinTurnoActualEleccion()
+    {
+        controladoraTurno.turnosCompletos.Enqueue(controladoraTurno.turnosCompletos.Dequeue());
     }
 
 

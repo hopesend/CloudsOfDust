@@ -54,13 +54,13 @@ public class PersonajeControlable : PersonajeBase {
                         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                         RaycastHit hit;
 			            Physics.Raycast (ray,out hit);
-                        if (Movimiento.ValorActual > 0.5f)
+                        if (GetMovimientoFinal() > 0.5f)
                         {
                             
                             gastoActual = Vector3.Distance(listaPosicionLine[listaPosicionLine.Count - 1], hit.point);
                         }
-                        
-                        if (gastoActual < Movimiento.ValorActual)
+
+                        if (gastoActual < GetMovimientoFinal())
                         {
                             lineRenderer.SetPosition(target.Count + 1, hit.point);
                             if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -97,6 +97,7 @@ public class PersonajeControlable : PersonajeBase {
                     else
                     { //significa que ha llegado al destino
                         comportamientoActual = ComportamientoJugador.MovimientoFinalizado;
+                        ControladoraBaseBatalla.InstanceRef().MovimientoFinalizado();
                         target.Clear();
                     }
 
@@ -106,35 +107,21 @@ public class PersonajeControlable : PersonajeBase {
 		for (int j=0;j<target.Count;j++){
 			lineRenderer.SetPosition(j+1, target[j].transform.position);
 		}
-	
-
-
     }
 
-	public void OnGUI(){
-
-	}
-
-    
-
-
-
-	public void MoverBatalla()
+	public void PrepararParaMarcarCamino()
 	{
-        comportamientoActual = ComportamientoJugador.MarcandoCamino;
-        movimientoRestante = Movimiento.ValorActual;
-		lineRenderer.SetPosition(0,transform.position);
-        listaPosicionLine.Add(transform.position);
-		if (target.Count>0){
-			target.Clear ();
-		}
+        if (comportamientoActual != ComportamientoJugador.MarcandoCamino && comportamientoActual != ComportamientoJugador.Moviendo)
+        {
+            comportamientoActual = ComportamientoJugador.MarcandoCamino;
+            lineRenderer.SetPosition(0, transform.position);
+            listaPosicionLine.Add(transform.position);
+            if (target.Count > 0)
+            {
+                target.Clear();
+            } 
+        }
 	}
-
-    public void NOMoverBatalla()
-    {
-        comportamientoActual = ComportamientoJugador.MovimientoFinalizado;
-        
-    }
 
     public void AceptarMovimiento()
     {
@@ -152,8 +139,10 @@ public class PersonajeControlable : PersonajeBase {
         }
         lineRenderer.SetVertexCount(1);
         target.Clear();
+        Movimiento.ValorActual = Movimiento.ValorBase;//Reinicio el valor actual
         comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
         HUDBatalla.InstanceRef().showMovConfPlayer = false;
+        
     }
 
     

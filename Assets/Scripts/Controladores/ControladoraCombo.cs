@@ -19,6 +19,13 @@ public class ControladoraCombo
 	private float sizeTimeDiscount;
 	private int SUE, PNT, EVA;
 
+    private bool listoCombo = false;
+
+    public bool TerminoCombo
+    {
+        get { return listoCombo; }
+    }
+
 	public void Start() //Default
 	{
 		buttonPressed = "";
@@ -28,6 +35,7 @@ public class ControladoraCombo
 	{
 		HUDBatalla.InstanceRef().hudCombo.InCombo = true;
 		inCombo = true; //activa Combo
+        listoCombo = false;
         comboActual = comboHabilidad;
 		nextKey = 0;
 		SUE = suerteAtacante;
@@ -37,6 +45,19 @@ public class ControladoraCombo
         sizeTimeDiscount = HUDBatalla.InstanceRef().hudCombo.sizeTime / comboActual.TimeCombo;
 
 	}
+
+    public void StartCombo(Combo comboHabilidad)
+    {
+        HUDBatalla.InstanceRef().hudCombo.InCombo = true;
+        inCombo = true; //activa Combo
+        listoCombo = false;
+        comboActual = comboHabilidad;
+        nextKey = 0;
+        result = new float[comboActual.ListCombo.Length];
+        sizeTimeDiscount = HUDBatalla.InstanceRef().hudCombo.sizeTime / comboActual.TimeCombo;
+
+    }
+
 	public float[] SucessCombo() { return result;} //funcion que retorna el porcentaje del combo
 	private void KeyPressed() //retorna la tecla presionada
 	{
@@ -68,8 +89,8 @@ public class ControladoraCombo
 
             if (nextKey > comboActual.ListCombo.Length - 1)
             {
+                listoCombo = true;
                 Reset();
-                ControladoraBaseBatalla.InstanceRef().faseActual = FasesBatalla.EjecutandoAccion;
             }
 			else
 			{
