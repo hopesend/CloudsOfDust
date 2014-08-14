@@ -37,7 +37,7 @@ public class Turno {
     {
         personaje.comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
         listo = true;
-
+        personaje.Movimiento.ValorActual = personaje.Movimiento.ValorBase;
         personaje.VerificarAtributosAlterados();
         personaje.RestarTurno();
         

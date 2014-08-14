@@ -109,8 +109,9 @@ public class HUDBatalla{
     private void MostrarMovConfPlayer()
     {
         Rect aceptar = new Rect(Screen.width * 3 / 4, 0, Screen.width / 4, Screen.height / 5);
-
+        bool seMovio = personajeActual.listaPosicionLine.Count-1 == 0 ? false : true;
         GUI.Box(aceptar, "");
+        GUI.enabled = seMovio;
         if (GUI.Button(new Rect(aceptar.x + aceptar.width / 8, aceptar.height / 2 - 10, aceptar.width / 4, 20), "Aceptar"))
         {
             personajeActual.AceptarMovimiento();
@@ -119,6 +120,7 @@ public class HUDBatalla{
         {
             personajeActual.CancelarMovimiento();
         }
+        GUI.enabled = true;
     }
     private void MostrarAccionesPlayer()
     {

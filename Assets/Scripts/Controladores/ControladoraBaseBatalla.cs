@@ -112,6 +112,7 @@ public class ControladoraBaseBatalla{
                                 else
                                 {
                                     faseActual = FasesBatalla.EsperandoTurno;
+                                    GameObject.Destroy(GameObject.FindGameObjectWithTag("Respawn").gameObject);
                                 }
                             }
                         }
@@ -211,6 +212,7 @@ public class ControladoraBaseBatalla{
         {
             a.transform.position = new Vector3(0f, 1f, 0f);
             a.GetComponent<ThirdPersonController>().enabled = false;
+            a.GetComponent<AnimPlayer>().enabled = false;
             a.GetComponent<Historia>().enabled = false;
             a.GetComponentInChildren<Camera>().enabled = false;
             a.GetComponent<AudioListener>().enabled = false;
@@ -240,6 +242,7 @@ public class ControladoraBaseBatalla{
         //Cambiar esto por un metodo
         controladoraTurno.turnosCompletos.Peek().seMovio = false;
         controladoraTurno.turnosCompletos.Peek().usoHabilidad = false;
+        controladoraTurno.turnosCompletos.Peek().Listo();
         controladoraTurno.turnosCompletos.Peek().personaje.comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
         controladoraTurno.turnosCompletos.Enqueue(controladoraTurno.turnosCompletos.Dequeue());
         faseActual = FasesBatalla.EsperandoTurno;

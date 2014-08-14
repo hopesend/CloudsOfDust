@@ -32,13 +32,13 @@ public class HUDCombo
             if (inCombo)
             {
                 ControladoraBaseBatalla.InstanceRef().faseActual = FasesBatalla.EjecutandoCombo;
-                Camera.main.GetComponent<CameraBatalla>().keyBoardControl = false;
-                Camera.main.GetComponent<CameraBatalla>().mouseControl = false;
+                Camera.main.GetComponent<CameraBatalla>().KeyboardControl(false);
+                Camera.main.GetComponent<CameraBatalla>().MouseControl(false);
             }
             else
             {
-                Camera.main.GetComponent<CameraBatalla>().keyBoardControl = true;
-                Camera.main.GetComponent<CameraBatalla>().mouseControl = true;
+                Camera.main.GetComponent<CameraBatalla>().KeyboardControl(true);
+                Camera.main.GetComponent<CameraBatalla>().MouseControl(true);
             }
         }
     }

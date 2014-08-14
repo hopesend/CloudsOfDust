@@ -57,4 +57,17 @@ public class ControladoraHabilidades {
             }
         }
     }
+
+    public void CancelarUltimaHabilidadMovimientoUsada()
+    {
+        caster.Estamina.ValorActual += habilidadUsada.CostoEst;
+        caster.PM.ValorActual += habilidadUsada.CostoPM;
+        if (habilidadUsada.efectos.Count > 0)
+        {
+            for (int i = habilidadUsada.efectos.Count; i > 0; i--)
+            {
+                caster.listaAtributosAlterados.RemoveAt(caster.listaAtributosAlterados.Count-1);
+            }
+        }
+    }
 }

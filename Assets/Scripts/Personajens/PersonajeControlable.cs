@@ -16,7 +16,6 @@ public class PersonajeControlable : PersonajeBase {
 	public LineRenderer lineRenderer;
     public List<Vector3> listaPosicionLine = new List<Vector3>();
 
-    public float movimientoRestante;
     public float gastoActual;
 
     public Equipamento Equipamento
@@ -129,6 +128,7 @@ public class PersonajeControlable : PersonajeBase {
         lineRenderer.SetVertexCount(target.Count + 1);
         i = 0;
         HUDBatalla.InstanceRef().showMovConfPlayer = false ;
+        gastoActual = 0;
     }
 
     public void CancelarMovimiento() 
@@ -139,8 +139,12 @@ public class PersonajeControlable : PersonajeBase {
         }
         lineRenderer.SetVertexCount(1);
         target.Clear();
-        Movimiento.ValorActual = Movimiento.ValorBase;//Reinicio el valor actual
+        listaPosicionLine.Clear();
+        gastoActual = 0;
+        Movimiento.ValorActual = Movimiento.ValorBase;
+        ControladoraBaseBatalla.InstanceRef().controladoraHabilidad.CancelarUltimaHabilidadMovimientoUsada();
         comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
+        ControladoraBaseBatalla.InstanceRef().faseActual = FasesBatalla.SeleccionandoHabilidad;
         HUDBatalla.InstanceRef().showMovConfPlayer = false;
         
     }
