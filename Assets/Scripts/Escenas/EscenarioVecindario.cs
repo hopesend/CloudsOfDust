@@ -5,7 +5,7 @@ public class EscenarioVecindario: IEscenarios
 {
 	private ControladorNiveles manager;
 
-    public Vector3 posicionInicial = new Vector3(173.7028f, 0.2f, 2.057544f);
+	public Vector3 posicionInicial = new Vector3(197.653f, 0.2f, -0.1342349f);
 	
 	public EscenarioVecindario(ControladorNiveles managerRef)
 	{
