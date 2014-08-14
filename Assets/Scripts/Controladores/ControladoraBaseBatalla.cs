@@ -238,7 +238,13 @@ public class ControladoraBaseBatalla{
 
     public void FinTurnoActualEleccion()
     {
+        //Cambiar esto por un metodo
+        controladoraTurno.turnosCompletos.Peek().seMovio = false;
+        controladoraTurno.turnosCompletos.Peek().usoHabilidad = false;
+        controladoraTurno.turnosCompletos.Peek().personaje.comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
         controladoraTurno.turnosCompletos.Enqueue(controladoraTurno.turnosCompletos.Dequeue());
+        faseActual = FasesBatalla.EsperandoTurno;
+        turnoActual = null;
     }
 
 

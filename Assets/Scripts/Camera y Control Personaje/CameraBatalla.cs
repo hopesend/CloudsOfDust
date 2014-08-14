@@ -120,6 +120,7 @@ public class CameraBatalla : MonoBehaviour {
 			if(Input.GetKey(KeyCode.D)) Move(selfT.right,moveOffset);
 			if(Input.GetKey(KeyCode.Q)) Rotate(moveOffset);
 			if(Input.GetKey(KeyCode.E)) Rotate(-moveOffset);
+            
 
 			yield return null;
 		}
@@ -180,7 +181,10 @@ public class CameraBatalla : MonoBehaviour {
 	IEnumerator UpdateTransform(){
 		//Vector3 mPos = Vector3.zero;
 		while (true) {
-
+            if (Input.GetKey(KeyCode.H))
+            {
+                ControladoraBaseBatalla.InstanceRef().FinTurnoActualEleccion();
+            }
 			Vector3 offset;
 			Vector3 finalPos;
 			if(!fixedPoint){

@@ -35,6 +35,7 @@ public class Turno {
     /// </summary>
     public void Listo()
     {
+        personaje.comportamientoActual = ComportamientoJugador.EsperandoComportamiento;
         listo = true;
 
         personaje.VerificarAtributosAlterados();
