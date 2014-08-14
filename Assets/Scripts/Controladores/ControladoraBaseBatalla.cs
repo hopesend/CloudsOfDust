@@ -210,11 +210,10 @@ public class ControladoraBaseBatalla{
         foreach (PersonajeControlable a in jugadores)
         {
             a.transform.position = new Vector3(0f, 1f, 0f);
-            a.GetComponent<HAQPHUD>().enabled = false;
+            a.GetComponent<ThirdPersonController>().enabled = false;
             a.GetComponent<Historia>().enabled = false;
             a.GetComponentInChildren<Camera>().enabled = false;
             a.GetComponent<AudioListener>().enabled = false;
-            a.GetComponent<RPG_Controller>().enabled = false;
             a.GetComponentInChildren<RPG_Camera>().enabled = false;
         }
         

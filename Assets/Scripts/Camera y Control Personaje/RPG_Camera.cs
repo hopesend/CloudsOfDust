@@ -129,10 +129,6 @@ public class RPG_Camera : MonoBehaviour {
         
         mouseYSmooth = ClampAngle(mouseYSmooth, mouseYMin, mouseYMax);
 
-
-        if (Input.GetMouseButton(1))
-            RPG_Controller.instance.transform.rotation = Quaternion.Euler(RPG_Controller.instance.transform.eulerAngles.x, Camera.main.transform.eulerAngles.y, RPG_Controller.instance.transform.eulerAngles.z);
-
         desiredDistance = desiredDistance - Input.GetAxis("Mouse ScrollWheel") * mouseScroll;
 
         if (desiredDistance > distanceMax)
@@ -303,11 +299,5 @@ public class RPG_Camera : MonoBehaviour {
 
         
         return clipPlane;
-    }
-
-
-    public void RotateWithCharacter() {
-        float rotation = Input.GetAxis("Horizontal") * RPG_Controller.instance.turnSpeed;
-        mouseX += rotation;
     }
 }
