@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Habilidades>
+  <Movimiento>
+    <Huir id="01">
+      <Descripcion>Mueve el doble pero pierde el turno</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto>Buff</TipoEfecto>
+        <Duracion>1</Duracion>
+        <TipoObjectivo>Self</TipoObjectivo>
+        <Cantidad>2</Cantidad>
+        <Modificador>Multiplicador</Modificador>
+        <EstadoAlterado>Null</EstadoAlterado>
+      </Efecto>
+    </Huir>
+    <Mover id="02">
+      <Descripcion>Movimiento Simple</Descripcion>
+      <PM>0</PM>
+      <PA>0</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Mover>
+    <Pulse_Sprint id="03">
+      <Descripcion>Da un impulso y mueve el doble</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto>Buff</TipoEfecto>
+        <Duracion>1</Duracion>
+        <TipoObjectivo>Self</TipoObjectivo>
+        <Cantidad>2</Cantidad>
+        <Modificador>Multiplicador</Modificador>
+        <EstadoAlterado>Null</EstadoAlterado>
+      </Efecto>
+    </Pulse_Sprint>
+    <Levitar id="04">
+      <Descripcion>Levita sobre el suelo pudiendo moverse el doble</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Levitar>
+  </Movimiento>
+  <Fisico>
+    <Ultraesgrima id="10">
+      <Descripcion>Técnica avanzada de la espada compuesta por un combo de cuatro golpes</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Ultraesgrima>
+    <Corte id="11">
+      <Descripcion>Corte simple</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Corte>
+    <Corte_Rapido id="12">
+      <Descripcion>Corte de daño menor pero que descarga menos la barra de turno</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Corte_Rapido>
+    <Ultraesgrima id="13">
+      <Descripcion>Técnica avanzada de la espada compuesta por un combo de cuatro golpes</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Ultraesgrima>
+  </Fisico>
+  <Nanoenergetica>
+    <Hielo id="50">
+      <Descripcion>Ataque mágico de hielo</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Hielo>
+    <Piro id="51">
+      <Descripcion>Ataque mágico de fuego</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Piro>
+    <Magia_Tetra id="10">
+      <Descripcion>Ataque mágico combinado de 4 magias consecutivas: viento, rayo, hielo y fuego</Descripcion>
+      <PM>0</PM>
+      <PA>30</PA>
+      <E>0</E>
+      <Rango>0</Rango>
+      <Probabilidad>100</Probabilidad>
+      <Efecto>
+        <TipoEfecto></TipoEfecto>
+        <Duracion></Duracion>
+        <TipoObjectivo></TipoObjectivo>
+        <Cantidad></Cantidad>
+        <Modificador></Modificador>
+        <EstadoAlterado></EstadoAlterado>
+      </Efecto>
+    </Magia_Tetra>
+  </Nanoenergetica>
+</Habilidades>
