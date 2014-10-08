@@ -8,15 +8,17 @@ public class ControladoraHAQP : MonoBehaviour
 	void Start()
 	{
 		AddMsj("Bienvenido", "Bienvenido Trasher a Clouds of Dust..."); //Test
-		AddMsj("Instrucciones", "Para ...."); //Test
-		AddItem ("Magnanita");
-		AddItem ("Runa de poder");
+		AddMsj("Titulo n2", "Mensaje n2"); //Test
+		AddMsj("Titulo n3", "Mensaje n3"); //Test
+		AddMsj("Titulo n4", "Mensaje n4"); //Test
+		AddMsj("Titulo n5", "Mensaje n5"); //Test
+
+		AddItem ("Magnanita"); //test
+		AddItem ("Runa de poder"); // test
 
 		SetCharacter ();
 	}
-	/// <summary>
-	/// Initial
-	/// </summary>
+	#region DEFAULT
 	public List<PersonajeControlable> Character; //setearlo desde gamemaster
 	public void SetCharacter()
 	{
@@ -25,12 +27,14 @@ public class ControladoraHAQP : MonoBehaviour
 			GameObject.Find("Charactes").transform.GetChild(count).gameObject.name = Character[count].name;
 		}
 	}
+	PersonajeControlable characterSelected; //para utilizar los botones mov, fisico y magia
 	public void buttonCharacter(GameObject character)
 	{
 		for(int count = 0; count < Character.Count; count ++) 
 		{
 			if(character.name == Character[count].name)
 			{
+				characterSelected = Character[count];
 				GameObject.Find ("Vitalidad").GetComponent<Text>().text = Character[count].Vitalidad.ToString();
 				GameObject.Find ("Estamina").GetComponent<Text>().text = Character[count].Estamina.ToString();
 				GameObject.Find ("PM").GetComponent<Text>().text = Character[count].PM.ToString();
@@ -45,16 +49,19 @@ public class ControladoraHAQP : MonoBehaviour
 			}
 		}
 	}
-	/// <summary>
-	/// Message
-	/// </summary>
+	public void SeeStats(int stat)
+	{
+
+	}
+	#endregion
+	#region MSJ
 	IList<message> listMsj = new List<message> ();
 	GameObject textNewMessage;
 	GameObject viewMessageRect;
 	GameObject messageButton;
 	GameObject messageRect;
-	int count = -1;
-
+	int count = -1; 
+	public int status { get; set; }
 	public struct message
 	{
 		public int id;
@@ -66,22 +73,41 @@ public class ControladoraHAQP : MonoBehaviour
 	{
 		listMsj.Add (new message {id = 0, count = count++, title = title, text = text});
 	}
-	public void UpdateMessage()
+	public void SetPage()
 	{
+
+	}
+	public void UpdateMessage(int id)
+	{
+		ResetViewMsj ();
 		textNewMessage = GameObject.Find("TextNew");
 		int count = 0;
 		if(listMsj.Count > 0)
 		{
 			for(int index = 0; index < listMsj.Count; index++)
 			{
-				if(listMsj[index].id == 0)
+				if(listMsj[index].id == id)
 				{
-					GameObject message = GameObject.Find("MessageRect").transform.GetChild(index).gameObject;
+					GameObject message = GameObject.Find("MessageRect").transform.GetChild(count).gameObject;
 					message.SetActive(true);
 					message.transform.GetChild(0).GetComponent<Text>().text = listMsj[index].title;
 					count++;
 				}
+				else
+				{
+					GameObject message = GameObject.Find("MessageRect").transform.GetChild(index).gameObject;
+					message.SetActive(false);
+				}
 			}
+		}
+    }
+	public void ResetViewMsj()
+	{
+		for(int index = 0; index < GameObject.Find("MessageRect").transform.childCount; index++)
+		{
+		    GameObject message = GameObject.Find("MessageRect").transform.GetChild(index).gameObject;
+			message.SetActive(false);
+		    count++;
 		}
 	}
 	public void printTextOfMsj(Text text)
@@ -92,23 +118,53 @@ public class ControladoraHAQP : MonoBehaviour
 			{
 				GameObject.Find("TextOfMsj").GetComponent<Text>().text = listMsj[index].text;
 
-				message sendMsj = listMsj[index];
-				sendMsj.id = 1; //?
-				listMsj[index] = sendMsj;
-				Debug.Log(listMsj[index].id);
+				if(listMsj[index].id != 2)
+				{
+				    message sendMsj = listMsj[index];
+				    sendMsj.id = 1; //vistos
+				    listMsj[index] = sendMsj;
+				    break;
+				}
+			}
+		}
+	}
+	public void AddFav(Text text)
+	{
+		for(int index = 0; index < listMsj.Count; index++)
+		{
+			if(listMsj[index].text == text.text)
+			{
+				message addFav = listMsj[index];
+				addFav.id = 2; //favoritos
+				listMsj[index] = addFav;
+				UpdateMessage(status);
 				break;   
 			}
 		}
 	}
-	/// <summary>
-	/// Inventary
-	/// </summary>
+	public void DelFav(Text text)
+	{
+		for(int index = 0; index < listMsj.Count; index++)
+		{
+			if(listMsj[index].text == text.text)
+			{
+				message delFav = listMsj[index];
+				delFav.id = 1; //favoritos
+				listMsj[index] = delFav;
+				break;   
+			}
+		}
+	}
+	#endregion
+	#region ITEM
 	int countItem = -1;
 	public struct Item
 	{
 		public int id;
 		public int count;
 		public string name;
+		public string content;
+		public Texture2D image;
 	}
 	IList<Item> Items = new List<Item> ();
 	public void AddItem(string name)
@@ -123,10 +179,9 @@ public class ControladoraHAQP : MonoBehaviour
 			{
 				GameObject items = GameObject.Find("Items").transform.GetChild(index).gameObject;
 				items.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = Items[index].name;
-
 			}
 	    }
 	}
-
+	#endregion
 
 }
